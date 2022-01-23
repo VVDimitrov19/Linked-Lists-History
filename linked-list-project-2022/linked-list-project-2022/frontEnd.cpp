@@ -13,6 +13,8 @@ using namespace std;
 #define ENTER 13
 #define ESCAPE 27
 
+#define LINES 75
+
 void consoleCoordinates(int x, int y)
 {
     COORD coord;
@@ -22,7 +24,7 @@ void consoleCoordinates(int x, int y)
 }
 void menuRoof()
 {
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
     consoleCoordinates(0, 2);
     cout << "                        _____                                                                                                                                 _____                            ";
     consoleCoordinates(0, 3);
@@ -36,7 +38,7 @@ void menuRoof()
 }
 void menuTop()
 {
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
     consoleCoordinates(0, 7);
     cout << "                    |   |   |   |                                                                                                                         |   |   |~~~|      ";
     consoleCoordinates(0, 8);
@@ -46,7 +48,7 @@ void menuTop()
 }
 void menuMiniRoof()
 {
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
     consoleCoordinates(39, 7);
     cout << "/\\  \\        /\\  \\        /\\  \\        /\\  \\        /\\  \\        /\\  \\        /\\  \\        /\\  \\        /\\  \\ ";
     consoleCoordinates(38, 8);
@@ -56,7 +58,7 @@ void menuMiniRoof()
 }
 void menuBottom()
 {
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
     consoleCoordinates(20, 10);
     cout << "|   |   |   |    |    |  |    |    |  |    |    |  |    |    |  |    |    |  |    |    |  |    |    |  |    |    |  |    |    |  |    |   |   |~~~|";
     consoleCoordinates(20, 11);
@@ -158,7 +160,7 @@ void menuCastle()
 }
 void menuTitle()
 {
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 5);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
     consoleCoordinates(40, 20);
     cout << "|||      |||    |||    ||||||||||||    ||||||||||||   |||||||||||    |||||||||||      |||      |||";
     consoleCoordinates(40, 21);
@@ -216,8 +218,7 @@ void menuPort()
     cout << "    *    *    *    *    *    *    *    *    *    *     *    *";
     consoleCoordinates(56, 54);
     cout << "    *    *    *    *    *    *    *    *    *    *     *    *";
-    consoleCoordinates(56, 55);
-    cout << "    *    *    *    *    *    *    *    *    *    *     *    *";
+ 
 
 }
 
@@ -258,7 +259,7 @@ void menuOptions(int counter)
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
         consoleCoordinates(85, 46);
         cout << "HOW TO USE";
-        consoleCoordinates(87, 49);
+        consoleCoordinates(88, 49);
         cout << "EXIT";
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 8);
         consoleCoordinates(76, 43);
@@ -273,7 +274,7 @@ void menuOptions(int counter)
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
         consoleCoordinates(82, 43);
         cout << "ENTER THE LESSON";
-        consoleCoordinates(87, 49);
+        consoleCoordinates(88, 49);
         cout << "EXIT";
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 8);
         consoleCoordinates(76, 46);
@@ -295,7 +296,7 @@ void menuOptions(int counter)
         cout << "-->";
         consoleCoordinates(101, 49);
         cout << "<--";
-        consoleCoordinates(87, 49);
+        consoleCoordinates(88, 49);
         cout << "EXIT";
 
     }break;
@@ -342,8 +343,40 @@ void menu(int counter)
 void exit()
 {
     system("CLS");
-    cout << "Goodbye!";
-    cin.ignore();
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
+    consoleCoordinates(30, 15);
+    cout << "   ______                          __ _______                    \n";
+    consoleCoordinates(30, 16);
+    cout << "  /      \\                        /  /       \\                   \n";
+    consoleCoordinates(30, 17);
+    cout << "/$$$$$$  | ______   ______   ____$$ $$$$$$$  |__    __  ______  \n";
+    consoleCoordinates(30, 18);
+    cout << "$$ | _$$/ /      \\ /      \\ /    $$ $$ |__$$ /  |  /  |/      \\ \n";
+    consoleCoordinates(30, 19);
+    cout << "$$ |/    /$$$$$$  /$$$$$$  /$$$$$$$ $$    $$<$$ |  $$ /$$$$$$  |\n";
+    consoleCoordinates(30, 20);
+    cout << "$$ |$$$$ $$ |  $$ $$ |  $$ $$ |  $$ $$$$$$$  $$ |  $$ $$    $$ |\n";
+    consoleCoordinates(30, 21);
+    cout << "$$ \\__$$ $$ \\__$$ $$ \\__$$ $$ \\__$$ $$ |__$$ $$ \\__$$ $$$$$$$$/ \n";
+    consoleCoordinates(30, 22);
+    cout << "$$    $$/$$    $$/$$    $$/$$    $$ $$    $$/$$    $$ $$       |\n";
+    consoleCoordinates(30, 23);
+    cout << " $$$$$$/  $$$$$$/  $$$$$$/  $$$$$$$/$$$$$$$/  $$$$$$$ |$$$$$$$/ \n";
+    consoleCoordinates(30, 24);
+    cout << "                                             /  \\__$$ |         \n";
+    consoleCoordinates(30, 25);
+    cout << "                                             $$    $$/          \n";
+    consoleCoordinates(30, 26);
+    cout << "                                              $$$$$$/            \n";
+
+
+    for (int i = 0; i < LINES; i++) {
+        Sleep(200);
+        cout << "\n";
+    }
+;
+        cin.ignore(); 
+        
 }
 bool menuInput()
 {
