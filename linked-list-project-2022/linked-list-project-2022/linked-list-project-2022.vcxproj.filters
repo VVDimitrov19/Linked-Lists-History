@@ -18,5 +18,13 @@
     <ClCompile Include="linked-list-project-2022.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="frontEnd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="frontEnd.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

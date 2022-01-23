@@ -139,7 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="frontEnd.cpp" />
     <ClCompile Include="linked-list-project-2022.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="frontEnd.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
