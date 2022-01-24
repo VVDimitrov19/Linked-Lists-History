@@ -13,3 +13,12 @@ void menuOptions(int counter);
 void menu(int counter);
 void exit();
 bool menuInput();
+
+void menuCrown();
+void menuSword();
+void menuSwordTwo();
+void choosingMenu();
+void choosingMenuOptions(int counter);
+void choosingMenu(int counter);
+bool choosingMenuInput();
+

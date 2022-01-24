@@ -378,6 +378,470 @@ void exit()
         cin.ignore(); 
         
 }
+
+void menuCrown()
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
+	consoleCoordinates(30, 2);
+	cout << "                                    o\n";
+	consoleCoordinates(30, 3);
+	cout << "                                   $\"\"$o\n";
+	consoleCoordinates(30, 4);
+	cout << "                                  $\"  $$\n";
+	consoleCoordinates(30, 5);
+	cout << "                                   $$$$\n";
+	consoleCoordinates(30, 6);
+	cout << "                                   o \"$o\n";
+	consoleCoordinates(30, 7);
+	cout << "                                  o\"  \"$\n";
+	consoleCoordinates(30, 8);
+	cout << "             oo\"$$$\"  oo$\"$ooo   o$    \"$    ooo\"$oo  $$$\"o\n";
+	consoleCoordinates(30, 9);
+	cout << "o o o o    oo\"  o\"      \"o    $$o$\"     o o$\"\"  o$      \"$  \"oo   o o o o\n";
+	consoleCoordinates(30, 10);
+	cout << "\"$o   \"\"$$$\"   $$         $      \"   o   \"\"    o\"         $   \"o$$\"    o$$\n";
+	consoleCoordinates(30, 11);
+	cout << "  \"\"o       o  $          $\"       $$$$$       o          $  ooo     o\"\"\n";
+	consoleCoordinates(30, 12);
+	cout << "     \"o   $$$$o $o       o$        $$$$$\"       $o        \" $$$$   o\"\n";
+	consoleCoordinates(30, 13);
+	cout << "      \"\"o $$$$o  oo o  o$\"         $$$$$\"        \"o o o o\"  \"$$$  $\n";
+	consoleCoordinates(30, 14);
+	cout << "        \"\" \"$\"     \"\"\"\"\"            \"\"$\"            \"\"\"      \"\"\" \"\n";
+	consoleCoordinates(30, 15);
+	cout << "         \"oooooooooooooooooooooooooooooooooooooooooooooooooooooo$\n";
+	consoleCoordinates(30, 16);
+	cout << "          \"$$$$\"$$$$\" $$$$$$$\"$$$$$$ \" \"$$$$$\"$$$$$$\"  $$$\"\"$$$$\n";
+	consoleCoordinates(30, 17);
+	cout << "           $$$oo$$$$   $$$$$$o$$$$$$o\" $$$$$$$$$$$$$$ o$$$$o$$$\"\n";
+	consoleCoordinates(30, 18);
+	cout << "           $\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"$\n";
+	consoleCoordinates(30, 19);
+	cout << "           $\"                                                  o\n";
+	consoleCoordinates(30, 20);
+	cout << "           $\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$$\n";
+}
+
+void menuSword()
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 5);
+	consoleCoordinates(0, 2);
+	cout << "                   _..._\n";
+	consoleCoordinates(0, 3);
+	cout << "                  /MMMMM\\\n";
+	consoleCoordinates(0, 4);
+	cout << "                 (I8H#H8I)\n";
+	consoleCoordinates(0, 5);
+	cout << "                 (I8H#H8I)\n";
+	consoleCoordinates(0, 6);
+	cout << "                  \\WWWWW/\n";
+	consoleCoordinates(0, 7);
+	cout << "                   I._.I\n";
+	consoleCoordinates(0, 8);
+	cout << "                   I._.I\n";
+	consoleCoordinates(0, 9);
+	cout << "                   I._.I\n";
+	consoleCoordinates(0, 10);
+	cout << "                   I._.I\n";
+	consoleCoordinates(0, 11);
+	cout << "                   I._.I\n";
+	consoleCoordinates(0, 12);
+	cout << "                   I._.I\n";
+	consoleCoordinates(0, 13);
+	cout << "                   I._.I\n";
+	consoleCoordinates(0, 14);
+	cout << "                   I.,.I\n";
+	consoleCoordinates(0, 15);
+	cout << "                  / /#\\ \\\n";
+	consoleCoordinates(0, 16);
+	cout << "                .dH# # #Hb.\n";
+	consoleCoordinates(0, 17);
+	cout << "            _.~d#XXP I 7XX#b~,\n";
+	consoleCoordinates(0, 18);
+	cout << "         _.dXV^XP^ Y X Y ^7X^VXb._\n";
+	consoleCoordinates(0, 19);
+	cout << "        /AP^   \\PY   Y   Y7/   ^VA\\\n";
+	consoleCoordinates(0, 20);
+	cout << "       /8/      \\PP  I  77/      \8\\\n";
+	consoleCoordinates(0, 21);
+	cout << "      /J/        IV     VI        \\L\\\n";
+	consoleCoordinates(0, 22);
+	cout << "      L|         |  \\ /  |         |J\n";
+	consoleCoordinates(0, 23);
+	cout << "      V          |  | |  |          V\n";
+	consoleCoordinates(0, 24);
+	cout << "                 |  | |  |\n";
+	consoleCoordinates(0, 25);
+	cout << "                 |  | |  |\n";
+	consoleCoordinates(0, 26);
+	cout << "                 |  | |  | \n";
+	consoleCoordinates(0, 27);
+	cout << "                 |  | |  | \n";
+	consoleCoordinates(0, 28);
+	cout << "                 |  | |  |\n";
+	consoleCoordinates(0, 29);
+	cout << "                 |  | |  | \n";
+	consoleCoordinates(0, 30);
+	cout << "                 |  | |  |\n";
+	consoleCoordinates(0, 31);
+	cout << "                 |  | |  |\n";
+	consoleCoordinates(0, 32);
+	cout << "                 |  | |  |\n";
+	consoleCoordinates(0, 33);
+	cout << "                 |  | |  |\n";
+	consoleCoordinates(0, 34);
+	cout << "                 |  | |  |\n";
+	consoleCoordinates(0, 35);
+	cout << "                 |  | |  |\n";
+	consoleCoordinates(0, 36);
+	cout << "                 |  | |  |\n";
+	consoleCoordinates(0, 37);
+	cout << "                 |   Y   | \n";
+	consoleCoordinates(0, 38);
+	cout << "                 |   |   | \n";
+	consoleCoordinates(0, 39);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(0, 40);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(0, 41);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(0, 42);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(0, 43);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(0, 44);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(0, 45);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(0, 46);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(0, 47);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(0, 48);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(0, 49);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(0, 50);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(0, 51);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(0, 52);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(0, 53);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(0, 54);
+	cout << "                 I   '   I\n";
+	consoleCoordinates(0, 55);
+	cout << "                  \\     /\n";
+	consoleCoordinates(0, 56);
+	cout << "                   \\   /\n";
+	consoleCoordinates(0, 57);
+	cout << "                    \\ /\n";
+}
+
+void menuSwordTwo()
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 5);
+	consoleCoordinates(92, 2);
+	cout << "                   _..._\n";
+	consoleCoordinates(92, 3);
+	cout << "                  /MMMMM\\\n";
+	consoleCoordinates(92, 4);
+	cout << "                 (I8H#H8I)\n";
+	consoleCoordinates(92, 5);
+	cout << "                 (I8H#H8I)\n";
+	consoleCoordinates(92, 6);
+	cout << "                  \\WWWWW/\n";
+	consoleCoordinates(92, 7);
+	cout << "                   I._.I\n";
+	consoleCoordinates(92, 8);
+	cout << "                   I._.I\n";
+	consoleCoordinates(92, 9);
+	cout << "                   I._.I\n";
+	consoleCoordinates(92, 10);
+	cout << "                   I._.I\n";
+	consoleCoordinates(92, 11);
+	cout << "                   I._.I\n";
+	consoleCoordinates(92, 12);
+	cout << "                   I._.I\n";
+	consoleCoordinates(92, 13);
+	cout << "                   I._.I\n";
+	consoleCoordinates(92, 14);
+	cout << "                   I.,.I\n";
+	consoleCoordinates(92, 15);
+	cout << "                  / /#\\ \\\n";
+	consoleCoordinates(92, 16);
+	cout << "                .dH# # #Hb.\n";
+	consoleCoordinates(92, 17);
+	cout << "            _.~d#XXP I 7XX#b~,\n";
+	consoleCoordinates(92, 18);
+	cout << "         _.dXV^XP^ Y X Y ^7X^VXb._\n";
+	consoleCoordinates(92, 19);
+	cout << "        /AP^   \\PY   Y   Y7/   ^VA\\\n";
+	consoleCoordinates(92, 20);
+	cout << "       /8/      \\PP  I  77/      \8\\\n";
+	consoleCoordinates(92, 21);
+	cout << "      /J/        IV     VI        \\L\\\n";
+	consoleCoordinates(92, 22);
+	cout << "      L|         |  \\ /  |         |J\n";
+	consoleCoordinates(92, 23);
+	cout << "      V          |  | |  |          V\n";
+	consoleCoordinates(92, 24);
+	cout << "                 |  | |  |\n";
+	consoleCoordinates(92, 25);
+	cout << "                 |  | |  |\n";
+	consoleCoordinates(92, 26);
+	cout << "                 |  | |  |\n";
+	consoleCoordinates(92, 27);
+	cout << "                 |  | |  |\n";
+	consoleCoordinates(92, 28);
+	cout << "                 |  | |  |\n";
+	consoleCoordinates(92, 29);
+	cout << "                 |  | |  |\n";
+	consoleCoordinates(92, 30);
+	cout << "                 |  | |  |\n";
+	consoleCoordinates(92, 31);
+	cout << "                 |  | |  |\n";
+	consoleCoordinates(92, 32);
+	cout << "                 |  | |  |\n";
+	consoleCoordinates(92, 33);
+	cout << "                 |  | |  |\n";
+	consoleCoordinates(92, 34);
+	cout << "                 |  | |  |\n";
+	consoleCoordinates(92, 35);
+	cout << "                 |  | |  |\n";
+	consoleCoordinates(92, 36);
+	cout << "                 |  | |  |\n";
+	consoleCoordinates(92, 37);
+	cout << "                 |   Y   |\n";
+	consoleCoordinates(92, 38);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(92, 39);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(92, 40);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(92, 41);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(92, 42);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(92, 43);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(92, 44);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(92, 45);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(92, 46);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(92, 47);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(92, 48);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(92, 49);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(92, 50);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(92, 51);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(92, 52);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(92, 53);
+	cout << "                 |   |   |\n";
+	consoleCoordinates(92, 54);
+	cout << "                 I   '   I\n";
+	consoleCoordinates(92, 55);
+	cout << "                  \\     /\n";
+	consoleCoordinates(92, 56);
+	cout << "                   \\   /\n";
+	consoleCoordinates(92, 57);
+	cout << "                    \\ /\n";
+}
+
+void choosingMenu()
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 9);
+	consoleCoordinates(28, 28);
+	cout << " _____________________________________________________________________________\n";
+	consoleCoordinates(28, 29);
+	cout << "|                                                                             |\n";
+	consoleCoordinates(28, 30);
+	cout << "|                  C H O O S E          A N          E R A                    |\n";
+	consoleCoordinates(28, 31);
+	cout << "|                                                                             |\n";
+	consoleCoordinates(28, 32);
+	cout << "|                                                                             |\n";
+	consoleCoordinates(28, 33);
+	cout << "|                                                                             |\n";
+	consoleCoordinates(28, 34);
+	cout << "|                                                                             |\n";
+	consoleCoordinates(28, 35);
+	cout << "|                                                                             |\n";
+	consoleCoordinates(28, 36);
+	cout << "|                                                                             |\n";
+	consoleCoordinates(28, 37);
+	cout << "|                                                                             |\n";
+	consoleCoordinates(28, 38);
+	cout << "|                                                                             |\n";
+	consoleCoordinates(28, 39);
+	cout << "|                                                                             |\n";
+	consoleCoordinates(28, 40);
+	cout << "|                                                                             |\n";
+	consoleCoordinates(28, 41);
+	cout << "|                                                                             |\n";
+	consoleCoordinates(28, 42);
+	cout << "|                                                                             |\n";
+	consoleCoordinates(28, 43);
+	cout << "|                                                                             |\n";
+	consoleCoordinates(28, 44);
+	cout << "|                                                                             |\n";
+	consoleCoordinates(28, 45);
+	cout << "|_____________________________________________________________________________|\n";
+}
+void choosingMenuOptions(int counter)
+{
+	switch (counter)
+	{
+	case 1:
+	{
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 8);
+		consoleCoordinates(36, 34);
+		cout << "---->";
+		consoleCoordinates(95, 34);
+		cout << "<----";
+		consoleCoordinates(56, 34);
+		cout << "FIRST BULGARIAN EMPIRE";
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+		consoleCoordinates(55, 38);
+		cout << "SECOND BULGARIAN EMPIRE ";
+		consoleCoordinates(51, 42);
+		cout << "AFTER THE LIBERATION OF BULGARIA ";
+	}break;
+	case 2:
+	{
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 8);
+		consoleCoordinates(36, 38);
+		cout << "---->";
+		consoleCoordinates(95, 38);
+		cout << "<----";
+		consoleCoordinates(55, 38);
+		cout << "SECOND BULGARIAN EMPIRE ";
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+		consoleCoordinates(56, 34);
+		cout << "FIRST BULGARIAN EMPIRE";
+		consoleCoordinates(51, 42);
+		cout << "AFTER THE LIBERATION OF BULGARIA ";
+	}break;
+	case 3:
+	{
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 8);
+		consoleCoordinates(36, 42);
+		cout << "---->";
+		consoleCoordinates(95, 42);
+		cout << "<----";
+		consoleCoordinates(51, 42);
+		cout << "AFTER THE LIBERATION OF BULGARIA ";
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+		consoleCoordinates(56, 34);
+		cout << "FIRST BULGARIAN EMPIRE";
+		consoleCoordinates(55, 38);
+		cout << "SECOND BULGARIAN EMPIRE ";
+	}break;
+	}
+}
+void choosingMenu(int counter)
+{
+	if (counter == 1) {
+		menuSwordTwo();
+		menuCrown();
+		choosingMenu();
+		menuSword();
+		choosingMenuOptions(counter);
+	}
+	if (counter == 2) {
+		menuSwordTwo();
+		menuCrown();
+		choosingMenu();
+		menuSword();
+		choosingMenuOptions(counter);
+	}
+	if (counter == 3) {
+		menuSwordTwo();
+		menuCrown();
+		choosingMenu();
+		menuSword();
+		choosingMenuOptions(counter);
+	}
+
+}
+bool choosingMenuInput()
+{
+	HWND console = GetConsoleWindow();
+	RECT r;
+	GetWindowRect(console, &r); //stores the console's current dimensions
+
+	MoveWindow(console, r.left, r.top, 2000, 1000, TRUE); // 2000 width, 1000 height
+
+	int counter = 1;
+	choosingMenu(counter);
+
+	do
+	{
+		// Switch case for switching around the main menu
+		switch (_getch())
+		{
+			// Arrow up
+		case KEY_UP:
+		{
+			if (counter == 1) counter = 4;
+			counter--;
+			system("CLS");
+			choosingMenu(counter);
+		} break;
+		// Arrow down
+		case KEY_DOWN:
+		{
+			if (counter == 3) {
+				counter = 0;
+			}
+			counter++;
+			system("CLS");
+			choosingMenu(counter);
+		} break;
+		// Enter
+		case ENTER:
+		{
+			switch (counter) {
+			case 1:
+			{
+				system("CLS");
+				cout << "LESSON";
+				break;
+			}
+
+			case 2:
+			{
+				system("CLS");
+				cout << "HOW TO USE";
+				break;
+			}
+
+			case 3:
+			{
+				system("CLS");
+				cout << "HOW TO USE";
+			}
+
+			}
+		} break;
+		case ESCAPE:
+		{
+			system("CLS");
+			menuInput();
+		}
+		}
+	} while (true);
+	return 1;
+}
+
 bool menuInput()
 {
     HWND console = GetConsoleWindow();
@@ -418,7 +882,7 @@ bool menuInput()
             case 1:
             {
                 system("CLS");
-                cout << "LESSON";
+                choosingMenuInput();
                 break;
             }
 
