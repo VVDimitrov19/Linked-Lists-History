@@ -21,9 +21,15 @@
     <ClCompile Include="frontEnd.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="backEnd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="frontEnd.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="backEnd.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

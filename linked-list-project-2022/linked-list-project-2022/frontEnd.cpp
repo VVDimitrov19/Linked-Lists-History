@@ -3,6 +3,7 @@
 #include <windows.h>
 
 #include "frontEnd.h"
+#include "backEnd.h"
 using namespace std;
 
 
@@ -12,8 +13,10 @@ using namespace std;
 #define KEY_RIGHT 77
 #define ENTER 13
 #define ESCAPE 27
+#define CTRL_KEYPRESS(k) ((k)  & 0x1f) 
 
 #define LINES 75
+
 
 void consoleCoordinates(int x, int y)
 {
@@ -696,6 +699,165 @@ void choosingMenu()
 	consoleCoordinates(28, 45);
 	cout << "|_____________________________________________________________________________|\n";
 }
+
+void leftBorder()
+{
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 5);
+    consoleCoordinates(0, 0);
+    cout << "(*)\n";
+    consoleCoordinates(0, 1);
+    cout << "(*)\n";
+    consoleCoordinates(0, 2);
+    cout << "(*)\n";
+    consoleCoordinates(0, 3);
+    cout << "(*)\n";
+    consoleCoordinates(0, 4);
+    cout << "(*)\n";
+    consoleCoordinates(0, 5);
+    cout << "(*)\n";
+    consoleCoordinates(0, 6);
+    cout << "(*)\n";
+    consoleCoordinates(0, 7);
+    cout << "(*)\n";
+    consoleCoordinates(0, 8);
+    cout << "(*)\n";
+    consoleCoordinates(0, 9);
+    cout << "(*)\n";
+    consoleCoordinates(0, 10);
+    cout << "(*)\n";
+    consoleCoordinates(0, 11);
+    cout << "(*)\n";
+    consoleCoordinates(0, 12);
+    cout << "(*)\n";
+    consoleCoordinates(0, 13);
+    cout << "(*)\n";
+    consoleCoordinates(0, 14);
+    cout << "(*)\n";
+    consoleCoordinates(0, 15);
+    cout << "(*)\n";
+    consoleCoordinates(0, 16);
+    cout << "(*)\n";
+    consoleCoordinates(0, 17);
+    cout << "(*)\n";
+    consoleCoordinates(0, 18);
+    cout << "(*)\n";
+    consoleCoordinates(0, 19);
+    cout << "(*)\n";
+    consoleCoordinates(0, 20);
+    cout << "(*)\n";
+    consoleCoordinates(0, 21);
+    cout << "(*)\n";
+    consoleCoordinates(0, 22);
+    cout << "(*)\n";
+    consoleCoordinates(0, 23);
+    cout << "(*)\n";
+    consoleCoordinates(0, 24);
+    cout << "(*)\n";
+    consoleCoordinates(0, 25);
+    cout << "(*)\n";
+    consoleCoordinates(0, 26);
+    cout << "(*)\n";
+    consoleCoordinates(0, 27);
+    cout << "(*)\n";
+}
+
+void askInput()
+{
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 5);
+    consoleCoordinates(30, 25);
+    cout << "If you want to input sth press CTRL + Q:";
+
+}
+void rightBorder()
+{
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 5);
+    consoleCoordinates(100, 0);
+    cout << "(*)\n";
+    consoleCoordinates(100, 1);
+    cout << "(*)\n";
+    consoleCoordinates(100, 2);
+    cout << "(*)\n";
+    consoleCoordinates(100, 3);
+    cout << "(*)\n";
+    consoleCoordinates(100, 4);
+    cout << "(*)\n";
+    consoleCoordinates(100, 5);
+    cout << "(*)\n";
+    consoleCoordinates(100, 6);
+    cout << "(*)\n";
+    consoleCoordinates(100, 7);
+    cout << "(*)\n";
+    consoleCoordinates(100, 8);
+    cout << "(*)\n";
+    consoleCoordinates(100, 9);
+    cout << "(*)\n";
+    consoleCoordinates(100, 10);
+    cout << "(*)\n";
+    consoleCoordinates(100, 11);
+    cout << "(*)\n";
+    consoleCoordinates(100, 12);
+    cout << "(*)\n";
+    consoleCoordinates(100, 13);
+    cout << "(*)\n";
+    consoleCoordinates(100, 14);
+    cout << "(*)\n";
+    consoleCoordinates(100, 15);
+    cout << "(*)\n";
+    consoleCoordinates(100, 16);
+    cout << "(*)\n";
+    consoleCoordinates(100, 17);
+    cout << "(*)\n";
+    consoleCoordinates(100, 18);
+    cout << "(*)\n";
+    consoleCoordinates(100, 19);
+    cout << "(*)\n";
+    consoleCoordinates(100, 20);
+    cout << "(*)\n";
+    consoleCoordinates(100, 21);
+    cout << "(*)\n";
+    consoleCoordinates(100, 22);
+    cout << "(*)\n";
+    consoleCoordinates(100, 23);
+    cout << "(*)\n";
+    consoleCoordinates(100, 24);
+    cout << "(*)\n";
+    consoleCoordinates(100, 25);
+    cout << "(*)\n";
+    consoleCoordinates(100, 26);
+    cout << "(*)\n";
+    consoleCoordinates(100, 27);
+    cout << "(*)\n";
+}
+void title()
+{
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
+    consoleCoordinates(15, 1);
+    cout << "    ____  ______       __  _______  _   _____    ____  ________  _______\n";
+    consoleCoordinates(15, 2);
+    cout << "   / __ )/ ____/      /  |/  / __ \\/ | / /   |  / __ \\/ ____/ / / / ___/\n";
+    consoleCoordinates(15, 3);
+    cout << "  / __  / / __       / /|_/ / / / /  |/ / /| | / /_/ / /   / /_/ /\\__ \\ \n";
+    consoleCoordinates(15, 4);
+    cout << " / /_/ / /_/ /      / /  / / /_/ / /|  / ___ |/ _, _/ /___/ __  /___/ / \n";
+    consoleCoordinates(15, 5);
+    cout << "/_____/\\____/      /_/  /_/\\____/_/ |_/_/  |_/_/ |_|\\____/_/ /_//____/\n";
+}
+
+void insertMenu()
+{
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    consoleCoordinates(35, 10);
+    cout << "ADD MONARCH AT THE BEGINNING";
+    consoleCoordinates(35, 12);
+    cout << "ADD MONARCH AT THE END";
+}
+
+void choosing(int counter)
+{
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    consoleCoordinates(36, counter);
+    cout << "-->";
+}
 void choosingMenuOptions(int counter)
 {
 	switch (counter)
@@ -785,7 +947,7 @@ bool choosingMenuInput()
 
 	do
 	{
-		// Switch case for switching around the main menu
+		// Switch case for switching around the choosing menu
 		switch (_getch())
 		{
 			// Arrow up
@@ -813,22 +975,20 @@ bool choosingMenuInput()
 			case 1:
 			{
 				system("CLS");
-				cout << "LESSON";
-				break;
-			}
+                contentFirstBulgarianEmpire();
+			}break;
 
 			case 2:
 			{
 				system("CLS");
-				cout << "HOW TO USE";
-				break;
-			}
+                contentSecondBulgarianEmpire();	
+			}break;
 
 			case 3:
 			{
 				system("CLS");
-				cout << "HOW TO USE";
-			}
+                contentAfterLiberation();
+			}break;
 
 			}
 		} break;
@@ -905,3 +1065,4 @@ bool menuInput()
     } while (true);
     return 1;
 }
+
