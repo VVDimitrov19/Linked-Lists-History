@@ -759,13 +759,49 @@ void leftBorder()
     cout << "(*)\n";
     consoleCoordinates(0, 27);
     cout << "(*)\n";
+    consoleCoordinates(0, 28);
+    cout << "(*)\n";
+    consoleCoordinates(0, 29);
+    cout << "(*)\n";
+    consoleCoordinates(0, 30);
+    cout << "(*)\n";
+    consoleCoordinates(0, 31);
+    cout << "(*)\n";
+    consoleCoordinates(0, 32);
+    cout << "(*)\n";
+    consoleCoordinates(0, 33);
+    cout << "(*)\n";
+    consoleCoordinates(0, 34);
+    cout << "(*)\n";
+    consoleCoordinates(0, 35);
+    cout << "(*)\n";
+    consoleCoordinates(0, 36);
+    cout << "(*)\n";
+    consoleCoordinates(0, 37);
+    cout << "(*)\n";
+    consoleCoordinates(0, 38);
+    cout << "(*)\n";
+    consoleCoordinates(0, 39);
+    cout << "(*)\n";
+    consoleCoordinates(0, 40);
+    cout << "(*)\n";
+    consoleCoordinates(0, 41);
+    cout << "(*)\n";
+    consoleCoordinates(0, 42);
+    cout << "(*)\n";
 }
 
 void askInput()
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 5);
-    consoleCoordinates(30, 25);
+    consoleCoordinates(30, 35);
     cout << "If you want to input sth press CTRL + Q:";
+    consoleCoordinates(30, 37);
+    cout << "If you want to search sth press CTRL + S:";
+    consoleCoordinates(30, 39);
+    cout << "If you want to delete sth press CTRL + D:";
+    consoleCoordinates(30, 41);
+    cout << "If you want to edit sth press CTRL + E:";
 
 }
 void rightBorder()
@@ -827,6 +863,37 @@ void rightBorder()
     cout << "(*)\n";
     consoleCoordinates(100, 27);
     cout << "(*)\n";
+    consoleCoordinates(100, 28);
+    cout << "(*)\n";
+    consoleCoordinates(100, 29);
+    cout << "(*)\n";
+    consoleCoordinates(100, 30);
+    cout << "(*)\n";
+    consoleCoordinates(100, 31);
+    cout << "(*)\n";
+    consoleCoordinates(100, 32);
+    cout << "(*)\n";
+    consoleCoordinates(100, 33);
+    cout << "(*)\n";
+    consoleCoordinates(100, 34);
+    cout << "(*)\n";
+    consoleCoordinates(100, 35);
+    cout << "(*)\n";
+    consoleCoordinates(100, 36);
+    cout << "(*)\n";
+    consoleCoordinates(100, 37);
+    cout << "(*)\n";
+    consoleCoordinates(100, 38);
+    cout << "(*)\n";
+    consoleCoordinates(100, 39);
+    cout << "(*)\n";
+    consoleCoordinates(100, 40);
+    cout << "(*)\n";
+    consoleCoordinates(100, 41);
+    cout << "(*)\n";
+    consoleCoordinates(100, 42);
+    cout << "(*)\n";
+
 }
 void title()
 {
@@ -840,8 +907,9 @@ void title()
     consoleCoordinates(15, 4);
     cout << " / /_/ / /_/ /      / /  / / /_/ / /|  / ___ |/ _, _/ /___/ __  /___/ / \n";
     consoleCoordinates(15, 5);
-    cout << "/_____/\\____/      /_/  /_/\\____/_/ |_/_/  |_/_/ |_|\\____/_/ /_//____/\n";
+    cout << "/_____/\\____/      /_/  /_/\\____/_/ |_/_/  |_/_/ |_|\\____/_/ /_ ____/\n";
 }
+
 
 void insertMenu()
 {
@@ -850,6 +918,17 @@ void insertMenu()
     cout << "ADD MONARCH AT THE BEGINNING";
     consoleCoordinates(35, 12);
     cout << "ADD MONARCH AT THE END";
+    consoleCoordinates(35, 14);
+    cout << "ADD MONARCH AFTER CHOSEN YEAR";
+}
+
+void searchMenu()
+{
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    consoleCoordinates(35, 10);
+    cout << "SEARCH BY ENTERING YEAR";
+    consoleCoordinates(35, 12);
+    cout << "SEARCH BY ENTERING NAME";
 }
 
 void choosing(int counter)

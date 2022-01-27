@@ -1,6 +1,2 @@
 ﻿  backEnd.cpp
-  frontEnd.cpp
-C:\Users\Administrator\Linked-Lists-History\linked-list-project-2022\linked-list-project-2022\frontEnd.cpp(468,10): warning C4129: '8': unrecognized character escape sequence
-C:\Users\Administrator\Linked-Lists-History\linked-list-project-2022\linked-list-project-2022\frontEnd.cpp(585,10): warning C4129: '8': unrecognized character escape sequence
-  Generating Code...
   linked-list-project-2022.vcxproj -> C:\Users\Administrator\Linked-Lists-History\linked-list-project-2022\Debug\linked-list-project-2022.exe

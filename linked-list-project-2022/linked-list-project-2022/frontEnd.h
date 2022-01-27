@@ -1,13 +1,11 @@
 #pragma once
 #include <string>
-
 struct Node {
     int data;
     std::string name;
     Node* next;
 
 };
-
 void consoleCoordinates(int x, int y);
 void menuRoof();
 void menuTop();
@@ -30,12 +28,11 @@ void choosingMenuOptions(int counter);
 void choosingMenu(int counter);
 bool choosingMenuInput();
 
-bool contentMenuInput(Node* Head);
-bool choice(Node* Head);
 void title();
 void leftBorder();
 void rightBorder();
 void askInput();
 void choosing(int counter);
 void insertMenu();
+void searchMenu();
 
