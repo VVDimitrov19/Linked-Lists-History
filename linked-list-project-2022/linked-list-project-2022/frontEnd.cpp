@@ -1081,6 +1081,25 @@ bool choosingMenuInput()
 	return 1;
 }
 
+void useInformation()
+{
+    cout << "When you start the program you will have to choose an era from which the person you are going to write about is.\nAfter that you can input information about the monarch at the beginning or at the end.\nOnce you choose where to add the monarch you will have to write a year and the monarch's name.\nYou can also delete or edit a monarch by typing in the year." << endl;
+    cout << endl;
+    cout << "Key combinations:" << endl;
+    cout << "To imput something press CTRL + Q" << endl;
+    cout << "To search something press CTRL + S" << endl;
+    cout << "If you want to delete something press CTRL + D" << endl;
+    cout << "If you want to edit something press CTRL + E" << endl;
+    cout << endl;
+    cout << "Press any button to go back";
+    switch (_getch())
+    {
+        system("CLS");
+        menuInput();
+
+    }
+}
+
 bool menuInput()
 {
     HWND console = GetConsoleWindow();
@@ -1128,8 +1147,7 @@ bool menuInput()
             case 2:
             {
                 system("CLS");
-                cout << "HOW TO USE";
-                menuInput();
+                useInformation();
                 break;
             }
 
