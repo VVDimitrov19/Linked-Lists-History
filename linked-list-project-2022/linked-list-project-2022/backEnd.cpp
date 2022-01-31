@@ -421,6 +421,98 @@ void insertAfterNode(Node* temp, Node* head)
      contentMenuInput(head);
  }
 
+void startQuiz() {
+    system("CLS");
+
+    string questions[6] = {
+    "When does Khan Asparukh rule?",
+    "When does Khan Tervel rule?",
+    "When do Teodor Petar and Ivan Asen rule?",
+     "When does Tsar Kaloyan rule?",
+     "When does Prince Alexander Battenberg rule?",
+     "When does Prince Ferdinand I rule?",
+    };
+
+    string options[6][3] = {
+    {"684","681","661"},
+    {"681","700","697"},
+    {"1015","1185","1150"},
+    {"1097","1193","1197"},
+    {"1879","1773","1700"},
+     {"1887","1883","1805"},
+    };
+
+    string correctOp[6] = {
+        "681","700","1185", "1197", "1879", "1887"
+    };
+
+    int userOptions[6] = { 0, 0, 0, 0, 0, 0 };
+    int totalQs = 6;
+
+    //----- Quiz -----
+    consoleCoordinates(33, 11);
+    for (int i = 0; i < totalQs; i++) {
+        title();
+        leftBorder();
+        rightBorder();
+        consoleCoordinates(33, 12);
+        cout << questions[i] << endl;
+        consoleCoordinates(33, 13);
+        cout << "1." << options[i][0] << endl;
+        consoleCoordinates(33, 14);
+        cout << "2." << options[i][1] << endl;
+        consoleCoordinates(33, 15);
+        cout << "3." << options[i][2] << endl;
+        consoleCoordinates(33, 16);
+        cout << "Select Option (1-3) or 0 to skip  ";
+        cin >> userOptions[i];
+        system("CLS");
+    }
+
+
+    title();
+    leftBorder();
+    rightBorder();
+
+    //----- Printing Result -----
+    cout << endl << endl;
+    consoleCoordinates(33, 11);
+    cout << "======= ======= ======= ======= " << endl;
+    consoleCoordinates(33, 12);
+    cout << "=======      Result     ======= " << endl;
+    consoleCoordinates(33, 13);
+    cout << "======= ======= ======= ======= " << endl;
+
+    int correct = 0;
+    int incorrect = 0;
+    int skipped = 0;
+    for (int i = 0; i < totalQs; i++) {
+        if (userOptions[i] != 0) {
+            if (correctOp[i] == options[i][userOptions[i] - 1]) {
+                correct++;
+            }
+            else {
+                incorrect++;
+            }
+        }
+        else {
+            skipped++;
+        }
+    }
+
+    consoleCoordinates(33, 14);
+    cout << "------------------------------" << endl;
+    consoleCoordinates(44, 15);
+    cout << "Correct : " << correct << endl;
+    consoleCoordinates(44, 16);
+    cout <<"Incorrect : " << incorrect << endl;
+    consoleCoordinates(44, 17);
+    cout <<"Skipped : " << skipped << endl;
+    consoleCoordinates(33, 18);
+    cout << "------------------------------";
+
+}
+
 bool contentMenuInput(Node* Head)
 {
     system("CLS");
@@ -515,6 +607,14 @@ bool contentMenuInput(Node* Head)
             rightBorder();
             contentMenuInput(Head);
         }break;
+
+        case CTRL_KEYPRESS('j'):
+        {
+            startQuiz();
+
+        }break;
+
+
         case ESCAPE:
         {
             system("CLS");

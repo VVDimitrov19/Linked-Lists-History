@@ -802,6 +802,8 @@ void askInput()
     cout << "If you want to delete sth press CTRL + D:";
     consoleCoordinates(30, 41);
     cout << "If you want to edit sth press CTRL + E:";
+    consoleCoordinates(30, 43);
+    cout << "If you want to start a quiz press CTRL + J:";
 
 }
 void rightBorder()
@@ -1162,4 +1164,3 @@ bool menuInput()
     } while (true);
     return 1;
 }
-
