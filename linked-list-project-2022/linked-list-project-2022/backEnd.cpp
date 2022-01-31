@@ -559,7 +559,7 @@ bool contentMenuInput(Node* Head)
             leftBorder();
             rightBorder();
         } break;
-        case CTRL_KEYPRESS('q'):
+        case CTRL_KEYPRESS('i'):
         {
             //cin.ignore();
             system("CLS");
@@ -608,7 +608,7 @@ bool contentMenuInput(Node* Head)
             contentMenuInput(Head);
         }break;
 
-        case CTRL_KEYPRESS('j'):
+        case CTRL_KEYPRESS('q'):
         {
             startQuiz();
 
