@@ -795,15 +795,7 @@ void askInput()
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 5);
     consoleCoordinates(30, 35);
-    cout << "If you want to input sth press CTRL + I:";
-    consoleCoordinates(30, 37);
-    cout << "If you want to search sth press CTRL + S:";
-    consoleCoordinates(30, 39);
-    cout << "If you want to delete sth press CTRL + D:";
-    consoleCoordinates(30, 41);
-    cout << "If you want to edit sth press CTRL + E:";
-    consoleCoordinates(30, 43);
-    cout << "If you want to start a quiz press CTRL + Q:";
+
 
 }
 void rightBorder()
@@ -1088,31 +1080,31 @@ void useInformation()
     title();
     leftBorder();
     rightBorder();
-    consoleCoordinates(3, 10);
+    consoleCoordinates(4, 10);
     cout << "When you start the program you will have to choose an era" << endl;
-    consoleCoordinates(3, 11);
+    consoleCoordinates(4, 11);
     cout<<"After that you can input information about the monarch at the beginning or at the end."<<endl;
-    consoleCoordinates(3, 12);
+    consoleCoordinates(4, 12);
     cout << "Once you choose where to add the monarch you will have to write a year and the monarch's name." << endl;
-    consoleCoordinates(3, 13);
+    consoleCoordinates(4, 13);
     cout<<"You can also delete or edit a monarch by typing in the year." << endl;
 
-    consoleCoordinates(3, 14);
+    consoleCoordinates(4, 14);
     cout << "----------------------------------------------------------------------" << endl;
     consoleCoordinates(8, 15);
     cout << "Key combinations:" << endl;
-    consoleCoordinates(3, 16);
-    cout << "To imput something press CTRL + I" << endl;
-    consoleCoordinates(3, 17);
+    consoleCoordinates(4, 16);
+    cout << "To input something press CTRL + I" << endl;
+    consoleCoordinates(4, 17);
     cout << "To search something press CTRL + S" << endl;
-    consoleCoordinates(3, 18);
+    consoleCoordinates(4, 18);
     cout << "If you want to delete something press CTRL + D" << endl;
-    consoleCoordinates(3, 19);
+    consoleCoordinates(4, 19);
     cout << "If you want to edit something press CTRL + E" << endl;
-    consoleCoordinates(3, 20);
+    consoleCoordinates(4, 20);
     cout << "If you want to edit something press CTRL + Q" << endl;
     cout << endl;
-    consoleCoordinates(3, 21);
+    consoleCoordinates(4, 21);
     cout << "Press any button to go back";
     switch (_getch())
     {
