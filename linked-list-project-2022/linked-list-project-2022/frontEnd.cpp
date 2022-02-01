@@ -1098,7 +1098,7 @@ void sortMenu()
 void arrow(int counter)
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-    consoleCoordinates(36, counter);
+    consoleCoordinates(31, counter);
     cout << "-->";
 }
 

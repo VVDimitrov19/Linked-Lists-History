@@ -27,14 +27,52 @@ void contentFirstBulgarianEmpire()
 {
     Node* Head = new Node;
     Node* Second = new Node;
+    Node* Third = new Node;
+    Node* Fourth = new Node;
+    Node* Fifth = new Node;
+    Node* Sixth = new Node;
+    Node* Seventh = new Node;
+    Node* Eighth = new Node;
+
     Head->startReignYear = 681;
     Head->endReignYear = 700;
     Head->name = "Khan Asparukh";
     Head->next = Second;
+
     Second->startReignYear = 700;
     Second->endReignYear = 721;
     Second->name = "Khan Tervel";
-    Second->next = NULL;
+    Second->next = Third;
+
+    Third->startReignYear = 803;
+    Third->endReignYear = 814;
+    Third->name = "Khan Krum";
+    Third->next = Fourth;
+
+    Fourth->startReignYear = 814;
+    Fourth->endReignYear = 831;
+    Fourth->name = "Khan Omurtag";
+    Fourth->next = Fifth;
+
+    Fifth->startReignYear = 836;
+    Fifth->endReignYear = 852;
+    Fifth->name = "Presian I";
+    Fifth->next = Sixth;
+
+    Sixth->startReignYear = 889;
+    Sixth->endReignYear = 893;
+    Sixth->name = "Vladimir-Rasate";
+    Sixth->next = Seventh;
+
+    Seventh->startReignYear = 893;
+    Seventh->endReignYear = 927;
+    Seventh->name = "Simeon I";
+    Seventh->next = Eighth;
+
+    Eighth->startReignYear = 927;
+    Eighth->endReignYear = 969;
+    Eighth->name = "Petar I";
+    Eighth->next = NULL;
 
     printYearFirst(Head);
     contentMenuInputYearFirst(Head);
@@ -45,15 +83,47 @@ void contentSecondBulgarianEmpire()
 {
     Node* Head = new Node;
     Node* Second = new Node;
+    Node* Third = new Node;
+    Node* Fourth = new Node;
+    Node* Fifth = new Node;
+    Node* Sixth = new Node;
+    Node* Seventh = new Node;
+
     Head->startReignYear = 1185;
     Head->endReignYear = 1197;
     Head->name = "(Teodor)Petar and (Ivan)Asen";
     Head->next = Second;
+
     Second->startReignYear = 1197;
     Second->endReignYear = 1207;
     Second->name = "Tsar Kaloyan";
-    Second->next = NULL;
+    Second->next = Third;
 
+    Third->startReignYear = 1207;
+    Third->endReignYear = 1218;
+    Third->name = "Boril";
+    Third->next = Fourth;
+
+    Fourth->startReignYear = 1218;
+    Fourth->endReignYear = 1241;
+    Fourth->name = "Ivan Asen II";
+    Fourth->next = Fifth;
+
+    Fifth->startReignYear = 1331;
+    Fifth->endReignYear = 1371;
+    Fifth->name = "Ivan Aleksandur";
+    Fifth->next = Sixth;
+
+    Sixth->startReignYear = 1323;
+    Sixth->endReignYear = 1330;
+    Sixth->name = "Mihail III Shishman";
+    Sixth->next = Seventh;
+
+    Seventh->startReignYear = 1356;
+    Seventh->endReignYear = 1396;
+    Seventh->name = "Ivan Sratsimir";
+    Seventh->next = NULL;
+    
     printYearFirst(Head);
     contentMenuInputYearFirst(Head);
 }
@@ -63,14 +133,22 @@ void contentAfterLiberation()
 {
     Node* Head = new Node;
     Node* Second = new Node;
+    Node* Third = new Node;
+
     Head->startReignYear = 1879;
     Head->endReignYear = 1886;
     Head->name = "Prince Alexander Battenberg";
     Head->next = Second;
+
     Second->startReignYear = 1887;
     Second->endReignYear = 1908;
     Second->name = "Prince Ferdinand I";
-    Second->next = NULL;
+    Second->next = Third;
+
+    Third->startReignYear = 1918;
+    Third->endReignYear = 1943;
+    Third->name = "Boris III";
+    Third->next = NULL;
 
     printYearFirst(Head);
     contentMenuInputYearFirst(Head);
@@ -85,7 +163,7 @@ void printYearFirst(Node* head)
         consoleCoordinates(35, counterPrint);
         cout << head->startReignYear << "/" << head->endReignYear << " - " << head->name << endl;
         head = head->next;
-        counterPrint++;
+        counterPrint+=2;
     }
 }
 
@@ -103,7 +181,7 @@ void printNameFirst(Node* head)
         }
         cout << " - " << head->startReignYear << "/" << head->endReignYear << endl;
         head = head->next;
-        counterPrint++;
+        counterPrint+=2;
     }
     return;
 }
@@ -187,7 +265,7 @@ void findNodeByYear(Node* head, int startReignYear) {
         }
 
         temp = temp->next;
-        index++;
+        index+=2;
     }
     switch (_getch())
     {
@@ -215,7 +293,7 @@ void findNodeByName(Node* head, string name)
             arrow(index);
         }
         temp = temp->next;
-        index++;
+        index+=2;
     }
     switch (_getch())
     {
@@ -520,7 +598,7 @@ bool contentMenuInputYearFirst(Node* Head)
         case KEY_UP:
         {
             if (counter == 11) counter = counterPrint;
-            counter--;
+            counter-=2;
             system("CLS");
             arrow(counter);
             counterPrint = 11;
@@ -533,10 +611,10 @@ bool contentMenuInputYearFirst(Node* Head)
 
         case KEY_DOWN:
         {
-            if (counter == counterPrint - 1) {
-                counter = 10;
+            if (counter == counterPrint - 2) {
+                counter = 9;
             }
-            counter++;
+            counter += 2;
             system("CLS");
             arrow(counter);
             counterPrint = 11;
@@ -591,7 +669,7 @@ bool contentMenuInputNameFirst(Node* Head)
         case KEY_UP:
         {
             if (counter == 11) counter = counterPrint;
-            counter--;
+            counter-=2;
             system("CLS");
             arrow(counter);
             counterPrint = 11;
@@ -604,10 +682,10 @@ bool contentMenuInputNameFirst(Node* Head)
 
         case KEY_DOWN:
         {
-            if (counter == counterPrint - 1) {
-                counter = 10;
+            if (counter == counterPrint - 2) {
+                counter = 9;
             }
-            counter++;
+            counter+=2;
             system("CLS");
             arrow(counter);
             counterPrint = 11;
