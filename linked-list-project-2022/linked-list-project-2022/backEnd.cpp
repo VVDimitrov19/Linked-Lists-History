@@ -188,6 +188,7 @@ void printNameFirst(Node* head)
     return;
 }
 
+// Function for viewing an information about the monarch with given year
 void viewInformationByYear(Node* head)
 {
     system("CLS");
@@ -222,6 +223,7 @@ void viewInformationByYear(Node* head)
     }
 }
 
+// Function for viewing an information about the monarch with given name
 void viewInformationByName(Node* head)
 {
     system("CLS");
@@ -525,6 +527,34 @@ void sortAscending(Node* head)
     } while (flag);
 }
 
+// Function for viewing which monarch had ruled in given year 
+void viewMonarch(Node* head)
+{
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    consoleCoordinates(35, 10);
+    cout << "CHOOSE YEAR:";
+    consoleCoordinates(35, 11);
+    int year;
+    cin >> year;
+
+    Node* temp = head;
+    int index = 11;
+    while (temp != NULL) {
+        if (temp->startReignYear < year && year < temp->endReignYear) {
+            system("CLS");
+            leftBorder();
+            title();
+            rightBorder();
+            counterPrint = 11;
+            printYearFirst(head);
+            arrow(index);
+        }
+        temp = temp->next;
+        index += 2;
+    }
+
+    return;
+}
 
 // Function for selecting the necessary variables with which the following function will work
 void choosingInsertBegin(Node* Head)
@@ -856,6 +886,8 @@ void settingsInput(Node* Head)
     cout << "If you want to order how to view the monarchs press CTRL + O";
     consoleCoordinates(25, 30);
     cout << "If you want to sort the monarchs press CTRL + A";
+    consoleCoordinates(25, 32);
+    cout << "If you want to view if monarch ruled in this year press CTRL + V";
     switch (_getch())
     {
     case CTRL_KEYPRESS('i'):
@@ -922,6 +954,16 @@ void settingsInput(Node* Head)
         leftBorder();
         rightBorder();
         sortChoice(Head);
+    }break;
+
+    case CTRL_KEYPRESS('v'):
+    {
+        system("CLS");
+        title();
+        leftBorder();
+        rightBorder();
+        viewMonarch(Head);
+        
     }break;
 
     case ESCAPE:

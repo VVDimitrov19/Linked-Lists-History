@@ -21,6 +21,10 @@ void contentAfterLiberation();
 void printYearFirst(Node* head);
 void printNameFirst(Node* head);
 
+// Functions for viewing an informatioh about monarch
+void viewInformationByYear(Node* head);
+void viewInformationByName(Node* head);
+
 // Functions for inserting an element in the linked list
 void beginInsert(Node** head, int startReignYear, int endReignYear, string name, string information);
 void endInsert(Node** head, int startReignYear, int endReignYear, string name, string information);
@@ -40,6 +44,9 @@ void editNode(Node* head, int startReignYear);
 // Function for sorting the linked list elements
 void sortDescending(Node* head);
 void sortAscending(Node* head);
+
+// Function for viewing which monarch had ruled in given year 
+void viewMonarch(Node* head);
 
 // Functions for selecting the necessary variables with which the following functions will work
 void choosingInsertBegin(Node* Head);
@@ -67,5 +74,3 @@ void startQuiz();
 
 
 
-void viewInformationByYear(Node* head);
-void viewInformationByName(Node* head);
