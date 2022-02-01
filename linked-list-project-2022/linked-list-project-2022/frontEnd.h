@@ -38,8 +38,7 @@ void rightBorder();
 // Function for viewing options 
 void askInput();
 
-// Function for viewing and choosing options
-void settingsInput(Node* Head);
+// Function for moving the arrow in the menus
 void arrow(int counter);
 
 // Functions for viewing the options for different linked list's functions
