@@ -45,6 +45,7 @@ void arrow(int counter);
 void insertMenu();
 void searchMenu();
 void orderMenu();
+void sortMenu();
 
 // Functions for going around the menus
 bool menuInput();

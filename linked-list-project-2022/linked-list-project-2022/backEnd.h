@@ -36,6 +36,10 @@ void deleteNode(Node** head, int startReignYear);
 // Function for editing an element in the linked list
 void editNode(Node* head, int startReignYear);
 
+// Function for sorting the linked list elements
+void sortDescending(Node* head);
+void sortAscending(Node* head);
+
 // Functions for selecting the necessary variables with which the following functions will work
 void choosingInsertBegin(Node* Head);
 void choosingInsertEnd(Node* Head);
@@ -51,6 +55,7 @@ bool contentMenuInputNameFirst(Node* Head);
 bool insertChoice(Node* Head);
 bool searchChoice(Node* Head);
 bool orderChoice(Node* Head);
+bool sortChoice(Node* Head);
 
 // Function for viewing and choosing options 
 void settingsInput(Node* Head);

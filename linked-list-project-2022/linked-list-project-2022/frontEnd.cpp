@@ -1084,6 +1084,15 @@ void orderMenu()
     cout << "VIEW NAME FIRST";
 }
 
+// Function for viewing the options for the sort function
+void sortMenu()
+{
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    consoleCoordinates(35, 10);
+    cout << "SORT IN DESCENDING ORDER";
+    consoleCoordinates(35, 12);
+    cout << "SORT IN ASCENDING ORDER";
+}
 
 // Function for moving the arrow in the menu
 void arrow(int counter)

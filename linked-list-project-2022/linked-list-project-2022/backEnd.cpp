@@ -64,9 +64,11 @@ void contentAfterLiberation()
     Node* Head = new Node;
     Node* Second = new Node;
     Head->startReignYear = 1879;
+    Head->endReignYear = 1886;
     Head->name = "Prince Alexander Battenberg";
     Head->next = Second;
     Second->startReignYear = 1887;
+    Second->endReignYear = 1908;
     Second->name = "Prince Ferdinand I";
     Second->next = NULL;
 
@@ -80,7 +82,7 @@ void printYearFirst(Node* head)
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
     while (head != NULL)
     {
-        consoleCoordinates(40, counterPrint);
+        consoleCoordinates(35, counterPrint);
         cout << head->startReignYear << "/" << head->endReignYear << " - " << head->name << endl;
         head = head->next;
         counterPrint++;
@@ -92,7 +94,7 @@ void printNameFirst(Node* head)
 {
     while (head != NULL)
     {
-        consoleCoordinates(40, counterPrint);
+        consoleCoordinates(35, counterPrint);
         string name = head->name;
         for (size_t i = 0; i < name.length(); i++)
         {
@@ -168,6 +170,7 @@ void insertAfterNode(Node* temp, Node* head, int startReignYear, int endReignYea
     printYearFirst(head);
     contentMenuInputYearFirst(head);
 }
+
 // Function for searching an element in the linked list
 void findNodeByYear(Node* head, int startReignYear) {
     int index = 11;
@@ -290,6 +293,78 @@ void editNode(Node* head, int startReignYear)
     }
 
     return;
+}
+
+// Function for sorting the linked list in desdending way
+void sortDescending(Node* head)
+{
+    int flag;
+    Node* temp;
+    Node* newNode = NULL;
+
+    if (head == NULL) return;
+
+    do
+    {
+        flag = 0;
+        temp = head;
+        while (temp->next != newNode)
+        {
+            if (temp->startReignYear < temp->next->startReignYear)
+            {
+                int sort = temp->startReignYear;
+                temp->startReignYear = temp->next->startReignYear;
+                temp->next->startReignYear = sort;
+
+                int sort2 = temp->endReignYear;
+                temp->endReignYear = temp->next->endReignYear;
+                temp->next->endReignYear = sort2;
+
+                string nameSort = temp->name;
+                temp->name = temp->next->name;
+                temp->next->name = nameSort;
+                flag = 1;
+            }
+            temp = temp->next;
+        }
+        newNode = temp;
+    } while (flag);
+}
+
+// Function for sorting the linked list in asdending way
+void sortAscending(Node* head)
+{
+    int flag;
+    Node* temp;
+    Node* newNode = NULL;
+
+    if (head == NULL) return;
+
+    do
+    {
+        flag = 0;
+        temp = head;
+        while (temp->next != newNode)
+        {
+            if (temp->startReignYear > temp->next->startReignYear)
+            {
+                int sort = temp->startReignYear;
+                temp->startReignYear = temp->next->startReignYear;
+                temp->next->startReignYear = sort;
+
+                int sort2 = temp->endReignYear;
+                temp->endReignYear = temp->next->endReignYear;
+                temp->next->endReignYear = sort2;
+
+                string nameSort = temp->name;
+                temp->name = temp->next->name;
+                temp->next->name = nameSort;
+                flag = 1;
+            }
+            temp = temp->next;
+        }
+        newNode = temp;
+    } while (flag);
 }
 
 // Function for selecting the necessary variables with which the following function will work
@@ -576,6 +651,8 @@ void settingsInput(Node* Head)
     cout << "If you want to edit monarch press CTRL + E";
     consoleCoordinates(25, 28);
     cout << "If you want to order how to view the monarchs press CTRL + O";
+    consoleCoordinates(25, 30);
+    cout << "If you want to sort the monarchs press CTRL + A";
     switch (_getch())
     {
     case CTRL_KEYPRESS('i'):
@@ -585,7 +662,8 @@ void settingsInput(Node* Head)
         leftBorder();
         rightBorder();
         insertChoice(Head);
-    }
+    }break;
+
     case CTRL_KEYPRESS('s'):
     {
         system("CLS");
@@ -594,6 +672,7 @@ void settingsInput(Node* Head)
         rightBorder();
         searchChoice(Head);
     }break;
+
     case CTRL_KEYPRESS('d'):
     {
         system("CLS");
@@ -613,6 +692,7 @@ void settingsInput(Node* Head)
         rightBorder();
         contentMenuInputYearFirst(Head);
     }break;
+
     case CTRL_KEYPRESS('e'):
     {
         choosingEditElement(Head);
@@ -622,6 +702,7 @@ void settingsInput(Node* Head)
         rightBorder();
         contentMenuInputYearFirst(Head);
     }break;
+
     case CTRL_KEYPRESS('o'):
     {
         system("CLS");
@@ -630,10 +711,25 @@ void settingsInput(Node* Head)
         rightBorder();
         orderChoice(Head);
     }break;
+
+    case CTRL_KEYPRESS('a'):
+    {
+        system("CLS");
+        title();
+        leftBorder();
+        rightBorder();
+        sortChoice(Head);
+    }break;
+
+    case ESCAPE:
+    {
+        system("CLS");
+        contentMenuInputYearFirst(Head);
+    }break;
     }
 }
 
-// Function for going around the menu
+// Function for going around the insert menu
 bool insertChoice(Node* Head)
 {
     int counter = 10;
@@ -711,13 +807,13 @@ bool insertChoice(Node* Head)
         {
             system("CLS");
             contentMenuInputYearFirst(Head);
-        }
+        }break;
         }
     } while (true);
     return 1;
 }
 
-// Function for going around the menu
+// Function for going around the search menu
 bool searchChoice(Node* Head)
 {
     int counter = 10;
@@ -785,13 +881,13 @@ bool searchChoice(Node* Head)
         {
             system("CLS");
             contentMenuInputYearFirst(Head);
-        }
+        }break;
         }
     } while (true);
     return 1;
 }
 
-// Function for going around the menu
+// Function for going around the order menu
 bool orderChoice(Node* Head)
 {
     int counter = 10;
@@ -853,12 +949,84 @@ bool orderChoice(Node* Head)
         {
             system("CLS");
             settingsInput(Head);
-        }
+        }break;
         }
     } while (true);
     return 1;
 }
 
+// Function for going around the sort menu
+bool sortChoice(Node* Head)
+{
+    int counter = 10;
+    sortMenu();
+    title();
+    leftBorder();
+    rightBorder();
+    consoleCoordinates(31, 10);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    cout << "-->";
+    do
+    {
+        switch (_getch())
+        {
+            // Arrow up
+        case KEY_UP:
+        {
+            if (counter == 10)counter = 14;
+            counter -= 2;
+            system("CLS");
+            consoleCoordinates(31, counter);
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+            cout << "-->";
+            sortMenu();
+            title();
+            leftBorder();
+            rightBorder();
+        }break;
+        case KEY_DOWN:
+        {
+            if (counter == 12)counter = 8;
+            counter += 2;
+            system("CLS");
+            consoleCoordinates(31, counter);
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+            cout << "-->";
+            sortMenu();
+            title();
+            leftBorder();
+            rightBorder();
+        }break;
+        case ENTER:
+        {
+            if (counter == 10)
+            {
+                system("CLS");
+                sortDescending(Head);
+                leftBorder();
+                title();
+                rightBorder();
+                printYearFirst(Head);
+            }
+            else if (counter == 12)
+            {
+                system("CLS");
+                sortAscending(Head);
+                leftBorder();
+                title();
+                rightBorder();
+                printYearFirst(Head);
+            }
+        }break;
+        case ESCAPE:
+        {
+            system("CLS");
+            settingsInput(Head);
+        }break;
+        }
+    } while (true);
+    return 1;
+}
 
 // Function for the quiz
 void startQuiz() {
