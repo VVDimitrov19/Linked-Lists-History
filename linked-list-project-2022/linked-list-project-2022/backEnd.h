@@ -22,10 +22,10 @@ void printYearFirst(Node* head);
 void printNameFirst(Node* head);
 
 // Functions for inserting an element in the linked list
-void beginInsert(Node** head, int startReignYear, int endReignYear, string name);
-void endInsert(Node** head, int startReignYear, int endReignYear, string name);
+void beginInsert(Node** head, int startReignYear, int endReignYear, string name, string information);
+void endInsert(Node** head, int startReignYear, int endReignYear, string name, string information);
 void insertNodeAfterYear(Node* head, int startReignYear);
-void insertAfterNode(Node* temp, Node* head, int startReignYear, int endReignYear, string name);
+void insertAfterNode(Node* temp, Node* head, int startReignYear, int endReignYear, string name, string information);
 
 // Functions for searching an element in the linked list
 void findNodeByYear(Node* head, int startReignYear);

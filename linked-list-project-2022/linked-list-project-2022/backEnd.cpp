@@ -257,25 +257,28 @@ void viewInformationByName(Node* head)
 }
 
 // Function for inserting an element in the linked list
-void beginInsert(Node** head, int startReignYear, int endReignYear, string name)
+void beginInsert(Node** head, int startReignYear, int endReignYear, string name, string information)
 {
     Node* newNode = new Node();
     newNode->startReignYear = startReignYear;
     newNode->endReignYear = endReignYear;
     newNode->name = name;
+    newNode->information = information;
     newNode->next = (*head);
     (*head) = newNode;
 
 }
 
 // Function for inserting an element in the linked list
-void endInsert(Node** head, int startReignYear, int endReignYear, string name)
+void endInsert(Node** head, int startReignYear, int endReignYear, string name, string information)
 {
     Node* newNode = new Node();
     Node* last = *head;
     newNode->startReignYear = startReignYear;
     newNode->endReignYear = endReignYear;
     newNode->name = name;
+    newNode->information = information;
+
     newNode->next = NULL;
     if (*head == NULL)
     {
@@ -306,12 +309,13 @@ void insertNodeAfterYear(Node* head, int startReignYear)
 }
 
 // Function for inserting an element in the linked list
-void insertAfterNode(Node* temp, Node* head, int startReignYear, int endReignYear, string name)
+void insertAfterNode(Node* temp, Node* head, int startReignYear, int endReignYear, string name, string information)
 {
     Node* newNode = new Node;
     newNode->startReignYear = startReignYear;
     newNode->endReignYear = endReignYear;
     newNode->name = name;
+    newNode->information = information;
     newNode->next = temp->next;
     temp->next = newNode;
     counterPrint = 11;
@@ -432,9 +436,15 @@ void editNode(Node* head, int startReignYear)
             consoleCoordinates(35, 15);
             string name;
             getline(cin, name);
+            consoleCoordinates(35, 16);
+            cout << "EDIT INFORMATION:";
+            consoleCoordinates(35, 17);
+            string information;
+            getline(cin, information);
             temp->startReignYear = startReignYear;
             temp->endReignYear = endReignYear;
             temp->name = name;
+            temp->information = information;
         }
         temp = temp->next;
 
@@ -539,8 +549,13 @@ void choosingInsertBegin(Node* Head)
     string name;
     consoleCoordinates(35, 15);
     getline(cin, name);
+    consoleCoordinates(35, 16);
+    cout << "CHOOSE INFORMATION:\n";
+    string information;
+    consoleCoordinates(35, 17);
+    getline(cin, information);
     system("CLS");
-    beginInsert(&Head, startReignYear, endReignYear, name);
+    beginInsert(&Head, startReignYear, endReignYear, name, information);
     counterPrint = 11;
     printYearFirst(Head);
     contentMenuInputYearFirst(Head);
@@ -569,8 +584,13 @@ void choosingInsertEnd(Node* Head)
     string name;
     consoleCoordinates(35, 15);
     getline(cin, name);
+    consoleCoordinates(35, 16);
+    cout << "CHOOSE INFORMATION:\n";
+    string information;
+    consoleCoordinates(35, 17);
+    getline(cin, information);
     system("CLS");
-    endInsert(&Head, startReignYear, endReignYear, name);
+    endInsert(&Head, startReignYear, endReignYear, name, information);
     counterPrint = 11;
     printYearFirst(Head);
     contentMenuInputYearFirst(Head);
@@ -646,7 +666,12 @@ void choosingInsertAfterNode(Node* temp, Node* head)
     string name;
     consoleCoordinates(35, 15);
     getline(cin, name);
-    insertAfterNode(temp, head, startReignYear, endReignYear, name);
+    consoleCoordinates(35, 16);
+    cout << "CHOOSE INFORMATION:\n";
+    string information;
+    consoleCoordinates(35, 17);
+    getline(cin, information);
+    insertAfterNode(temp, head, startReignYear, endReignYear, name, information);
 }
 
 // Function for going around the menu when the user view the monarch's reign year first
