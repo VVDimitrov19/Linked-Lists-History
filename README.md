@@ -31,3 +31,5 @@
     <th>QA ✔</th>
   </tr> 
 </table>
+<h2 align="center">👁The Project's Task👁</h2>
+<p align="center">The project's task is to make content with events made with linked lists. <br> Also we have to made some main functionalities like adding, editing and deleting the element (event).</p>
