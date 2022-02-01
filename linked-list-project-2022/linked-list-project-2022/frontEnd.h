@@ -42,6 +42,7 @@ void askInput();
 void arrow(int counter);
 
 // Functions for viewing the options for different linked list's functions
+void viewInfoMenu();
 void insertMenu();
 void searchMenu();
 void orderMenu();

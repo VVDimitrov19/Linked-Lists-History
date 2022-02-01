@@ -7,6 +7,7 @@ struct Node {
     int startReignYear;
     int endReignYear;
     string name;
+    string information;
     Node* next;
 
 };
@@ -56,9 +57,15 @@ bool insertChoice(Node* Head);
 bool searchChoice(Node* Head);
 bool orderChoice(Node* Head);
 bool sortChoice(Node* Head);
+bool viewInfoChoice(Node* Head);
 
 // Function for viewing and choosing options 
 void settingsInput(Node* Head);
 
 // Function for the quiz
 void startQuiz();
+
+
+
+void viewInformationByYear(Node* head);
+void viewInformationByName(Node* head);

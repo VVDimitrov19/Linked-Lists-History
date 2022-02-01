@@ -37,11 +37,13 @@ void contentFirstBulgarianEmpire()
     Head->startReignYear = 681;
     Head->endReignYear = 700;
     Head->name = "Khan Asparukh";
+    Head->information = "Khan Asparukh had based Dunavska Bulgaria in 681.";
     Head->next = Second;
 
     Second->startReignYear = 700;
     Second->endReignYear = 721;
     Second->name = "Khan Tervel";
+    Second->information = "Khan Tervel is Asparukh's son.";
     Second->next = Third;
 
     Third->startReignYear = 803;
@@ -184,6 +186,74 @@ void printNameFirst(Node* head)
         counterPrint+=2;
     }
     return;
+}
+
+void viewInformationByYear(Node* head)
+{
+    system("CLS");
+    title();
+    leftBorder();
+    rightBorder();
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    consoleCoordinates(35, 10);
+    cout << "CHOOSE THE START REIGN YEAR TO VIEW INFORMATION:";
+    consoleCoordinates(35, 11);
+    int startReignYear;
+    cin >> startReignYear;
+    Node* temp = head;
+    while (temp != NULL) {
+        if (temp->startReignYear == startReignYear) {
+            system("CLS");
+            title();
+            leftBorder();
+            rightBorder();
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+            consoleCoordinates(42, 10);
+            string name = temp->name;
+            for (size_t i = 0; i < name.length(); i++)
+            {
+                char letter = toupper(name[i]);
+                cout << letter;
+            }
+            consoleCoordinates(25, 13);
+            cout << temp->information; break;
+        }
+        temp = temp->next;
+    }
+}
+
+void viewInformationByName(Node* head)
+{
+    system("CLS");
+    title();
+    leftBorder();
+    rightBorder();
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    consoleCoordinates(35, 10);
+    cout << "CHOOSE THE NAME TO VIEW INFORMATION:";
+    consoleCoordinates(35, 11);
+    string name;
+    getline(cin, name);
+    Node* temp = head;
+    while (temp != NULL) {
+        if (temp->name == name) {
+            system("CLS");
+            title();
+            leftBorder();
+            rightBorder();
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+            consoleCoordinates(42, 10);
+            string name = temp->name;
+            for (size_t i = 0; i < name.length(); i++)
+            {
+                char letter = toupper(name[i]);
+                cout << letter;
+            }
+            consoleCoordinates(25, 13);
+            cout << temp->information; break;
+        }
+        temp = temp->next;
+    }
 }
 
 // Function for inserting an element in the linked list
@@ -445,6 +515,7 @@ void sortAscending(Node* head)
     } while (flag);
 }
 
+
 // Function for selecting the necessary variables with which the following function will work
 void choosingInsertBegin(Node* Head)
 {
@@ -634,6 +705,15 @@ bool contentMenuInputYearFirst(Node* Head)
             settingsInput(Head);
         }break;
 
+        case CTRL_KEYPRESS('m'):
+        {
+            system("CLS");
+            title();
+            leftBorder();
+            rightBorder();
+            viewInfoChoice(Head);
+        }break;
+
         case CTRL_KEYPRESS('q'):
         {
             startQuiz();
@@ -643,7 +723,7 @@ bool contentMenuInputYearFirst(Node* Head)
         {
             system("CLS");
             choosingMenuInput();
-        }
+        }break;
         }
     } while (true);
     return 1;
@@ -703,7 +783,27 @@ bool contentMenuInputNameFirst(Node* Head)
             leftBorder();
             rightBorder();
             settingsInput(Head);
-        }
+        }break;
+
+        case CTRL_KEYPRESS('m'):
+        {
+            system("CLS");
+            title();
+            leftBorder();
+            rightBorder();
+            viewInfoChoice(Head);
+        }break;
+
+        case CTRL_KEYPRESS('q'):
+        {
+            startQuiz();
+        }break;
+
+        case ESCAPE:
+        {
+            system("CLS");
+            choosingMenuInput();
+        }break;
 
         }
     } while (true);
@@ -1062,6 +1162,7 @@ bool sortChoice(Node* Head)
             leftBorder();
             rightBorder();
         }break;
+
         case KEY_DOWN:
         {
             if (counter == 12)counter = 8;
@@ -1075,6 +1176,7 @@ bool sortChoice(Node* Head)
             leftBorder();
             rightBorder();
         }break;
+
         case ENTER:
         {
             if (counter == 10)
@@ -1096,6 +1198,80 @@ bool sortChoice(Node* Head)
                 printYearFirst(Head);
             }
         }break;
+
+        case ESCAPE:
+        {
+            system("CLS");
+            settingsInput(Head);
+        }break;
+        }
+    } while (true);
+    return 1;
+}
+
+bool viewInfoChoice(Node* Head)
+{
+    int counter = 10;
+    viewInfoMenu();
+    title();
+    leftBorder();
+    rightBorder();
+    consoleCoordinates(31, 10);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    cout << "-->";
+    do
+    {
+        switch (_getch())
+        {
+            // Arrow up
+        case KEY_UP:
+        {
+            if (counter == 10)counter = 14;
+            counter -= 2;
+            system("CLS");
+            consoleCoordinates(31, counter);
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+            cout << "-->";
+            viewInfoMenu();
+            title();
+            leftBorder();
+            rightBorder();
+        }break;
+
+        case KEY_DOWN:
+        {
+            if (counter == 12)counter = 8;
+            counter += 2;
+            system("CLS");
+            consoleCoordinates(31, counter);
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+            cout << "-->";
+            viewInfoMenu();
+            title();
+            leftBorder();
+            rightBorder();
+        }break;
+
+        case ENTER:
+        {
+            if (counter == 10)
+            {
+                system("CLS");
+                viewInformationByYear(Head);
+                leftBorder();
+                title();
+                rightBorder();
+            }
+            else if (counter == 12)
+            {
+                system("CLS");
+                viewInformationByName(Head);
+                leftBorder();
+                title();
+                rightBorder();
+            }
+        }break;
+
         case ESCAPE:
         {
             system("CLS");

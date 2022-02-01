@@ -1046,10 +1046,22 @@ void title()
 void askInput()
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 5);
-    consoleCoordinates(30, 35);
+    consoleCoordinates(25, 35);
     cout << "If you want to view settings press CTRL + H:";
-    consoleCoordinates(30, 37);
+    consoleCoordinates(25, 37);
+    cout << "If you want to view information about monarch press CTRL + M:";
+    consoleCoordinates(25, 39);
     cout << "If you want to start the quiz press CTRL + Q:";
+}
+
+// Function for viewing the options for the view information function
+void viewInfoMenu()
+{
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    consoleCoordinates(35, 10);
+    cout << "VIEW INFORMATION BY CHOOSING THE START REIGN YEAR";
+    consoleCoordinates(35, 12);
+    cout << "VIEW INFORMATION BY CHOOSING THE NAME";
 }
 
 // Function for viewing the options for the insert function
