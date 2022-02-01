@@ -33,3 +33,5 @@
 </table>
 <h2 align="center">👁The Project's Task👁</h2>
 <p align="center">The project's task is to make content with events made with linked lists. <br> Also we have to made some main functionalities like adding, editing and deleting the element (event).</p>
+<h2 align="center">💡Our idea💡</h2>
+<p align="center">Our idea is to make content with bulgarian monarchs who ruled during First and Second Bulgarian Empire <br> and after the Liberaion of Bulgaria.</p>
