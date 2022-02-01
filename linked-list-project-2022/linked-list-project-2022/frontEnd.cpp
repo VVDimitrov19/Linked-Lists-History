@@ -17,7 +17,7 @@ using namespace std;
 
 #define LINES 75
 
-
+// Function to choose where the elements of the program will be
 void consoleCoordinates(int x, int y)
 {
     COORD coord;
@@ -25,6 +25,8 @@ void consoleCoordinates(int x, int y)
     coord.Y = y;
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
+
+// Function for the main menu
 void menuRoof()
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
@@ -39,6 +41,8 @@ void menuRoof()
     consoleCoordinates(0, 6);
     cout << "                    /_______\\___\\        __           __           __           __           __           __           __           __           __       /_______\\___\\                    ";
 }
+
+// Function for the main menu
 void menuTop()
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
@@ -49,6 +53,8 @@ void menuTop()
     consoleCoordinates(0, 9);
     cout << "                    |   |   |   |                                                                                                                         |   |   |~~~|      ";
 }
+
+// Function for the main menu
 void menuMiniRoof()
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
@@ -59,6 +65,8 @@ void menuMiniRoof()
     consoleCoordinates(37, 9);
     cout << "/____\\__\\    /____\\__\\    /____\\__\\    /____\\__\\    /____\\__\\    /____\\__\\    /____\\__\\    /____\\__\\    /____\\__\\";
 }
+
+// Function for the main menu
 void menuBottom()
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
@@ -69,6 +77,8 @@ void menuBottom()
     consoleCoordinates(20, 12);
     cout << "|___|___|________|____|_______|____|_______|____|_______|____|_______|____|_______|____|_______|____|_______|____|_______|____|_______|___|___|~~~|                        ";
 }
+
+// Function for the main menu
 void menuCastle()
 {
     consoleCoordinates(19, 13);
@@ -161,6 +171,8 @@ void menuCastle()
     consoleCoordinates(15, 56);
     cout << "|____|__|                                                                                                                             |____|__|                                     \n";
 }
+
+// Function for the main menu
 void menuTitle()
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
@@ -180,6 +192,8 @@ void menuTitle()
     cout << "|||      |||    |||    ||||||||||||         ||        |||||||||||    |||    |||        |||||||||||";
     consoleCoordinates(40, 27);
 }
+
+// Function for the main menu
 void menuPort()
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 9);
@@ -225,6 +239,8 @@ void menuPort()
 
 }
 
+
+// Function for the main menu
 void menuOptionsBorder()
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
@@ -252,6 +268,7 @@ void menuOptionsBorder()
     cout << "\\________________________________/";
 }
 
+// Function for the main menu
 void menuOptions(int counter)
 {
 
@@ -305,6 +322,8 @@ void menuOptions(int counter)
     }break;
     }
 }
+
+// Function for the main menu
 void menu(int counter)
 {
     if (counter == 1) {
@@ -343,6 +362,46 @@ void menu(int counter)
 
 }
 
+// Function for how to use menu
+void useInformation()
+{
+    title();
+    leftBorder();
+    rightBorder();
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    consoleCoordinates(23, 10);
+    cout << "When you start the program you will have to choose an era";
+    consoleCoordinates(27, 11);
+    cout << "After that you can input monarch where you want.";
+    consoleCoordinates(28, 12);
+    cout << "You can also delete, search or edit a monarch.";
+    consoleCoordinates(30, 14);
+    cout << "There is also a quiz about the monarchs.";
+    consoleCoordinates(4, 16);
+    cout << "------------------------------------------------------------------------------------------------" << endl;
+    consoleCoordinates(40, 17);
+    cout << "KEY COMBINATIONS:" << endl;
+    consoleCoordinates(25, 19);
+    cout << "To input monarch press CTRL + Q" << endl;
+    consoleCoordinates(25, 20);
+    cout << "To search monarch press CTRL + S" << endl;
+    consoleCoordinates(25, 21);
+    cout << "If you want to delete monarch press CTRL + D" << endl;
+    consoleCoordinates(25, 22);
+    cout << "If you want to edit monarch press CTRL + E" << endl;
+    consoleCoordinates(25, 23);
+    cout << "If you want to order the view of the monarch press CTRL + O" << endl;
+    switch (_getch())
+    {
+    case ESCAPE:
+    {
+        system("CLS");
+        menuInput();
+    }
+    }
+}
+
+// Function to exit the program
 void exit()
 {
     system("CLS");
@@ -377,12 +436,11 @@ void exit()
         Sleep(200);
         cout << "\n";
     }
-;
-        cin.ignore(); 
-        
+        cin.ignore();        
 }
 
-void menuCrown()
+// Function for the choosing menu
+void choosingMenuCrown()
 {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
 	consoleCoordinates(30, 2);
@@ -425,7 +483,8 @@ void menuCrown()
 	cout << "           $\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$\"$$\n";
 }
 
-void menuSword()
+// Function for the choosing menu
+void choosingMenuSword()
 {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 5);
 	consoleCoordinates(0, 2);
@@ -542,7 +601,8 @@ void menuSword()
 	cout << "                    \\ /\n";
 }
 
-void menuSwordTwo()
+// Function for the choosing menu
+void choosingMenuSwordTwo()
 {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 5);
 	consoleCoordinates(92, 2);
@@ -659,6 +719,7 @@ void menuSwordTwo()
 	cout << "                    \\ /\n";
 }
 
+// Function for the choosing menu
 void choosingMenu()
 {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 9);
@@ -700,6 +761,87 @@ void choosingMenu()
 	cout << "|_____________________________________________________________________________|\n";
 }
 
+// Function for the choosing menu
+void choosingMenuOptions(int counter)
+{
+    switch (counter)
+    {
+    case 1:
+    {
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 8);
+        consoleCoordinates(36, 34);
+        cout << "---->";
+        consoleCoordinates(95, 34);
+        cout << "<----";
+        consoleCoordinates(56, 34);
+        cout << "FIRST BULGARIAN EMPIRE";
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+        consoleCoordinates(55, 38);
+        cout << "SECOND BULGARIAN EMPIRE ";
+        consoleCoordinates(51, 42);
+        cout << "AFTER THE LIBERATION OF BULGARIA ";
+    }break;
+    case 2:
+    {
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 8);
+        consoleCoordinates(36, 38);
+        cout << "---->";
+        consoleCoordinates(95, 38);
+        cout << "<----";
+        consoleCoordinates(55, 38);
+        cout << "SECOND BULGARIAN EMPIRE ";
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+        consoleCoordinates(56, 34);
+        cout << "FIRST BULGARIAN EMPIRE";
+        consoleCoordinates(51, 42);
+        cout << "AFTER THE LIBERATION OF BULGARIA ";
+    }break;
+    case 3:
+    {
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 8);
+        consoleCoordinates(36, 42);
+        cout << "---->";
+        consoleCoordinates(95, 42);
+        cout << "<----";
+        consoleCoordinates(51, 42);
+        cout << "AFTER THE LIBERATION OF BULGARIA ";
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+        consoleCoordinates(56, 34);
+        cout << "FIRST BULGARIAN EMPIRE";
+        consoleCoordinates(55, 38);
+        cout << "SECOND BULGARIAN EMPIRE ";
+    }break;
+    }
+}
+
+// Function for the choosing menu
+void choosingMenu(int counter)
+{
+    if (counter == 1) {
+        choosingMenuSwordTwo();
+        choosingMenuCrown();
+        choosingMenu();
+        choosingMenuSword();
+        choosingMenuOptions(counter);
+    }
+    if (counter == 2) {
+        choosingMenuSwordTwo();
+        choosingMenuCrown();
+        choosingMenu();
+        choosingMenuSword();
+        choosingMenuOptions(counter);
+    }
+    if (counter == 3) {
+        choosingMenuSwordTwo();
+        choosingMenuCrown();
+        choosingMenu();
+        choosingMenuSword();
+        choosingMenuOptions(counter);
+    }
+
+}
+
+// Function for the other menus
 void leftBorder()
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 5);
@@ -791,13 +933,7 @@ void leftBorder()
     cout << "(*)\n";
 }
 
-void askInput()
-{
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 5);
-    consoleCoordinates(30, 35);
-
-
-}
+// Function for the other menus
 void rightBorder()
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 5);
@@ -889,6 +1025,8 @@ void rightBorder()
     cout << "(*)\n";
 
 }
+
+// Function for the other menus
 void title()
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
@@ -904,7 +1042,92 @@ void title()
     cout << "/_____/\\____/      /_/  /_/\\____/_/ |_/_/  |_/_/ |_|\\____/_/ /_ ____/\n";
 }
 
+// Function for viewing options 
+void askInput()
+{
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 5);
+    consoleCoordinates(30, 35);
+    cout << "If you want to view settings press CTRL + H:";
+    consoleCoordinates(30, 37);
+    cout << "If you want to start the quiz press CTRL + Q:";
+}
 
+// Function for viewing and choosing options 
+void settingsInput(Node* Head)
+{
+    system("CLS");
+    leftBorder();
+    title();
+    rightBorder();
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    consoleCoordinates(25, 20);
+    cout << "If you want to input monarch press CTRL + I";
+    consoleCoordinates(25, 22);
+    cout << "If you want to search monarch press CTRL + S";
+    consoleCoordinates(25, 24);
+    cout << "If you want to delete monarch press CTRL + D";
+    consoleCoordinates(25, 26);
+    cout << "If you want to edit monarch press CTRL + E";
+    consoleCoordinates(25, 28);
+    cout << "If you want to order how to view the monarchs press CTRL + O";
+    switch (_getch())
+    {
+    case CTRL_KEYPRESS('i'):
+    {
+        system("CLS");
+        title();
+        leftBorder();
+        rightBorder();
+        insertChoice(Head);
+    }
+    case CTRL_KEYPRESS('s'):
+    {
+        system("CLS");
+        title();
+        leftBorder();
+        rightBorder();
+        searchChoice(Head);
+    }break;
+    case CTRL_KEYPRESS('d'):
+    {
+        system("CLS");
+        title();
+        leftBorder();
+        rightBorder();
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+        consoleCoordinates(35, 10);
+        cout << "CHOOSE YEAR TO DELETE THE MONARCH:";
+        consoleCoordinates(35, 11);
+        int year;
+        cin >> year;
+        deleteNode(&Head, year);
+        system("CLS");
+        title();
+        leftBorder();
+        rightBorder();
+        contentMenuInputYearFirst(Head);
+    }break;
+    case CTRL_KEYPRESS('e'):
+    {
+        choosingEditElement(Head);
+        system("CLS");
+        title();
+        leftBorder();
+        rightBorder();
+        contentMenuInputYearFirst(Head);
+    }break;
+    case CTRL_KEYPRESS('o'):
+    {
+        system("CLS");
+        title();
+        leftBorder();
+        rightBorder();
+        orderChoice(Head);
+    }break;
+    }
+}
+
+// Function for viewing the options for the insert function
 void insertMenu()
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
@@ -916,6 +1139,7 @@ void insertMenu()
     cout << "ADD MONARCH AFTER CHOSEN YEAR";
 }
 
+// Function for viewing the options for the search function
 void searchMenu()
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
@@ -925,195 +1149,26 @@ void searchMenu()
     cout << "SEARCH BY ENTERING NAME";
 }
 
-void choosing(int counter)
+// Function for viewing the options for the order function
+void orderMenu()
+{
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    consoleCoordinates(35, 10);
+    cout << "VIEW YEAR FIRST";
+    consoleCoordinates(35, 12);
+    cout << "VIEW NAME FIRST";
+}
+
+
+// Function for moving the arrow in the menu
+void arrow(int counter)
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
     consoleCoordinates(36, counter);
     cout << "-->";
 }
-void choosingMenuOptions(int counter)
-{
-	switch (counter)
-	{
-	case 1:
-	{
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 8);
-		consoleCoordinates(36, 34);
-		cout << "---->";
-		consoleCoordinates(95, 34);
-		cout << "<----";
-		consoleCoordinates(56, 34);
-		cout << "FIRST BULGARIAN EMPIRE";
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-		consoleCoordinates(55, 38);
-		cout << "SECOND BULGARIAN EMPIRE ";
-		consoleCoordinates(51, 42);
-		cout << "AFTER THE LIBERATION OF BULGARIA ";
-	}break;
-	case 2:
-	{
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 8);
-		consoleCoordinates(36, 38);
-		cout << "---->";
-		consoleCoordinates(95, 38);
-		cout << "<----";
-		consoleCoordinates(55, 38);
-		cout << "SECOND BULGARIAN EMPIRE ";
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-		consoleCoordinates(56, 34);
-		cout << "FIRST BULGARIAN EMPIRE";
-		consoleCoordinates(51, 42);
-		cout << "AFTER THE LIBERATION OF BULGARIA ";
-	}break;
-	case 3:
-	{
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 8);
-		consoleCoordinates(36, 42);
-		cout << "---->";
-		consoleCoordinates(95, 42);
-		cout << "<----";
-		consoleCoordinates(51, 42);
-		cout << "AFTER THE LIBERATION OF BULGARIA ";
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-		consoleCoordinates(56, 34);
-		cout << "FIRST BULGARIAN EMPIRE";
-		consoleCoordinates(55, 38);
-		cout << "SECOND BULGARIAN EMPIRE ";
-	}break;
-	}
-}
-void choosingMenu(int counter)
-{
-	if (counter == 1) {
-		menuSwordTwo();
-		menuCrown();
-		choosingMenu();
-		menuSword();
-		choosingMenuOptions(counter);
-	}
-	if (counter == 2) {
-		menuSwordTwo();
-		menuCrown();
-		choosingMenu();
-		menuSword();
-		choosingMenuOptions(counter);
-	}
-	if (counter == 3) {
-		menuSwordTwo();
-		menuCrown();
-		choosingMenu();
-		menuSword();
-		choosingMenuOptions(counter);
-	}
 
-}
-bool choosingMenuInput()
-{
-	HWND console = GetConsoleWindow();
-	RECT r;
-	GetWindowRect(console, &r); //stores the console's current dimensions
-
-	MoveWindow(console, r.left, r.top, 2000, 1000, TRUE); // 2000 width, 1000 height
-
-	int counter = 1;
-	choosingMenu(counter);
-
-	do
-	{
-		// Switch case for switching around the choosing menu
-		switch (_getch())
-		{
-			// Arrow up
-		case KEY_UP:
-		{
-			if (counter == 1) counter = 4;
-			counter--;
-			system("CLS");
-			choosingMenu(counter);
-		} break;
-		// Arrow down
-		case KEY_DOWN:
-		{
-			if (counter == 3) {
-				counter = 0;
-			}
-			counter++;
-			system("CLS");
-			choosingMenu(counter);
-		} break;
-		// Enter
-		case ENTER:
-		{
-			switch (counter) {
-			case 1:
-			{
-				system("CLS");
-                contentFirstBulgarianEmpire();
-			}break;
-
-			case 2:
-			{
-				system("CLS");
-                contentSecondBulgarianEmpire();	
-			}break;
-
-			case 3:
-			{
-				system("CLS");
-                contentAfterLiberation();
-			}break;
-
-			}
-		} break;
-		case ESCAPE:
-		{
-			system("CLS");
-			menuInput();
-		}
-		}
-	} while (true);
-	return 1;
-}
-
-void useInformation()
-{
-    title();
-    leftBorder();
-    rightBorder();
-    consoleCoordinates(4, 10);
-    cout << "When you start the program you will have to choose an era" << endl;
-    consoleCoordinates(4, 11);
-    cout<<"After that you can input information about the monarch at the beginning or at the end."<<endl;
-    consoleCoordinates(4, 12);
-    cout << "Once you choose where to add the monarch you will have to write a year and the monarch's name." << endl;
-    consoleCoordinates(4, 13);
-    cout<<"You can also delete or edit a monarch by typing in the year." << endl;
-
-    consoleCoordinates(4, 14);
-    cout << "----------------------------------------------------------------------" << endl;
-    consoleCoordinates(8, 15);
-    cout << "Key combinations:" << endl;
-    consoleCoordinates(4, 16);
-    cout << "To input something press CTRL + I" << endl;
-    consoleCoordinates(4, 17);
-    cout << "To search something press CTRL + S" << endl;
-    consoleCoordinates(4, 18);
-    cout << "If you want to delete something press CTRL + D" << endl;
-    consoleCoordinates(4, 19);
-    cout << "If you want to edit something press CTRL + E" << endl;
-    consoleCoordinates(4, 20);
-    cout << "If you want to edit something press CTRL + Q" << endl;
-    cout << endl;
-    consoleCoordinates(4, 21);
-    cout << "Press any button to go back";
-    switch (_getch())
-    {
-        system("CLS");
-        menuInput();
-
-    }
-}
-
+// Function for going around the main menu
 bool menuInput()
 {
     HWND console = GetConsoleWindow();
@@ -1126,10 +1181,10 @@ bool menuInput()
 
     do
     {
-        // Switch case for switching around the main menu
+
         switch (_getch())
         {
-            // Arrow up
+
         case KEY_UP:
         {
             if (counter == 1) counter = 4;
@@ -1137,7 +1192,7 @@ bool menuInput()
             system("CLS");
             menu(counter);
         } break;
-        // Arrow down
+
         case KEY_DOWN:
         {
             if (counter == 3) {
@@ -1147,7 +1202,7 @@ bool menuInput()
             system("CLS");
             menu(counter);
         } break;
-        // Enter
+
         case ENTER:
         {
             switch (counter) {
@@ -1176,3 +1231,67 @@ bool menuInput()
     } while (true);
     return 1;
 }
+
+// Function for going around the choosing menu
+bool choosingMenuInput()
+{
+	int counter = 1;
+	choosingMenu(counter);
+
+	do
+	{
+		switch (_getch())
+		{
+			
+		case KEY_UP:
+		{
+			if (counter == 1) counter = 4;
+			counter--;
+			system("CLS");
+			choosingMenu(counter);
+		} break;
+		
+		case KEY_DOWN:
+		{
+			if (counter == 3) {
+				counter = 0;
+			}
+			counter++;
+			system("CLS");
+			choosingMenu(counter);
+		} break;
+		
+		case ENTER:
+		{
+			switch (counter) {
+			case 1:
+			{
+				system("CLS");
+                contentFirstBulgarianEmpire();
+			}break;
+
+			case 2:
+			{
+				system("CLS");
+                contentSecondBulgarianEmpire();	
+			}break;
+
+			case 3:
+			{
+				system("CLS");
+                contentAfterLiberation();
+			}break;
+
+			}
+		} break;
+
+		case ESCAPE:
+		{
+			system("CLS");
+			menuInput();
+		}
+		}
+	} while (true);
+	return 1;
+}
+

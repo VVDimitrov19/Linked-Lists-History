@@ -19,9 +19,59 @@ using namespace std;
 
 
 
-
+// Global variable for element 'y' coordinates
 int counterPrint = 11;
-void print(Node* head)
+
+// Function for linked list's content
+void contentFirstBulgarianEmpire()
+{
+    Node* Head = new Node;
+    Node* Second = new Node;
+    Head->data = 681;
+    Head->name = "Khan Asparukh";
+    Head->next = Second;
+    Second->data = 700;
+    Second->name = "Khan Tervel";
+    Second->next = NULL;
+
+    printYearFirst(Head);
+    contentMenuInputYearFirst(Head);
+}
+
+// Function for linked list's content
+void contentSecondBulgarianEmpire()
+{
+    Node* Head = new Node;
+    Node* Second = new Node;
+    Head->data = 1185;
+    Head->name = "(Teodor)Petar and (Ivan)Asen";
+    Head->next = Second;
+    Second->data = 1197;
+    Second->name = "Tsar Kaloyan";
+    Second->next = NULL;
+
+    printYearFirst(Head);
+    contentMenuInputYearFirst(Head);
+}
+
+// Function for linked list's content
+void contentAfterLiberation()
+{
+    Node* Head = new Node;
+    Node* Second = new Node;
+    Head->data = 1879;
+    Head->name = "Prince Alexander Battenberg";
+    Head->next = Second;
+    Second->data = 1887;
+    Second->name = "Prince Ferdinand I";
+    Second->next = NULL;
+
+    printYearFirst(Head);
+    contentMenuInputYearFirst(Head);
+}
+
+// Function for printing the linked list elements
+void printYearFirst(Node* head)
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
     while (head != NULL)
@@ -33,6 +83,26 @@ void print(Node* head)
     }
 }
 
+// Function for printing the linked list elements 
+void printNameFirst(Node* head)
+{
+    while (head != NULL)
+    {
+        consoleCoordinates(40, counterPrint);
+        string name = head->name;
+        for (size_t i = 0; i < name.length(); i++)
+        {
+            if (name[i] == '\n')break;
+            cout << name[i];
+        }
+        cout << " - " << head->data << endl;
+        head = head->next;
+        counterPrint++;
+    }
+    return;
+}
+
+// Function for inserting an element in the linked list
 void beginInsert(Node** head, int data, string name)
 {
     Node* newNode = new Node();
@@ -43,6 +113,7 @@ void beginInsert(Node** head, int data, string name)
 
 }
 
+// Function for inserting an element in the linked list
 void endInsert(Node** head, int data, string name)
 {
     Node* newNode = new Node();
@@ -63,197 +134,34 @@ void endInsert(Node** head, int data, string name)
     return;
 }
 
-void choosingInsertBegin(Node* Head)
+// Function for searching the year before inserting an element in the linked list
+void insertNodeAfterYear(Node* head, int data)
 {
-    title();
-    leftBorder();
-    rightBorder();
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-    consoleCoordinates(35, 10);
-    cout << "CHOOSE YEAR:\n";
-    consoleCoordinates(35, 11);
-    int year;
-    cin >> year;
-    cin.ignore();
-    consoleCoordinates(35, 12);
-    cout << "CHOOSE NAME:\n";
-    char name[100];
-    consoleCoordinates(35, 13);
-    fgets(name, 100, stdin);
-    system("CLS");
-    beginInsert(&Head, year, name);
-    counterPrint = 11;
-    print(Head);
-    contentMenuInput(Head);
-}
-
-void choosingInsertEnd(Node* Head)
-{
-    title();
-    leftBorder();
-    rightBorder();
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-    consoleCoordinates(35, 10);
-    cout << "CHOOSE YEAR:\n";
-    consoleCoordinates(35, 11);
-    int year;
-    cin >> year;
-    cin.ignore();
-    consoleCoordinates(35, 12);
-    cout << "CHOOSE NAME:\n";
-    char name[100];
-    consoleCoordinates(35, 13);
-    fgets(name, 100, stdin);
-    consoleCoordinates(35, 12);
-    system("CLS");
-    endInsert(&Head, year, name);
-    counterPrint = 11;
-    print(Head);
-    contentMenuInput(Head);
-}
-
-void contentFirstBulgarianEmpire()
-{
-    Node* Head = new Node;
-    Node* Second = new Node;
-    Head->data = 681;
-    Head->name = "Khan Asparukh";
-    Head->next = Second;
-    Second->data = 700;
-    Second->name = "Khan Tervel";
-    Second->next = NULL;
-
-    print(Head);
-    contentMenuInput(Head);
-}
-
-void contentSecondBulgarianEmpire()
-{
-    Node* Head = new Node;
-    Node* Second = new Node;
-    Head->data = 1185;
-    Head->name = "(Teodor)Petar and (Ivan)Asen";
-    Head->next = Second;
-    Second->data = 1197;
-    Second->name = "Tsar Kaloyan";
-    Second->next = NULL;
-
-    print(Head);
-    contentMenuInput(Head);
-}
-
-void contentAfterLiberation()
-{
-    Node* Head = new Node;
-    Node* Second = new Node;
-    Head->data = 1879;
-    Head->name = "Prince Alexander Battenberg";
-    Head->next = Second;
-    Second->data = 1887;
-    Second->name = "Prince Ferdinand I";
-    Second->next = NULL;
-
-    print(Head);
-    contentMenuInput(Head);
-}
-
-void choosingYearSearch(Node* Head)
-{
-    title();
-    leftBorder();
-    rightBorder();
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-    consoleCoordinates(35, 10);
-    cout << "CHOOSE YEAR TO SEARCH:\n";
-    consoleCoordinates(35, 11);
-    int year;
-    cin >> year;
-    findNodeByYear(Head, year);
-}
-
-void choosingNameSearch(Node* Head)
-{
-    title();
-    leftBorder();
-    rightBorder();
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-    consoleCoordinates(35, 10);
-    cout << "CHOOSE NAME TO SEARCH:\n";
-    consoleCoordinates(35, 11);
-    string name;
-    getline(cin, name);
-    findNodeByName(Head, name);
-}
-
-bool searchChoice(Node* Head)
-{
-    int counter = 10;
-    searchMenu();
-    title();
-    leftBorder();
-    rightBorder();
-    consoleCoordinates(31, 10);
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-    cout << "-->";
-    do
-    {
-        switch (_getch())
-        {
-            // Arrow up
-        case KEY_UP:
-        {
-            if (counter == 10)counter = 14;
-            counter -= 2;
-            system("CLS");
-            consoleCoordinates(31, counter);
-            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-            cout << "-->";
-            searchMenu();
-            title();
-            leftBorder();
-            rightBorder();
-        }break;
-        case KEY_DOWN:
-        {
-            if (counter == 12)counter = 8;
-            counter += 2;
-            system("CLS");
-            consoleCoordinates(31, counter);
-            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-            cout << "-->";
-            searchMenu();
-            title();
-            leftBorder();
-            rightBorder();
-        }break;
-        case ENTER:
-        {
-            if (counter == 10)
-            {
-                system("CLS");
-                title();
-                leftBorder();
-                rightBorder();
-                choosingYearSearch(Head);
-            }
-            else if (counter == 12)
-            {
-                system("CLS");
-                title();
-                leftBorder();
-                rightBorder();
-                choosingNameSearch(Head);
-            }
-        }break;
-        case ESCAPE:
-        {
-            system("CLS");
-            contentMenuInput(Head);
+    Node* temp = head;
+    while (temp != NULL) {
+        if (temp->data == data) {
+            choosingInsertAfterNode(temp, head);
         }
-        }
-    } while (true);
-    return 1;
+        temp = temp->next;
+
+    }
+
+    return;
 }
+
+// Function for inserting an element in the linked list
+void insertAfterNode(Node* temp, Node* head, int year, string name)
+{
+    Node* newNode = new Node;
+    newNode->data = year;
+    newNode->name = name;
+    newNode->next = temp->next;
+    temp->next = newNode;
+    counterPrint = 11;
+    printYearFirst(head);
+    contentMenuInputYearFirst(head);
+}
+// Function for searching an element in the linked list
 void findNodeByYear(Node* head, int data) {
     int index = 11;
     Node* temp = head;
@@ -264,8 +172,8 @@ void findNodeByYear(Node* head, int data) {
             title();
             rightBorder();
             counterPrint = 11;
-            print(head);
-            choosing(index);
+            printYearFirst(head);
+            arrow(index);
         }
 
         temp = temp->next;
@@ -275,11 +183,13 @@ void findNodeByYear(Node* head, int data) {
     {
     case ESCAPE:
     {
-        contentMenuInput(head);
+        contentMenuInputYearFirst(head);
     }break;
     }
     return;
 }
+
+// Function for searching an element in the linked list
 void findNodeByName(Node* head, string name)
 {
     int index = 11;
@@ -291,8 +201,8 @@ void findNodeByName(Node* head, string name)
             title();
             rightBorder();
             counterPrint = 11;
-            print(head);
-            choosing(index);
+            printYearFirst(head);
+            arrow(index);
         }
         temp = temp->next;
         index++;
@@ -301,11 +211,13 @@ void findNodeByName(Node* head, string name)
     {
     case ESCAPE:
     {
-        contentMenuInput(head);
+        contentMenuInputYearFirst(head);
     }break;
     }
     return;
 }
+
+// Function for deleting an element in the linked list
 void deleteNode(Node** head, int key)
 {
     Node* temp = *head;
@@ -335,6 +247,7 @@ void deleteNode(Node** head, int key)
     }
 }
 
+// Function for editing an element in the linked list
 void editNode(Node* head, int data)
 {
     Node* temp = head;
@@ -365,7 +278,90 @@ void editNode(Node* head, int data)
 
     return;
 }
-void editNodeInput(Node* Head)
+
+// Function for selecting the necessary variables with which the following function will work
+void choosingInsertBegin(Node* Head)
+{
+    title();
+    leftBorder();
+    rightBorder();
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    consoleCoordinates(35, 10);
+    cout << "CHOOSE YEAR:\n";
+    consoleCoordinates(35, 11);
+    int year;
+    cin >> year;
+    cin.ignore();
+    consoleCoordinates(35, 12);
+    cout << "CHOOSE NAME:\n";
+    char name[100];
+    consoleCoordinates(35, 13);
+    fgets(name, 100, stdin);
+    system("CLS");
+    beginInsert(&Head, year, name);
+    counterPrint = 11;
+    printYearFirst(Head);
+    contentMenuInputYearFirst(Head);
+}
+
+// Function for selecting the necessary variables with which the following function will work
+void choosingInsertEnd(Node* Head)
+{
+    title();
+    leftBorder();
+    rightBorder();
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    consoleCoordinates(35, 10);
+    cout << "CHOOSE YEAR:\n";
+    consoleCoordinates(35, 11);
+    int year;
+    cin >> year;
+    cin.ignore();
+    consoleCoordinates(35, 12);
+    cout << "CHOOSE NAME:\n";
+    char name[100];
+    consoleCoordinates(35, 13);
+    fgets(name, 100, stdin);
+    consoleCoordinates(35, 12);
+    system("CLS");
+    endInsert(&Head, year, name);
+    counterPrint = 11;
+    printYearFirst(Head);
+    contentMenuInputYearFirst(Head);
+}
+
+// Function for selecting the necessary variables with which the following function will work
+void choosingYearSearch(Node* Head)
+{
+    title();
+    leftBorder();
+    rightBorder();
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    consoleCoordinates(35, 10);
+    cout << "CHOOSE YEAR TO SEARCH:\n";
+    consoleCoordinates(35, 11);
+    int year;
+    cin >> year;
+    findNodeByYear(Head, year);
+}
+
+// Function for selecting the necessary variables with which the following function will work
+void choosingNameSearch(Node* Head)
+{
+    title();
+    leftBorder();
+    rightBorder();
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    consoleCoordinates(35, 10);
+    cout << "CHOOSE NAME TO SEARCH:\n";
+    consoleCoordinates(35, 11);
+    string name;
+    getline(cin, name);
+    findNodeByName(Head, name);
+}
+
+// Function for selecting the necessary variables with which the following function will work
+void choosingEditElement(Node* Head)
 {
     system("CLS");
     title();
@@ -379,48 +375,389 @@ void editNodeInput(Node* Head)
     cin >> year;
     editNode(Head, year);
 }
-void insertNodeAfterYear(Node* head, int data)
+
+// Function for selecting the necessary variables with which the following function will work
+void choosingInsertAfterNode(Node* temp, Node* head)
 {
-    Node* temp = head;
-    while (temp != NULL) {
-        if (temp->data == data) {
-            insertAfterNode(temp, head);
-        }
-        temp = temp->next;
-
-    }
-
-    return;
+    system("CLS");
+    title();
+    leftBorder();
+    rightBorder();
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    consoleCoordinates(35, 10);
+    cout << "CHOOSE YEAR:\n";
+    consoleCoordinates(35, 11);
+    int year;
+    cin >> year;
+    cin.ignore();
+    consoleCoordinates(35, 12);
+    cout << "CHOOSE NAME:\n";
+    char name[100];
+    consoleCoordinates(35, 13);
+    fgets(name, 100, stdin);
+    insertAfterNode(temp, head, year, name);
 }
 
-void insertAfterNode(Node* temp, Node* head)
- {
-     system("CLS");
-     title();
-     leftBorder();
-     rightBorder();
-     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-     consoleCoordinates(35, 10);
-     cout << "CHOOSE YEAR:\n";
-     consoleCoordinates(35, 11);
-     int year;
-     cin >> year;
-     cin.ignore();
-     consoleCoordinates(35, 12);
-     cout << "CHOOSE NAME:\n";
-     char name[100];
-     consoleCoordinates(35, 13);
-     fgets(name, 100, stdin);
-     Node* newNode = new Node;
-     newNode->data = year;
-     newNode->name = name;
-     newNode->next = temp->next;
-     temp->next = newNode;
-     counterPrint = 11;
-     print(head);
-     contentMenuInput(head);
- }
+// Function for going around the menu when the user view the monarch's reign year first
+bool contentMenuInputYearFirst(Node* Head)
+{
+    system("CLS");
+    int counter = 11;
+    arrow(counter);
+    title();
+    counterPrint = 11;
+    printYearFirst(Head);
+    askInput();
+    leftBorder();
+    rightBorder();
+    do
+    {
+        switch (_getch())
+        {
 
+        case KEY_UP:
+        {
+            if (counter == 11) counter = counterPrint;
+            counter--;
+            system("CLS");
+            arrow(counter);
+            counterPrint = 11;
+            printYearFirst(Head);
+            title();
+            askInput();
+            leftBorder();
+            rightBorder();
+        } break;
+
+        case KEY_DOWN:
+        {
+            if (counter == counterPrint - 1) {
+                counter = 10;
+            }
+            counter++;
+            system("CLS");
+            arrow(counter);
+            counterPrint = 11;
+            printYearFirst(Head);
+            title();
+            askInput();
+            leftBorder();
+            rightBorder();
+        } break;
+
+        case CTRL_KEYPRESS('h'):
+        {
+            system("CLS");
+            title();
+            leftBorder();
+            rightBorder();
+            settingsInput(Head);
+        }break;
+
+        case CTRL_KEYPRESS('q'):
+        {
+            startQuiz();
+        }break;
+
+        case ESCAPE:
+        {
+            system("CLS");
+            choosingMenuInput();
+        }
+        }
+    } while (true);
+    return 1;
+}
+
+// Function for going around the menu when the user view the monarch's name first
+bool contentMenuInputNameFirst(Node* Head)
+{
+    system("CLS");
+    int counter = 11;
+    arrow(counter);
+    counterPrint = 11;
+    printNameFirst(Head);
+    title();
+    askInput();
+    leftBorder();
+    rightBorder();
+    do
+    {
+        switch (_getch())
+        {
+
+        case KEY_UP:
+        {
+            if (counter == 11) counter = counterPrint;
+            counter--;
+            system("CLS");
+            arrow(counter);
+            counterPrint = 11;
+            printNameFirst(Head);
+            title();
+            askInput();
+            leftBorder();
+            rightBorder();
+        } break;
+
+        case KEY_DOWN:
+        {
+            if (counter == counterPrint - 1) {
+                counter = 10;
+            }
+            counter++;
+            system("CLS");
+            arrow(counter);
+            counterPrint = 11;
+            printNameFirst(Head);
+            title();
+            askInput();
+            leftBorder();
+            rightBorder();
+        } break;
+
+        case CTRL_KEYPRESS('h'):
+        {
+            system("CLS");
+            title();
+            leftBorder();
+            rightBorder();
+            settingsInput(Head);
+        }
+
+        }
+    } while (true);
+    return 1;
+}
+
+// Function for going around the menu
+bool insertChoice(Node* Head)
+{
+    int counter = 10;
+    insertMenu();
+    title();
+    leftBorder();
+    rightBorder();
+    consoleCoordinates(31, 10);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    cout << "-->";
+    do
+    {
+        switch (_getch())
+        {
+
+        case KEY_UP:
+        {
+            if (counter == 10)counter = 16;
+            counter -= 2;
+            system("CLS");
+            consoleCoordinates(31, counter);
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+            cout << "-->";
+            insertMenu();
+            title();
+            leftBorder();
+            rightBorder();
+        }break;
+
+        case KEY_DOWN:
+        {
+            if (counter == 14)counter = 8;
+            counter += 2;
+            system("CLS");
+            consoleCoordinates(31, counter);
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+            cout << "-->";
+            insertMenu();
+            title();
+            leftBorder();
+            rightBorder();
+        }break;
+
+        case ENTER:
+        {
+            if (counter == 10)
+            {
+                system("CLS");
+                choosingInsertBegin(Head);
+            }
+
+            else if (counter == 12)
+            {
+                system("CLS");
+                choosingInsertEnd(Head);
+            }
+
+            else if (counter == 14)
+            {
+                system("CLS");
+                leftBorder();
+                title();
+                rightBorder();
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+                consoleCoordinates(35, 10);
+                cout << "CHOOSE THE YEAR YOU INSERT MONARCH AFTER";
+                consoleCoordinates(35, 11);
+                int year;
+                cin >> year;
+                insertNodeAfterYear(Head, year);
+            }
+        }break;
+
+        case ESCAPE:
+        {
+            system("CLS");
+            contentMenuInputYearFirst(Head);
+        }
+        }
+    } while (true);
+    return 1;
+}
+
+// Function for going around the menu
+bool searchChoice(Node* Head)
+{
+    int counter = 10;
+    searchMenu();
+    title();
+    leftBorder();
+    rightBorder();
+    consoleCoordinates(31, 10);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    cout << "-->";
+    do
+    {
+        switch (_getch())
+        {
+
+        case KEY_UP:
+        {
+            if (counter == 10)counter = 14;
+            counter -= 2;
+            system("CLS");
+            consoleCoordinates(31, counter);
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+            cout << "-->";
+            searchMenu();
+            title();
+            leftBorder();
+            rightBorder();
+        }break;
+
+        case KEY_DOWN:
+        {
+            if (counter == 12)counter = 8;
+            counter += 2;
+            system("CLS");
+            consoleCoordinates(31, counter);
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+            cout << "-->";
+            searchMenu();
+            title();
+            leftBorder();
+            rightBorder();
+        }break;
+
+        case ENTER:
+        {
+            if (counter == 10)
+            {
+                system("CLS");
+                title();
+                leftBorder();
+                rightBorder();
+                choosingYearSearch(Head);
+            }
+            else if (counter == 12)
+            {
+                system("CLS");
+                title();
+                leftBorder();
+                rightBorder();
+                choosingNameSearch(Head);
+            }
+        }break;
+
+        case ESCAPE:
+        {
+            system("CLS");
+            contentMenuInputYearFirst(Head);
+        }
+        }
+    } while (true);
+    return 1;
+}
+
+// Function for going around the menu
+bool orderChoice(Node* Head)
+{
+    int counter = 10;
+    orderMenu();
+    title();
+    leftBorder();
+    rightBorder();
+    consoleCoordinates(31, 10);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    cout << "-->";
+    do
+    {
+        switch (_getch())
+        {
+
+        case KEY_UP:
+        {
+            if (counter == 10)counter = 14;
+            counter -= 2;
+            system("CLS");
+            consoleCoordinates(31, counter);
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+            cout << "-->";
+            orderMenu();
+            title();
+            leftBorder();
+            rightBorder();
+        }break;
+
+        case KEY_DOWN:
+        {
+            if (counter == 14)counter = 8;
+            counter += 2;
+            system("CLS");
+            consoleCoordinates(31, counter);
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+            cout << "-->";
+            orderMenu();
+            title();
+            leftBorder();
+            rightBorder();
+        }break;
+
+        case ENTER:
+        {
+            if (counter == 10)
+            {
+                system("CLS");
+                contentMenuInputYearFirst(Head);
+            }
+            else if (counter == 12)
+            {
+                system("CLS");
+                contentMenuInputNameFirst(Head);
+            }
+        }break;
+
+        case ESCAPE:
+        {
+            system("CLS");
+            settingsInput(Head);
+        }
+        }
+    } while (true);
+    return 1;
+}
+
+
+// Function for the quiz
 void startQuiz() {
     system("CLS");
 
@@ -513,193 +850,3 @@ void startQuiz() {
 
 }
 
-bool contentMenuInput(Node* Head)
-{
-    system("CLS");
-    int counter = 11;
-    choosing(counter);
-    title();
-    counterPrint = 11;
-    print(Head);
-    askInput();
-    leftBorder();
-    rightBorder();
-    do
-    {
-        // Switch case for switching around the main menu
-        switch (_getch())
-        {
-            // Arrow up
-        case KEY_UP:
-        {
-            if (counter == 11) counter = counterPrint;
-            counter--;
-            system("CLS");
-            choosing(counter);
-            counterPrint = 11;
-            print(Head);
-            title();
-            askInput();
-            leftBorder();
-            rightBorder();
-        } break;
-        // Arrow down
-        case KEY_DOWN:
-        {
-            if (counter == counterPrint - 1) {
-                counter = 10;
-            }
-            counter++;
-            system("CLS");
-            choosing(counter);
-            counterPrint = 11;
-            print(Head);
-            title();
-            askInput();
-            leftBorder();
-            rightBorder();
-        } break;
-        case CTRL_KEYPRESS('i'):
-        {
-            //cin.ignore();
-            system("CLS");
-            title();
-            leftBorder();
-            rightBorder();
-            insertChoice(Head);
-            if (ESCAPE)contentMenuInput(Head);
-        }break;
-        case CTRL_KEYPRESS('s'):
-        {
-            system("CLS");
-            title();
-            leftBorder();
-            rightBorder();
-            searchChoice(Head);
-            if (ESCAPE)contentMenuInput(Head);
-        }break;
-        case CTRL_KEYPRESS('d'):
-        {
-            system("CLS");
-            title();
-            leftBorder();
-            rightBorder();
-            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-            consoleCoordinates(35, 10);
-            cout << "CHOOSE YEAR TO DELETE THE MONARCH:";
-            consoleCoordinates(35, 11);
-            int year;
-            cin >> year;
-            deleteNode(&Head, year);
-            if (ESCAPE)contentMenuInput(Head);
-            system("CLS");
-            title();
-            leftBorder();
-            rightBorder();
-            contentMenuInput(Head);
-        }break;
-        case CTRL_KEYPRESS('e'):
-        {
-            editNodeInput(Head);
-            system("CLS");
-            title();
-            leftBorder();
-            rightBorder();
-            contentMenuInput(Head);
-        }break;
-
-        case CTRL_KEYPRESS('q'):
-        {
-            startQuiz();
-
-        }break;
-
-
-        case ESCAPE:
-        {
-            system("CLS");
-            choosingMenuInput();
-        }
-        }
-    } while (true);
-    return 1;
-}
-
-
-bool insertChoice(Node* Head)
-{
-    int counter = 10;
-    insertMenu();
-    title();
-    leftBorder();
-    rightBorder();
-    consoleCoordinates(31, 10);
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-    cout << "-->";
-    do
-    {
-        switch (_getch())
-        {
-            // Arrow up
-        case KEY_UP:
-        {
-            if (counter == 10)counter = 16;
-            counter -= 2;
-            system("CLS");
-            consoleCoordinates(31, counter);
-            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-            cout << "-->";
-            insertMenu();
-            title();
-            leftBorder();
-            rightBorder();
-        }break;
-        case KEY_DOWN:
-        {
-            if (counter == 14)counter = 8;
-            counter += 2;
-            system("CLS");
-            consoleCoordinates(31, counter);
-            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-            cout << "-->";
-            insertMenu();
-            title();
-            leftBorder();
-            rightBorder();
-        }break;
-        case ENTER:
-        {
-            if (counter == 10)
-            {
-                system("CLS");
-                choosingInsertBegin(Head);
-            }
-            else if (counter == 12)
-            {
-                system("CLS");
-                choosingInsertEnd(Head);
-            }
-            else if (counter == 14)
-            {
-                system("CLS");
-                leftBorder();
-                title();
-                rightBorder();
-                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-                consoleCoordinates(35, 10);
-                cout << "CHOOSE THE YEAR YOU INSERT MONARCH AFTER";
-                consoleCoordinates(35, 11);
-                int year;
-                cin >> year;
-                insertNodeAfterYear(Head, year);
-            }
-        }break;
-        case ESCAPE:
-        {
-            system("CLS");
-            contentMenuInput(Head);
-        }
-        }
-    } while (true);
-    return 1;
-}
