@@ -579,29 +579,32 @@ char xorFunc(char num1, char num2)
 string decToGray(int num)
 {
     int bin;
-    string reverseBin;
+    string binary;
     int counter = 0;
     while (num != 0) {
         bin = (num % 10) % 2;
-        reverseBin += to_string(bin);
+        binary += to_string(bin);
+
         num /= 2;
         counter++;
     }
-    string binary;
-    while (counter >= 0)
-    {
-        binary += reverseBin[counter];
-        counter--;
+
+    int length = binary.length();
+    for (int i = 0; i < length / 2; i++)  swap(binary[i], binary[length - i - 1]);
+    char gray[20];
+
+    gray[0] = binary[0];
+
+    for (int i = 1; i < length; i++) {
+        gray[i] = xorFunc(binary[i - 1], binary[i]);
     }
 
-    string gray = "";
-
-    gray += binary[0];
-
-    for (int i = 1; i < binary.length(); i++) {
-        gray += xorFunc(binary[i - 1], binary[i]);
+    string result;
+    for (int i = 0; i < length; i++) {
+        result += gray[i];
     }
-    return gray;
+
+    return result;
 }
 
 // Function for selecting the necessary variables with which the following function will work
