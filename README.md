@@ -47,3 +47,14 @@
 <hr>
 <p><b> ✨ There are also some interesting functions such as entering, editing, searching, sorting, arranging monarchs. You can also enter a year and see which monarch ruled through it. And the most important - don't forget to view our quiz as well. ✨ </b></p>
 <hr>
+
+<h1 align="center"><i>Installation</i></h1>
+<h3><i>1. Open the Command Prompt on your computer</i></h3>
+<h3><i>2. Clone the repo</i></h3>
+
+```
+git clone https://github.com/VVDimitrov19/Linked-Lists-History.git
+
+```
+
+<h1 align = "center"><b><i>:dizzy: Hope you have fun!!! :dizzy:</i></b></h1>
