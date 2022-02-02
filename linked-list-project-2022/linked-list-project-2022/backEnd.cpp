@@ -1462,6 +1462,7 @@ bool quizChoice() {
                 leftBorder();
                 title();
                 rightBorder();
+                startQuizSecondBgEmpire(1);
             }
         }break;
 
@@ -1594,7 +1595,7 @@ void startQuizFirstBgEmpire(int id) {
             case 'n':
             {
                 int number = Head->startReignYear;
-                hint(number, id);
+                hintFirstBgEmpire(number, id);
             }break;
             case 's':
             {
@@ -1631,4 +1632,170 @@ consoleCoordinates(44, 15);
  cout << "Skipped : " << skipped << endl;
  consoleCoordinates(33, 18);
  cout << "------------------------------";
+
+ switch (_getch())
+ {
+ case ESCAPE:
+ {
+     system("CLS");
+     choosingMenuInput();
+ }
+ }
+}
+
+// Function for the quiz
+void startQuizSecondBgEmpire(int id)
+{
+    system("CLS");
+
+    Node* Head = new Node;
+    Node* Second = new Node;
+    Node* Third = new Node;
+    Node* Fourth = new Node;
+    Node* Fifth = new Node;
+    Node* Sixth = new Node;
+    Node* Seventh = new Node;
+
+    Head->id = 1;
+    Head->startReignYear = 1185;
+    Head->endReignYear = 1197;
+    Head->name = "(Teodor)Petar and (Ivan)Asen";
+    Head->information = "Peter was crowned emperor 1185. Asen became his brother's co-ruler in 1187.";
+    Head->next = Second;
+
+    Second->id = 2;
+    Second->startReignYear = 1197;
+    Second->endReignYear = 1207;
+    Second->name = "Tsar Kaloyan";
+    Second->information = "He was a younger brother of Theodor and Asen who led the anti-Byzantine uprising";
+    Second->next = Third;
+
+    Third->id = 3;
+    Third->startReignYear = 1207;
+    Third->endReignYear = 1218;
+    Third->name = "Boril";
+    Third->information = "Launched unsuccessful military campaigns the first years of his reign.";
+    Third->next = Fourth;
+
+    Fourth->id = 4;
+    Fourth->startReignYear = 1218;
+    Fourth->endReignYear = 1241;
+    Fourth->name = "Ivan Asen II";
+    Fourth->information = "Ivan Asen I was one of the two leaders of the great uprising of the Bulgarians and Vlachs\n     against the Byzantine Empire in 1185.";
+    Fourth->next = Fifth;
+
+    Fifth->id = 5;
+    Fifth->startReignYear = 1331;
+    Fifth->endReignYear = 1371;
+    Fifth->name = "Ivan Aleksandur";
+    Fifth->information = "The long reign of Alexander is considered a transitional period in Bulgarian medieval history.";
+    Fifth->next = Sixth;
+
+    Sixth->id = 6;
+    Sixth->startReignYear = 1323;
+    Sixth->endReignYear = 1330;
+    Sixth->name = "Mihail III Shishman";
+    Sixth->information = "He was the founder of the last ruling dynasty of the Second Bulgarian Empire";
+    Sixth->next = Seventh;
+
+    Seventh->id = 7;
+    Seventh->startReignYear = 1356;
+    Seventh->endReignYear = 1396;
+    Seventh->name = "Ivan Sratsimir";
+    Seventh->information = "Ivan Sratsimir was disinherited in favour of his half-brother Ivan Shishman and proclaimed\n     himself emperor in Vidin.";
+    Seventh->next = NULL;
+
+    int correct = 0;
+    int incorrect = 0;
+    int skipped = 0;
+
+    while (Head != NULL)
+    {
+        system("CLS");
+        leftBorder();
+        title();
+        rightBorder();
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+        consoleCoordinates(28, 11);
+
+        if (Head->id == id)
+        {
+            cout << "When does " << Head->name << " rule?" << endl;
+            id++;
+            consoleCoordinates(28, 13);
+            cout << "Do you know the answer? y/n or s for skip";
+            consoleCoordinates(28, 14);
+            char choice;
+            cin >> choice;
+
+            switch (choice)
+            {
+            case 'y':
+            {
+
+                consoleCoordinates(28, 16);
+                cout << "CHOOSE START REIGN YEAR";
+                consoleCoordinates(28, 17);
+                int startReignYear;
+                cin >> startReignYear;
+
+                consoleCoordinates(28, 18);
+                cout << "CHOOSE END REIGN YEAR";
+                consoleCoordinates(28, 19);
+                int endReignYear;
+                cin >> endReignYear;
+
+                if (Head->startReignYear == startReignYear && Head->endReignYear == endReignYear) correct++;
+                else incorrect++;
+
+                Head = Head->next;
+            }break;
+            case 'n':
+            {
+                int number = Head->startReignYear;
+                hintSecondBgEmpire(number, id);
+            }break;
+            case 's':
+            {
+                Head = Head->next;
+                skipped++;
+            }break;
+            }
+        }
+        else Head = Head->next;
+
+    }
+
+    system("CLS");
+    title();
+    leftBorder();
+    rightBorder();
+
+    //----- Printing Result -----
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    consoleCoordinates(33, 11);
+    cout << "======= ======= ======= ======= " << endl;
+    consoleCoordinates(33, 12);
+    cout << "=======      Result     ======= " << endl;
+    consoleCoordinates(33, 13);
+    cout << "======= ======= ======= ======= " << endl;
+    consoleCoordinates(33, 14);
+    cout << "------------------------------" << endl;
+    consoleCoordinates(44, 15);
+    cout << "Correct : " << correct << endl;
+    consoleCoordinates(44, 16);
+    cout << "Incorrect : " << incorrect << endl;
+    consoleCoordinates(44, 17);
+    cout << "Skipped : " << skipped << endl;
+    consoleCoordinates(33, 18);
+    cout << "------------------------------";
+
+    switch (_getch())
+    {
+    case ESCAPE:
+    {
+        system("CLS");
+        choosingMenuInput();
+    }
+    }
 }

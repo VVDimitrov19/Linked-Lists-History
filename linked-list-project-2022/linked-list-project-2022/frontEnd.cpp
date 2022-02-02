@@ -1141,7 +1141,7 @@ void arrow(int counter)
 }
 
 // Function for explaining how to convert from gray to decimal number
-void explanationConvert(int id)
+void explanationConvertFirstBgEmpire(int id)
 {
     system("CLS");
     leftBorder();
@@ -1213,8 +1213,80 @@ void explanationConvert(int id)
     }
 }
 
-// Function for givint hint if the user doesn't know what is the start reign year
-void hint(int number, int id)
+// Function for explaining how to convert from gray to decimal number
+void explanationConvertSecondBgEmpire(int id)
+{
+    system("CLS");
+    leftBorder();
+    title();
+    rightBorder();
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    consoleCoordinates(5, 10);
+    cout << "You have to convert from gray to binary number.\n";
+    consoleCoordinates(5, 12);
+    cout << "Look at this example\n";
+    consoleCoordinates(5, 13);
+    cout << "Example:\n";
+    consoleCoordinates(5, 14);
+    cout << "Gray number - 0110\n";
+    consoleCoordinates(5, 16);
+    cout << "Firstly, write down the MSB (the first digit). In this case it is 0.\n";
+    consoleCoordinates(5, 17);
+    cout << "Then you should compare the binary last written digit with the next in order Gray digit. \n ";
+    consoleCoordinates(5, 19);
+    cout << "Look! Now we have:\n";
+    consoleCoordinates(5, 20);
+    cout << "Gray Number: 0110\n";
+    consoleCoordinates(5, 21);
+    cout << "Binary Number: 0 - for now\n";
+    consoleCoordinates(5, 23);
+    cout << "We compare the 0 (the last written digin in bin) with 1 (the next in order gray number).\n";
+    consoleCoordinates(5, 24);
+    cout << "If they are equal, the next binary digit should be 0, otherwise it should be 1\n";
+    consoleCoordinates(5, 26);
+    cout << "So that means that the next binary digit is 1\n";
+    consoleCoordinates(5, 27);
+    cout << "Gray Number: 0110\n";
+    consoleCoordinates(5, 28);
+    cout << "Binary Number: 01 - for now\n";
+    consoleCoordinates(5, 30);
+    cout << "Then you should compare the second binary digit with the third gray digit.";
+    consoleCoordinates(5, 31);
+    cout << "You should do it to the end.";
+    consoleCoordinates(5, 32);
+    cout << "That means that gray number in binary number is:";
+    consoleCoordinates(5, 33);
+    cout << "Gray Number: 0110\n";
+    consoleCoordinates(5, 34);
+    cout << "Binary Number: 0100\n";
+    consoleCoordinates(5, 37);
+    cout << "Then you should convert the binary number in decimal number\n";
+    consoleCoordinates(5, 38);
+    cout << "Binary Number: 0100\n";
+    consoleCoordinates(5, 39);
+    cout << "In this conversion we look the binary number from right to left and put indexes on its digits";
+    consoleCoordinates(5, 40);
+    cout << "starting from 0 upwards.\n";
+    consoleCoordinates(5, 41);
+    cout << "After that there is a formula: 0*pow(2, index) + 1*pow(2,index) and etc...\n";
+    consoleCoordinates(5, 42);
+    cout << "So the formula for out given binary number is:";
+    consoleCoordinates(5, 43);
+    cout << "0 * pow(2, 3) + 1 * pow(2, 2) + 0 * pow(2, 1) + 0 * pow(2, 0) = 4";
+    consoleCoordinates(5, 44);
+    cout << "So the first digit of the monarch's start reign year is 4";
+
+    switch (_getch())
+    {
+    case ESCAPE:
+    {
+        system("CLS");
+        startQuizSecondBgEmpire(id - 1);
+    }
+    }
+}
+// Function for giving hint if the user doesn't know what is the start reign year
+void hintFirstBgEmpire(int number, int id)
 {
     system("CLS");
     rightBorder();
@@ -1244,13 +1316,52 @@ void hint(int number, int id)
     cin >> choice;
     if (choice == 'N' || choice == 'n')
     {
-        explanationConvert(id);
+        explanationConvertFirstBgEmpire(id);
     }
     else if (choice == 'Y' || choice == 'y')
     {
         startQuizFirstBgEmpire(id - 1);
     }
 
+}
+
+// Function for giving hint if the user doesn't know what is the start reign year
+void hintSecondBgEmpire(int number, int id)
+{
+    system("CLS");
+    rightBorder();
+    title();
+    leftBorder();
+
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    int arr[3];
+    consoleCoordinates(15, 10);
+    cout << "There is a special hint that you can use to write the right answer\n";
+    for (int i = 2; i >= 0; i--) {
+        arr[i] = number % 10;
+        number /= 10;
+    }
+    consoleCoordinates(15, 13);
+    cout << "Gray number: "  << decToGray(arr[1]) << endl;
+    consoleCoordinates(15, 14);
+    cout << "You should convert it to binary and then to decimal number to view";
+    consoleCoordinates(15, 15);
+    cout << "the second digit of the monarch's start reign year.\n";
+
+    consoleCoordinates(15, 17);
+    cout << "If you don't know how to convert it, type 'N'. If you know type 'Y'.\n";
+
+    consoleCoordinates(15, 18);
+    char choice;
+    cin >> choice;
+    if (choice == 'N' || choice == 'n')
+    {
+        explanationConvertSecondBgEmpire(id);
+    }
+    else if (choice == 'Y' || choice == 'y')
+    {
+        startQuizSecondBgEmpire(id - 1);
+    }
 }
 // Function for going around the main menu
 bool menuInput()

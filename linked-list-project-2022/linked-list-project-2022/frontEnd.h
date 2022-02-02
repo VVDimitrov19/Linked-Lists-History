@@ -41,11 +41,13 @@ void askInput();
 // Function for moving the arrow in the menus
 void arrow(int counter);
 
-// Function for explaining how to convert from gray to decimal number
-void explanationConvert(int id);
+// Functions for explaining how to convert from gray to decimal number
+void explanationConvertFirstBgEmpire(int id);
+void explanationConvertSecondBgEmpire(int id);
 
-// Function for givint hint if the user doesn't know what is the start reign year
-void hint(int number, int id);
+// Functions for giving hint if the user doesn't know what is the start reign year
+void hintFirstBgEmpire(int number, int id);
+void hintSecondBgEmpire(int number, int id);
 
 // Functions for viewing the options for different linked list's functions
 void viewInfoMenu();

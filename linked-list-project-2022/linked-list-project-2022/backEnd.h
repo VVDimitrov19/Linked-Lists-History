@@ -76,6 +76,7 @@ bool quizChoice();
 // Function for viewing and choosing options 
 void settingsInput(Node* Head);
 
-// Function for the quiz
+// Functions for the quiz
 void startQuizFirstBgEmpire(int id);
+void startQuizSecondBgEmpire(int id);
 
