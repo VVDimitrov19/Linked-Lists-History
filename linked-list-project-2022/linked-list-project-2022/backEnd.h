@@ -4,6 +4,7 @@
 using namespace std;
 
 struct Node {
+    int id;
     int startReignYear;
     int endReignYear;
     string name;
@@ -48,6 +49,12 @@ void sortAscending(Node* head);
 // Function for viewing which monarch had ruled in given year 
 void viewMonarch(Node* head);
 
+// Function for XOR operation 
+char xorFunc(char num1, char num2);
+
+// Function for converting from decimal number to gray number
+string decToGray(int num);
+
 // Functions for selecting the necessary variables with which the following functions will work
 void choosingInsertBegin(Node* Head);
 void choosingInsertEnd(Node* Head);
@@ -55,7 +62,6 @@ void choosingInsertAfterNode(Node* temp, Node* head);
 void choosingYearSearch(Node* Head);
 void choosingNameSearch(Node* Head);
 void choosingEditElement(Node* Head);
-
 
 // Functions for going around the different menus
 bool contentMenuInputYearFirst(Node* Head);
@@ -65,12 +71,11 @@ bool searchChoice(Node* Head);
 bool orderChoice(Node* Head);
 bool sortChoice(Node* Head);
 bool viewInfoChoice(Node* Head);
+bool quizChoice();
 
 // Function for viewing and choosing options 
 void settingsInput(Node* Head);
 
 // Function for the quiz
-void startQuiz();
-void startQuiz2();
-void chooseQuiz();
+void startQuizFirstBgEmpire(int id);
 

@@ -1,5 +1,6 @@
 #include<iostream>
 #include<string>
+#include <vector>
 #include <windows.h>
 #include <conio.h>
 
@@ -568,6 +569,41 @@ void viewMonarch(Node* head)
     return;
 }
 
+// Function for XOR operation 
+char xorFunc(char num1, char num2)
+{
+    return (num1 == num2) ? '0' : '1';
+}
+
+// Function for converting from decimal number to gray number
+string decToGray(int num)
+{
+    int bin;
+    string reverseBin;
+    int counter = 0;
+    while (num != 0) {
+        bin = (num % 10) % 2;
+        reverseBin += to_string(bin);
+        num /= 2;
+        counter++;
+    }
+    string binary;
+    while (counter >= 0)
+    {
+        binary += reverseBin[counter];
+        counter--;
+    }
+
+    string gray = "";
+
+    gray += binary[0];
+
+    for (int i = 1; i < binary.length(); i++) {
+        gray += xorFunc(binary[i - 1], binary[i]);
+    }
+    return gray;
+}
+
 // Function for selecting the necessary variables with which the following function will work
 void choosingInsertBegin(Node* Head)
 {
@@ -783,7 +819,7 @@ bool contentMenuInputYearFirst(Node* Head)
 
         case CTRL_KEYPRESS('q'):
         {
-            chooseQuiz();
+            quizChoice();
         }break;
 
         case ESCAPE:
@@ -863,7 +899,7 @@ bool contentMenuInputNameFirst(Node* Head)
 
         case CTRL_KEYPRESS('q'):
         {
-            startQuiz();
+            startQuizFirstBgEmpire(1);
         }break;
 
         case ESCAPE:
@@ -1227,7 +1263,7 @@ bool sortChoice(Node* Head)
     {
         switch (_getch())
         {
-            // Arrow up
+
         case KEY_UP:
         {
             if (counter == 10)counter = 14;
@@ -1288,6 +1324,7 @@ bool sortChoice(Node* Head)
     return 1;
 }
 
+// Function for going around the information menu
 bool viewInfoChoice(Node* Head)
 {
     int counter = 10;
@@ -1361,201 +1398,14 @@ bool viewInfoChoice(Node* Head)
     return 1;
 }
 
-// Function for the quiz
-void startQuiz() {
-    system("CLS");
-
-    string questions[8] = {
-    "When does Khan Asparukh rule?",
-    "When does Khan Tervel rule?",
-    "When does Khan Krum rule?",
-    "When does Khan Omurtag rule?",
-    "When does Presian I rule?",
-    "When does Vladimir-Rasate rule?",
-    "When does Simeon I rule?",
-    "When does Petar I rule?",
-    };
-
-    string options[8][3] = {
-    {"685-710","641-681","681-700"},
-    {"700-721","710-731","705-725"},
-    {"813-820","803-814","804-814"},
-    {"814-831","824-861","804-811"},
-    {"836 - 852","826 - 842","834 - 856"},
-     {"859-873","879-893","889-893"},
-     {"893-927","879-893","853-927"},
-     {"923-969","927-969","917-969"},
-    };
-
-    string correctOp[8] = {
-        "681-700","700-721","803-814", "814-831", "836 - 852", "889-893", "893-927", "927-969"
-    };
-
-    int userOptions[8] = { 0, 0, 0, 0, 0, 0, 0, 0 };
-    int totalQs = 8;
-
-    //----- Quiz -----
-    consoleCoordinates(33, 11);
-    for (int i = 0; i < totalQs; i++) {
-        title();
-        leftBorder();
-        rightBorder();
-        consoleCoordinates(33, 12);
-        cout << questions[i] << endl;
-        consoleCoordinates(33, 13);
-        cout << "1." << options[i][0] << endl;
-        consoleCoordinates(33, 14);
-        cout << "2." << options[i][1] << endl;
-        consoleCoordinates(33, 15);
-        cout << "3." << options[i][2] << endl;
-        consoleCoordinates(33, 16);
-        cout << "Select Option (1-3) or 0 to skip  ";
-        cin >> userOptions[i];
-        system("CLS");
-    }
-
-
-    title();
-    leftBorder();
-    rightBorder();
-
-    //----- Printing Result -----
-    cout << endl << endl;
-    consoleCoordinates(33, 11);
-    cout << "======= ======= ======= ======= " << endl;
-    consoleCoordinates(33, 12);
-    cout << "=======      Result     ======= " << endl;
-    consoleCoordinates(33, 13);
-    cout << "======= ======= ======= ======= " << endl;
-
-    int correct = 0;
-    int incorrect = 0;
-    int skipped = 0;
-    for (int i = 0; i < totalQs; i++) {
-        if (userOptions[i] != 0) {
-            if (correctOp[i] == options[i][userOptions[i] - 1]) {
-                correct++;
-            }
-            else {
-                incorrect++;
-            }
-        }
-        else {
-            skipped++;
-        }
-    }
-
-    consoleCoordinates(33, 14);
-    cout << "------------------------------" << endl;
-    consoleCoordinates(44, 15);
-    cout << "Correct : " << correct << endl;
-    consoleCoordinates(44, 16);
-    cout << "Incorrect : " << incorrect << endl;
-    consoleCoordinates(44, 17);
-    cout << "Skipped : " << skipped << endl;
-    consoleCoordinates(33, 18);
-    cout << "------------------------------";
-}
-
-
-void startQuiz2() {
-    system("CLS");
-
-    string questions[6] = {
-    "When do Petar and Asen rule?",
-    "When does Tsar Kaloyan rule?",
-    "When does Boril rule?",
-     "When does Ivan Asen II rule?",
-     "When does Ivan Aleksandur rule?",
-     "When does Mihail III Shishman rule?",
-    };
-
-    string options[6][3] = {
-    {"1145-1197","1185-1197","1175-1197"},
-    {"1137-1257","1167-1208","1197-1207"},
-    {"1207-1219","1207-1228","1207-1218"},
-    {"1218-1241","1228-1241","1228-1242"},
-    {"1331-1345","1321-1345","1331-1371"},
-     {"1324-1335","1323-1330","1326-1335"},
-    };
-
-    string correctOp[6] = {
-        "1185-1197","1197-1207","1207-1218", "1218-1241", "1331-1371", "1323-1330"
-    };
-
-    int userOptions[6] = { 0, 0, 0, 0, 0, 0 };
-    int totalQs = 6;
-
-    //----- Quiz -----
-    consoleCoordinates(33, 11);
-    for (int i = 0; i < totalQs; i++) {
-        title();
-        leftBorder();
-        rightBorder();
-        consoleCoordinates(33, 12);
-        cout << questions[i] << endl;
-        consoleCoordinates(33, 13);
-        cout << "1." << options[i][0] << endl;
-        consoleCoordinates(33, 14);
-        cout << "2." << options[i][1] << endl;
-        consoleCoordinates(33, 15);
-        cout << "3." << options[i][2] << endl;
-        consoleCoordinates(33, 16);
-        cout << "Select Option (1-3) or 0 to skip  ";
-        cin >> userOptions[i];
-        system("CLS");
-    }
-
-
-    title();
-    leftBorder();
-    rightBorder();
-
-    //----- Printing Result -----
-    cout << endl << endl;
-    consoleCoordinates(33, 11);
-    cout << "======= ======= ======= ======= " << endl;
-    consoleCoordinates(33, 12);
-    cout << "=======      Result     ======= " << endl;
-    consoleCoordinates(33, 13);
-    cout << "======= ======= ======= ======= " << endl;
-
-    int correct = 0;
-    int incorrect = 0;
-    int skipped = 0;
-    for (int i = 0; i < totalQs; i++) {
-        if (userOptions[i] != 0) {
-            if (correctOp[i] == options[i][userOptions[i] - 1]) {
-                correct++;
-            }
-            else {
-                incorrect++;
-            }
-        }
-        else {
-            skipped++;
-        }
-    }
-
-    consoleCoordinates(33, 14);
-    cout << "------------------------------" << endl;
-    consoleCoordinates(44, 15);
-    cout << "Correct : " << correct << endl;
-    consoleCoordinates(44, 16);
-    cout << "Incorrect : " << incorrect << endl;
-    consoleCoordinates(44, 17);
-    cout << "Skipped : " << skipped << endl;
-    consoleCoordinates(33, 18);
-    cout << "------------------------------";
-}
-
-
-void chooseQuiz() {
+// Function for going around the quiz menu
+bool quizChoice() {
 
     system("CLS");
     int counter = 10;
 
     title();
+    quizMenu();
     leftBorder();
     rightBorder();
     consoleCoordinates(31, 10);
@@ -1574,7 +1424,7 @@ void chooseQuiz() {
             consoleCoordinates(31, counter);
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
             cout << "-->";
-            cout << "First Bulgarian Empire";
+            quizMenu();
             title();
             leftBorder();
             rightBorder();
@@ -1588,7 +1438,7 @@ void chooseQuiz() {
             consoleCoordinates(31, counter);
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
             cout << "-->";
-            cout << "Second Bulgarian Empire";
+            quizMenu();
             title();
             leftBorder();
             rightBorder();
@@ -1603,7 +1453,7 @@ void chooseQuiz() {
                 leftBorder();
                 title();
                 rightBorder();
-                startQuiz();
+                startQuizFirstBgEmpire(1);
             }
             else if (counter == 12)
             {
@@ -1612,7 +1462,6 @@ void chooseQuiz() {
                 leftBorder();
                 title();
                 rightBorder();
-                startQuiz2();
             }
         }break;
 
@@ -1624,4 +1473,162 @@ void chooseQuiz() {
         }break;
         }
     } while (true);
+    return 1;
+}
+
+// Function for the quiz
+void startQuizFirstBgEmpire(int id) {
+    system("CLS");
+    
+    Node* Head = new Node;
+    Node* Second = new Node;
+    Node* Third = new Node;
+    Node* Fourth = new Node;
+    Node* Fifth = new Node;
+    Node* Sixth = new Node;
+    Node* Seventh = new Node;
+    Node* Eighth = new Node;
+
+    Head->id = 1;
+    Head->startReignYear = 681;
+    Head->endReignYear = 700;
+    Head->name = "Khan Asparukh";
+    Head->information = "Khan Asparukh had based Dunavska Bulgaria in 681.";
+    Head->next = Second;
+
+    Second->id = 2;
+    Second->startReignYear = 700;
+    Second->endReignYear = 721;
+    Second->name = "Khan Tervel";
+    Second->information = "Khan Tervel is Asparukh's son.";
+    Second->next = Third;
+
+    Third->id = 3;
+    Third->startReignYear = 803;
+    Third->endReignYear = 814;
+    Third->name = "Khan Krum";
+    Third->information = "During his reign the Bulgarian territory doubled in size.";
+    Third->next = Fourth;
+
+    Fourth->id = 4;
+    Fourth->startReignYear = 814;
+    Fourth->endReignYear = 831;
+    Fourth->name = "Khan Omurtag";
+    Fourth->information = "Omurtag was a Great Khan of Bulgaria from 814 to 831. He is known as 'the Builder'.";
+    Fourth->next = Fifth;
+
+    Fifth->id = 5;
+    Fifth->startReignYear = 836;
+    Fifth->endReignYear = 852;
+    Fifth->name = "Presian I";
+    Fifth->information = "Presian was the Khan of Bulgaria from 836. He ruled during an extensive expansion in Macedonia.";
+    Fifth->next = Sixth;
+
+    Sixth->id = 6;
+    Sixth->startReignYear = 889;
+    Sixth->endReignYear = 893;
+    Sixth->name = "Vladimir-Rasate";
+    Sixth->information = "In 853 or 854, the Bulgar Army led by Vladimir, invaded Serbia.";
+    Sixth->next = Seventh;
+
+    Seventh->id = 7;
+    Seventh->startReignYear = 893;
+    Seventh->endReignYear = 927;
+    Seventh->name = "Simeon I";
+    Seventh->information = "Simeon's successful campaigns led Bulgaria to its greatest territorial expansion";
+    Seventh->next = Eighth;
+
+    Eighth->id = 8;
+    Eighth->startReignYear = 927;
+    Eighth->endReignYear = 969;
+    Eighth->name = "Petar I";
+    Eighth->information = "Peter I was the son of Simeon I";
+    Eighth->next = NULL;
+
+
+    int correct = 0;
+    int incorrect = 0;
+    int skipped = 0;
+
+    while (Head != NULL)
+    {
+        system("CLS");
+        leftBorder();
+        title();
+        rightBorder();
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+        consoleCoordinates(28, 11);
+        
+        if (Head->id == id)
+        {
+            cout << "When does " << Head->name << " rule?" << endl;
+            id++;
+            consoleCoordinates(28, 13);
+            cout << "Do you know the answer? y/n or s for skip";
+            consoleCoordinates(28, 14);
+            char choice;
+            cin >> choice;
+
+            switch (choice)
+            {
+            case 'y':
+            {
+
+                consoleCoordinates(28, 16);
+                cout << "CHOOSE START REIGN YEAR";
+                consoleCoordinates(28, 17);
+                int startReignYear;
+                cin >> startReignYear;
+
+                consoleCoordinates(28, 18);
+                cout << "CHOOSE END REIGN YEAR";
+                consoleCoordinates(28, 19);
+                int endReignYear;
+                cin >> endReignYear;
+
+                if (Head->startReignYear == startReignYear && Head->endReignYear == endReignYear) correct++;
+                else incorrect++;
+
+                Head = Head->next;
+            }break;
+            case 'n':
+            {
+                int number = Head->startReignYear;
+                hint(number, id);
+            }break;
+            case 's':
+            {
+                Head = Head->next;
+                skipped ++;
+            }break;
+            }
+        }
+        else Head = Head->next;
+
+    }
+
+
+ system("CLS");
+ title();
+ leftBorder();
+ rightBorder();
+
+//----- Printing Result -----
+SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+consoleCoordinates(33, 11);
+cout << "======= ======= ======= ======= " << endl;
+consoleCoordinates(33, 12);
+cout << "=======      Result     ======= " << endl;
+ consoleCoordinates(33, 13);
+cout << "======= ======= ======= ======= " << endl;
+ consoleCoordinates(33, 14);
+cout << "------------------------------" << endl;
+consoleCoordinates(44, 15);
+ cout << "Correct : " << correct << endl;
+ consoleCoordinates(44, 16);
+ cout << "Incorrect : " << incorrect << endl;
+ consoleCoordinates(44, 17);
+ cout << "Skipped : " << skipped << endl;
+ consoleCoordinates(33, 18);
+ cout << "------------------------------";
 }

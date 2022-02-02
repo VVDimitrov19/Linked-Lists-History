@@ -41,12 +41,19 @@ void askInput();
 // Function for moving the arrow in the menus
 void arrow(int counter);
 
+// Function for explaining how to convert from gray to decimal number
+void explanationConvert(int id);
+
+// Function for givint hint if the user doesn't know what is the start reign year
+void hint(int number, int id);
+
 // Functions for viewing the options for different linked list's functions
 void viewInfoMenu();
 void insertMenu();
 void searchMenu();
 void orderMenu();
 void sortMenu();
+void quizMenu();
 
 // Functions for going around the menus
 bool menuInput();
