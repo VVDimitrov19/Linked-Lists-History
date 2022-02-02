@@ -18,82 +18,6 @@ using namespace std;
 #define CTRL_KEYPRESS(k) ((k)  & 0x1f) 
 
 
-void chooseQuiz() {
-    
-        system("CLS");
-        int counter = 10;
-       
-        title();
-        leftBorder();
-        rightBorder();
-        consoleCoordinates(31, 10);
-        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-        cout << "-->";
-        do
-        {
-            switch (_getch())
-            {
-                // Arrow up
-            case KEY_UP:
-            {
-                if (counter == 10)counter = 14;
-                counter -= 2;
-                system("CLS");
-                consoleCoordinates(31, counter);
-                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-                cout << "-->";
-                cout << "First";
-                title();
-                leftBorder();
-                rightBorder();
-            }break;
-
-            case KEY_DOWN:
-            {
-                if (counter == 12)counter = 8;
-                counter += 2;
-                system("CLS");
-                consoleCoordinates(31, counter);
-                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-                cout << "-->";
-                cout << "Second";
-                title();
-                leftBorder();
-                rightBorder();
-            }break;
-
-            case ENTER:
-            {
-                if (counter == 10)
-                {
-                    system("CLS");
-
-                    leftBorder();
-                    title();
-                    rightBorder();
-                    startQuiz();
-                }
-                else if (counter == 12)
-                {
-                    system("CLS");
-
-                    leftBorder();
-                    title();
-                    rightBorder();
-                }
-            }break;
-
-            case ESCAPE:
-            {
-                system("CLS");
-
-            }break;
-            }
-        } while (true);
-    
-}
-
-
 // Global variable for element 'y' coordinates
 int counterPrint = 11;
 
@@ -1525,25 +1449,25 @@ void startQuiz2() {
     system("CLS");
 
     string questions[6] = {
-    "When does Khan Asparukh rule?",
-    "When does Khan Tervel rule?",
-    "When do Teodor Petar and Ivan Asen rule?",
-     "When does Tsar Kaloyan rule?",
-     "When does Prince Alexander Battenberg rule?",
-     "When does Prince Ferdinand I rule?",
+    "When do Petar and Asen rule?",
+    "When does Tsar Kaloyan rule?",
+    "When does Boril rule?",
+     "When does Ivan Asen II rule?",
+     "When does Ivan Aleksandur rule?",
+     "When does Mihail III Shishman rule?",
     };
 
     string options[6][3] = {
-    {"684","681","661"},
-    {"681","700","697"},
-    {"1015","1185","1150"},
-    {"1097","1193","1197"},
-    {"1879","1773","1700"},
-     {"1887","1883","1805"},
+    {"1145-1197","1185-1197","1175-1197"},
+    {"1137-1257","1167-1208","1197-1207"},
+    {"1207-1219","1207-1228","1207-1218"},
+    {"1218-1241","1228-1241","1228-1242"},
+    {"1331-1345","1321-1345","1331-1371"},
+     {"1324-1335","1323-1330","1326-1335"},
     };
 
     string correctOp[6] = {
-        "681","700","1185", "1197", "1879", "1887"
+        "1185-1197","1197-1207","1207-1218", "1218-1241", "1331-1371", "1323-1330"
     };
 
     int userOptions[6] = { 0, 0, 0, 0, 0, 0 };
@@ -1610,4 +1534,79 @@ void startQuiz2() {
     cout << "Skipped : " << skipped << endl;
     consoleCoordinates(33, 18);
     cout << "------------------------------";
+}
+
+void chooseQuiz() {
+
+    system("CLS");
+    int counter = 10;
+
+    title();
+    leftBorder();
+    rightBorder();
+    consoleCoordinates(31, 10);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    cout << "-->";
+    do
+    {
+        switch (_getch())
+        {
+            // Arrow up
+        case KEY_UP:
+        {
+            if (counter == 10)counter = 14;
+            counter -= 2;
+            system("CLS");
+            consoleCoordinates(31, counter);
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+            cout << "-->";
+            cout << "First Bulgarian Empire";
+            title();
+            leftBorder();
+            rightBorder();
+        }break;
+
+        case KEY_DOWN:
+        {
+            if (counter == 12)counter = 8;
+            counter += 2;
+            system("CLS");
+            consoleCoordinates(31, counter);
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+            cout << "-->";
+            cout << "Second Bulgarian Empire";
+            title();
+            leftBorder();
+            rightBorder();
+        }break;
+
+        case ENTER:
+        {
+            if (counter == 10)
+            {
+                system("CLS");
+
+                leftBorder();
+                title();
+                rightBorder();
+                startQuiz();
+            }
+            else if (counter == 12)
+            {
+                system("CLS");
+
+                leftBorder();
+                title();
+                rightBorder();
+                startQuiz2();
+            }
+        }break;
+
+        case ESCAPE:
+        {
+            system("CLS");
+
+        }break;
+        }
+    } while (true);
 }

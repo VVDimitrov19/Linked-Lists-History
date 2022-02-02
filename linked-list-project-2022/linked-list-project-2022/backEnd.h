@@ -71,6 +71,6 @@ void settingsInput(Node* Head);
 
 // Function for the quiz
 void startQuiz();
-
-
+void startQuiz2();
+void chooseQuiz();
 
