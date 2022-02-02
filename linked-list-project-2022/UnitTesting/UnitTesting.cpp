@@ -11,42 +11,28 @@ namespace UnitTesting
 	{
 	public:
 		
-		TEST_METHOD(performsXorOperationExpectToReturn1)
+		TEST_METHOD(grayNumToBinaryExpectToReturnSix)
 		{
-			char num1 = '1';
-			char num2 = '0';
+			int number = 5;
+			int result = grayToBin(number);
 
-			char result = xorFunc(num1, num2);
-
-			Assert::AreEqual('1', result);
+			Assert::AreEqual(6, result);
 		}
 
-		TEST_METHOD(performsXorOperationExpectToReturn0)
+		TEST_METHOD(grayNumToBinaryExpectToReturnEight)
 		{
-			char num1 = '1';
-			char num2 = '1';
+			int number = 12;
+			int result = grayToBin(number);
 
-			char result = xorFunc(num1, num2);
-
-			Assert::AreEqual('0', result);
+			Assert::AreEqual(8, result);
 		}
 
-		TEST_METHOD(convertsFromDecToGray)
+		TEST_METHOD(grayNumToBinaryExpectToReturnFourteen)
 		{
-			int num = 6;
-			string result = grayToBin(num);
-			string expect = "101";
+			int number = 9;
+			int result = grayToBin(number);
 
-			Assert::AreEqual(expect, result);
-		}
-
-		TEST_METHOD(convertsFromDecToGrayTwo)
-		{
-			int num = 4;
-			string result = grayToBin(num);
-			string expect = "110";
-
-			Assert::AreEqual(expect, result);
+			Assert::AreEqual(14, result);
 		}
 	};
 }

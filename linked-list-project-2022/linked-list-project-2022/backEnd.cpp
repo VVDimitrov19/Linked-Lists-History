@@ -569,12 +569,6 @@ void viewMonarch(Node* head)
     return;
 }
 
-// Function for XOR operation 
-char xorFunc(char num1, char num2)
-{
-    return (num1 == num2) ? '0' : '1';
-}
-
 // Function for converting from decimal number to gray number
 int grayToBin(int num)
 {

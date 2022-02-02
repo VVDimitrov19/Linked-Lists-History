@@ -50,9 +50,6 @@ void sortAscending(Node* head);
 // Function for viewing which monarch had ruled in given year 
 void viewMonarch(Node* head);
 
-// Function for XOR operation 
-char xorFunc(char num1, char num2);
-
 // Function for converting from decimal number to gray number
 int grayToBin(int num);
 
