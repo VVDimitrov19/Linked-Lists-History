@@ -99,36 +99,43 @@ void contentSecondBulgarianEmpire()
     Head->startReignYear = 1185;
     Head->endReignYear = 1197;
     Head->name = "(Teodor)Petar and (Ivan)Asen";
+    Head->information = "Peter was crowned emperor 1185. Asen became his brother's co-ruler in 1187.";
     Head->next = Second;
 
     Second->startReignYear = 1197;
     Second->endReignYear = 1207;
     Second->name = "Tsar Kaloyan";
+    Second->information = "He was a younger brother of Theodor and Asen who led the anti-Byzantine uprising";
     Second->next = Third;
 
     Third->startReignYear = 1207;
     Third->endReignYear = 1218;
     Third->name = "Boril";
+    Third->information = "Launched unsuccessful military campaigns the first years of his reign.";
     Third->next = Fourth;
 
     Fourth->startReignYear = 1218;
     Fourth->endReignYear = 1241;
     Fourth->name = "Ivan Asen II";
+    Fourth->information = "Ivan Asen I was one of the two leaders of the great uprising of the Bulgarians and Vlachs\n     against the Byzantine Empire in 1185.";
     Fourth->next = Fifth;
 
     Fifth->startReignYear = 1331;
     Fifth->endReignYear = 1371;
     Fifth->name = "Ivan Aleksandur";
+    Fifth->information = "The long reign of Alexander is considered a transitional period in Bulgarian medieval history.";
     Fifth->next = Sixth;
 
     Sixth->startReignYear = 1323;
     Sixth->endReignYear = 1330;
     Sixth->name = "Mihail III Shishman";
+    Sixth->information = "He was the founder of the last ruling dynasty of the Second Bulgarian Empire";
     Sixth->next = Seventh;
 
     Seventh->startReignYear = 1356;
     Seventh->endReignYear = 1396;
     Seventh->name = "Ivan Sratsimir";
+    Seventh->information = "Ivan Sratsimir was disinherited in favour of his half-brother Ivan Shishman and proclaimed\n     himself emperor in Vidin.";
     Seventh->next = NULL;
     
     printYearFirst(Head);
