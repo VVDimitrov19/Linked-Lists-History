@@ -1536,6 +1536,7 @@ void startQuiz2() {
     cout << "------------------------------";
 }
 
+
 void chooseQuiz() {
 
     system("CLS");
@@ -1605,6 +1606,7 @@ void chooseQuiz() {
         case ESCAPE:
         {
             system("CLS");
+            choosingMenuInput();
 
         }break;
         }
