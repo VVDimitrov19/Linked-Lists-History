@@ -48,31 +48,37 @@ void contentFirstBulgarianEmpire()
     Third->startReignYear = 803;
     Third->endReignYear = 814;
     Third->name = "Khan Krum";
+    Third->information = "During his reign the Bulgarian territory doubled in size.";
     Third->next = Fourth;
 
     Fourth->startReignYear = 814;
     Fourth->endReignYear = 831;
     Fourth->name = "Khan Omurtag";
+    Fourth->information = "Omurtag was a Great Khan of Bulgaria from 814 to 831. He is known as 'the Builder'.";
     Fourth->next = Fifth;
 
     Fifth->startReignYear = 836;
     Fifth->endReignYear = 852;
     Fifth->name = "Presian I";
+    Fifth->information = "Presian was the Khan of Bulgaria from 836. He ruled during an extensive expansion in Macedonia.";
     Fifth->next = Sixth;
 
     Sixth->startReignYear = 889;
     Sixth->endReignYear = 893;
     Sixth->name = "Vladimir-Rasate";
+    Sixth->information = "In 853 or 854, the Bulgar Army led by Vladimir, invaded Serbia.";
     Sixth->next = Seventh;
 
     Seventh->startReignYear = 893;
     Seventh->endReignYear = 927;
     Seventh->name = "Simeon I";
+    Seventh->information = "Simeon's successful campaigns led Bulgaria to its greatest territorial expansion";
     Seventh->next = Eighth;
 
     Eighth->startReignYear = 927;
     Eighth->endReignYear = 969;
     Eighth->name = "Petar I";
+    Eighth->information = "Peter I was the son of Simeon I";
     Eighth->next = NULL;
 
     printYearFirst(Head);
@@ -215,7 +221,7 @@ void viewInformationByYear(Node* head)
                 char letter = toupper(name[i]);
                 cout << letter;
             }
-            consoleCoordinates(25, 13);
+            consoleCoordinates(5, 13);
             cout << temp->information; break;
         }
         temp = temp->next;
