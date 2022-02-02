@@ -34,7 +34,7 @@ namespace UnitTesting
 		TEST_METHOD(convertsFromDecToGray)
 		{
 			int num = 6;
-			string result = decToGray(num);
+			string result = grayToBin(num);
 			string expect = "101";
 
 			Assert::AreEqual(expect, result);
@@ -43,7 +43,7 @@ namespace UnitTesting
 		TEST_METHOD(convertsFromDecToGrayTwo)
 		{
 			int num = 4;
-			string result = decToGray(num);
+			string result = grayToBin(num);
 			string expect = "110";
 
 			Assert::AreEqual(expect, result);

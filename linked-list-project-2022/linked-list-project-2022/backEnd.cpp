@@ -576,35 +576,15 @@ char xorFunc(char num1, char num2)
 }
 
 // Function for converting from decimal number to gray number
-string decToGray(int num)
+int grayToBin(int num)
 {
-    int bin;
-    string binary;
-    int counter = 0;
-    while (num != 0) {
-        bin = (num % 10) % 2;
-        binary += to_string(bin);
+    int bin = num;
 
-        num /= 2;
-        counter++;
+    while (bin) {          
+        bin >>= 1;
+        num ^= bin;
     }
-
-    int length = binary.length();
-    for (int i = 0; i < length / 2; i++)  swap(binary[i], binary[length - i - 1]);
-    char gray[20];
-
-    gray[0] = binary[0];
-
-    for (int i = 1; i < length; i++) {
-        gray[i] = xorFunc(binary[i - 1], binary[i]);
-    }
-
-    string result;
-    for (int i = 0; i < length; i++) {
-        result += gray[i];
-    }
-
-    return result;
+    return num;
 }
 
 // Function for selecting the necessary variables with which the following function will work
@@ -1304,6 +1284,7 @@ bool sortChoice(Node* Head)
                 leftBorder();
                 title();
                 rightBorder();
+                counterPrint = 11;
                 printYearFirst(Head);
             }
             else if (counter == 12)
@@ -1313,6 +1294,7 @@ bool sortChoice(Node* Head)
                 leftBorder();
                 title();
                 rightBorder();
+                counterPrint = 11;
                 printYearFirst(Head);
             }
         }break;
@@ -1394,7 +1376,7 @@ bool viewInfoChoice(Node* Head)
         case ESCAPE:
         {
             system("CLS");
-            settingsInput(Head);
+           contentMenuInputYearFirst(Head);
         }break;
         }
     } while (true);
@@ -1496,6 +1478,7 @@ void startQuizFirstBgEmpire(int id) {
     Head->id = 1;
     Head->startReignYear = 681;
     Head->endReignYear = 700;
+    Head->gray = 5;
     Head->name = "Khan Asparukh";
     Head->information = "Khan Asparukh had based Dunavska Bulgaria in 681.";
     Head->next = Second;
@@ -1503,6 +1486,7 @@ void startQuizFirstBgEmpire(int id) {
     Second->id = 2;
     Second->startReignYear = 700;
     Second->endReignYear = 721;
+    Second->gray = 4;
     Second->name = "Khan Tervel";
     Second->information = "Khan Tervel is Asparukh's son.";
     Second->next = Third;
@@ -1510,6 +1494,7 @@ void startQuizFirstBgEmpire(int id) {
     Third->id = 3;
     Third->startReignYear = 803;
     Third->endReignYear = 814;
+    Third->gray = 12;
     Third->name = "Khan Krum";
     Third->information = "During his reign the Bulgarian territory doubled in size.";
     Third->next = Fourth;
@@ -1517,6 +1502,7 @@ void startQuizFirstBgEmpire(int id) {
     Fourth->id = 4;
     Fourth->startReignYear = 814;
     Fourth->endReignYear = 831;
+    Fourth->gray = 12;
     Fourth->name = "Khan Omurtag";
     Fourth->information = "Omurtag was a Great Khan of Bulgaria from 814 to 831. He is known as 'the Builder'.";
     Fourth->next = Fifth;
@@ -1524,6 +1510,7 @@ void startQuizFirstBgEmpire(int id) {
     Fifth->id = 5;
     Fifth->startReignYear = 836;
     Fifth->endReignYear = 852;
+    Fifth->gray = 12;
     Fifth->name = "Presian I";
     Fifth->information = "Presian was the Khan of Bulgaria from 836. He ruled during an extensive expansion in Macedonia.";
     Fifth->next = Sixth;
@@ -1531,6 +1518,7 @@ void startQuizFirstBgEmpire(int id) {
     Sixth->id = 6;
     Sixth->startReignYear = 889;
     Sixth->endReignYear = 893;
+    Sixth->gray = 12;
     Sixth->name = "Vladimir-Rasate";
     Sixth->information = "In 853 or 854, the Bulgar Army led by Vladimir, invaded Serbia.";
     Sixth->next = Seventh;
@@ -1538,6 +1526,7 @@ void startQuizFirstBgEmpire(int id) {
     Seventh->id = 7;
     Seventh->startReignYear = 893;
     Seventh->endReignYear = 927;
+    Seventh->gray = 12;
     Seventh->name = "Simeon I";
     Seventh->information = "Simeon's successful campaigns led Bulgaria to its greatest territorial expansion";
     Seventh->next = Eighth;
@@ -1545,6 +1534,7 @@ void startQuizFirstBgEmpire(int id) {
     Eighth->id = 8;
     Eighth->startReignYear = 927;
     Eighth->endReignYear = 969;
+    Eighth->gray = 13;
     Eighth->name = "Petar I";
     Eighth->information = "Peter I was the son of Simeon I";
     Eighth->next = NULL;
@@ -1597,7 +1587,7 @@ void startQuizFirstBgEmpire(int id) {
             }break;
             case 'n':
             {
-                int number = Head->startReignYear;
+                int number = Head->gray;
                 hintFirstBgEmpire(number, id);
             }break;
             case 's':
@@ -1662,6 +1652,7 @@ void startQuizSecondBgEmpire(int id)
     Head->id = 1;
     Head->startReignYear = 1185;
     Head->endReignYear = 1197;
+    Head->gray = 1;
     Head->name = "(Teodor)Petar and (Ivan)Asen";
     Head->information = "Peter was crowned emperor 1185. Asen became his brother's co-ruler in 1187.";
     Head->next = Second;
@@ -1669,6 +1660,7 @@ void startQuizSecondBgEmpire(int id)
     Second->id = 2;
     Second->startReignYear = 1197;
     Second->endReignYear = 1207;
+    Second->gray = 1;
     Second->name = "Tsar Kaloyan";
     Second->information = "He was a younger brother of Theodor and Asen who led the anti-Byzantine uprising";
     Second->next = Third;
@@ -1676,6 +1668,7 @@ void startQuizSecondBgEmpire(int id)
     Third->id = 3;
     Third->startReignYear = 1207;
     Third->endReignYear = 1218;
+    Third->gray = 3;
     Third->name = "Boril";
     Third->information = "Launched unsuccessful military campaigns the first years of his reign.";
     Third->next = Fourth;
@@ -1683,6 +1676,7 @@ void startQuizSecondBgEmpire(int id)
     Fourth->id = 4;
     Fourth->startReignYear = 1218;
     Fourth->endReignYear = 1241;
+    Fourth->gray = 3;
     Fourth->name = "Ivan Asen II";
     Fourth->information = "Ivan Asen I was one of the two leaders of the great uprising of the Bulgarians and Vlachs\n     against the Byzantine Empire in 1185.";
     Fourth->next = Fifth;
@@ -1690,6 +1684,7 @@ void startQuizSecondBgEmpire(int id)
     Fifth->id = 5;
     Fifth->startReignYear = 1331;
     Fifth->endReignYear = 1371;
+    Fifth->gray = 2;
     Fifth->name = "Ivan Aleksandur";
     Fifth->information = "The long reign of Alexander is considered a transitional period in Bulgarian medieval history.";
     Fifth->next = Sixth;
@@ -1697,6 +1692,7 @@ void startQuizSecondBgEmpire(int id)
     Sixth->id = 6;
     Sixth->startReignYear = 1323;
     Sixth->endReignYear = 1330;
+    Sixth->gray = 2;
     Sixth->name = "Mihail III Shishman";
     Sixth->information = "He was the founder of the last ruling dynasty of the Second Bulgarian Empire";
     Sixth->next = Seventh;
@@ -1704,6 +1700,7 @@ void startQuizSecondBgEmpire(int id)
     Seventh->id = 7;
     Seventh->startReignYear = 1356;
     Seventh->endReignYear = 1396;
+    Seventh->gray = 2;
     Seventh->name = "Ivan Sratsimir";
     Seventh->information = "Ivan Sratsimir was disinherited in favour of his half-brother Ivan Shishman and proclaimed\n     himself emperor in Vidin.";
     Seventh->next = NULL;
@@ -1755,7 +1752,7 @@ void startQuizSecondBgEmpire(int id)
             }break;
             case 'n':
             {
-                int number = Head->startReignYear;
+                int number = Head->gray;
                 hintSecondBgEmpire(number, id);
             }break;
             case 's':

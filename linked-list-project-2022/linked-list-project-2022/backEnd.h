@@ -7,6 +7,7 @@ struct Node {
     int id;
     int startReignYear;
     int endReignYear;
+    int gray;
     string name;
     string information;
     Node* next;
@@ -53,7 +54,7 @@ void viewMonarch(Node* head);
 char xorFunc(char num1, char num2);
 
 // Function for converting from decimal number to gray number
-string decToGray(int num);
+int grayToBin(int num);
 
 // Functions for selecting the necessary variables with which the following functions will work
 void choosingInsertBegin(Node* Head);
