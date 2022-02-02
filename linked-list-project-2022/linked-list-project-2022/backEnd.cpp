@@ -18,6 +18,81 @@ using namespace std;
 #define CTRL_KEYPRESS(k) ((k)  & 0x1f) 
 
 
+void chooseQuiz() {
+    
+        system("CLS");
+        int counter = 10;
+       
+        title();
+        leftBorder();
+        rightBorder();
+        consoleCoordinates(31, 10);
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+        cout << "-->";
+        do
+        {
+            switch (_getch())
+            {
+                // Arrow up
+            case KEY_UP:
+            {
+                if (counter == 10)counter = 14;
+                counter -= 2;
+                system("CLS");
+                consoleCoordinates(31, counter);
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+                cout << "-->";
+                cout << "First";
+                title();
+                leftBorder();
+                rightBorder();
+            }break;
+
+            case KEY_DOWN:
+            {
+                if (counter == 12)counter = 8;
+                counter += 2;
+                system("CLS");
+                consoleCoordinates(31, counter);
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+                cout << "-->";
+                cout << "Second";
+                title();
+                leftBorder();
+                rightBorder();
+            }break;
+
+            case ENTER:
+            {
+                if (counter == 10)
+                {
+                    system("CLS");
+
+                    leftBorder();
+                    title();
+                    rightBorder();
+                    startQuiz();
+                }
+                else if (counter == 12)
+                {
+                    system("CLS");
+
+                    leftBorder();
+                    title();
+                    rightBorder();
+                }
+            }break;
+
+            case ESCAPE:
+            {
+                system("CLS");
+
+            }break;
+            }
+        } while (true);
+    
+}
+
 
 // Global variable for element 'y' coordinates
 int counterPrint = 11;
@@ -771,7 +846,7 @@ bool contentMenuInputYearFirst(Node* Head)
 
         case CTRL_KEYPRESS('q'):
         {
-            startQuiz();
+            chooseQuiz();
         }break;
 
         case ESCAPE:
@@ -1353,6 +1428,102 @@ bool viewInfoChoice(Node* Head)
 void startQuiz() {
     system("CLS");
 
+    string questions[8] = {
+    "When does Khan Asparukh rule?",
+    "When does Khan Tervel rule?",
+    "When does Khan Krum rule?",
+    "When does Khan Omurtag rule?",
+    "When does Presian I rule?",
+    "When does Vladimir-Rasate rule?",
+    "When does Simeon I rule?",
+    "When does Petar I rule?",
+    };
+
+    string options[8][3] = {
+    {"685-710","641-681","681-700"},
+    {"700-721","710-731","705-725"},
+    {"813-820","803-814","804-814"},
+    {"814-831","824-861","804-811"},
+    {"836 - 852","826 - 842","834 - 856"},
+     {"859-873","879-893","889-893"},
+     {"893-927","879-893","853-927"},
+     {"923-969","927-969","917-969"},
+    };
+
+    string correctOp[8] = {
+        "681-700","700-721","803-814", "814-831", "836 - 852", "889-893", "893-927", "927-969"
+    };
+
+    int userOptions[8] = { 0, 0, 0, 0, 0, 0, 0, 0 };
+    int totalQs = 8;
+
+    //----- Quiz -----
+    consoleCoordinates(33, 11);
+    for (int i = 0; i < totalQs; i++) {
+        title();
+        leftBorder();
+        rightBorder();
+        consoleCoordinates(33, 12);
+        cout << questions[i] << endl;
+        consoleCoordinates(33, 13);
+        cout << "1." << options[i][0] << endl;
+        consoleCoordinates(33, 14);
+        cout << "2." << options[i][1] << endl;
+        consoleCoordinates(33, 15);
+        cout << "3." << options[i][2] << endl;
+        consoleCoordinates(33, 16);
+        cout << "Select Option (1-3) or 0 to skip  ";
+        cin >> userOptions[i];
+        system("CLS");
+    }
+
+
+    title();
+    leftBorder();
+    rightBorder();
+
+    //----- Printing Result -----
+    cout << endl << endl;
+    consoleCoordinates(33, 11);
+    cout << "======= ======= ======= ======= " << endl;
+    consoleCoordinates(33, 12);
+    cout << "=======      Result     ======= " << endl;
+    consoleCoordinates(33, 13);
+    cout << "======= ======= ======= ======= " << endl;
+
+    int correct = 0;
+    int incorrect = 0;
+    int skipped = 0;
+    for (int i = 0; i < totalQs; i++) {
+        if (userOptions[i] != 0) {
+            if (correctOp[i] == options[i][userOptions[i] - 1]) {
+                correct++;
+            }
+            else {
+                incorrect++;
+            }
+        }
+        else {
+            skipped++;
+        }
+    }
+
+    consoleCoordinates(33, 14);
+    cout << "------------------------------" << endl;
+    consoleCoordinates(44, 15);
+    cout << "Correct : " << correct << endl;
+    consoleCoordinates(44, 16);
+    cout << "Incorrect : " << incorrect << endl;
+    consoleCoordinates(44, 17);
+    cout << "Skipped : " << skipped << endl;
+    consoleCoordinates(33, 18);
+    cout << "------------------------------";
+}
+
+
+void startQuiz2() {
+    system("CLS");
+
     string questions[6] = {
     "When does Khan Asparukh rule?",
     "When does Khan Tervel rule?",
@@ -1434,11 +1605,9 @@ void startQuiz() {
     consoleCoordinates(44, 15);
     cout << "Correct : " << correct << endl;
     consoleCoordinates(44, 16);
-    cout <<"Incorrect : " << incorrect << endl;
+    cout << "Incorrect : " << incorrect << endl;
     consoleCoordinates(44, 17);
-    cout <<"Skipped : " << skipped << endl;
+    cout << "Skipped : " << skipped << endl;
     consoleCoordinates(33, 18);
     cout << "------------------------------";
-
 }
-
