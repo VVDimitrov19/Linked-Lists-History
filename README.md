@@ -35,3 +35,15 @@
 <p align="center">The project's task is to make content with events made with linked lists. <br> Also we have to made some main functionalities like adding, editing and deleting the element (event).</p>
 <h2 align="center">💡Our idea💡</h2>
 <p align="center">Our idea is to make content with bulgarian monarchs who ruled during First and Second Bulgarian Empire <br> and after the Liberaion of Bulgaria.</p>
+<p align="center"><img src="https://i.imgur.com/dOx1wXs.png"> </p>
+
+<h2 align="center">🖥INTERFACE🖥</h2>
+
+<p>--> When you open the console, the main menu appears. Then you have to choose from 3 choices. </p>
+<p align="center"><img src="https://i.imgur.com/BqdpiOQ.png"></p>
+
+<p>--> If you choose to enter the lesson, the choosing menu appears. Here you have to choose between three Bulgarian eras to view which monarchs had ruled then. </p>
+<p align="center"><img src="https://i.imgur.com/z1W7uI3.png"></p>
+<hr>
+<p><b> ✨ There are also some interesting functions such as entering, editing, searching, sorting, arranging monarchs. You can also enter a year and see which monarch ruled through it. And the most important - don't forget to view our quiz as well. ✨ </b></p>
+<hr>
