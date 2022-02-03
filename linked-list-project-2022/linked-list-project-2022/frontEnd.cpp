@@ -382,15 +382,11 @@ void useInformation()
     consoleCoordinates(40, 17);
     cout << "KEY COMBINATIONS:" << endl;
     consoleCoordinates(25, 19);
-    cout << "To input monarch press CTRL + Q" << endl;
+    cout << "To view settings press CTRL + H" << endl;
     consoleCoordinates(25, 20);
-    cout << "To search monarch press CTRL + S" << endl;
+    cout << "To view information about chosen monarch press CTRL + M" << endl;
     consoleCoordinates(25, 21);
-    cout << "If you want to delete monarch press CTRL + D" << endl;
-    consoleCoordinates(25, 22);
-    cout << "If you want to edit monarch press CTRL + E" << endl;
-    consoleCoordinates(25, 23);
-    cout << "If you want to order the view of the monarch press CTRL + O" << endl;
+    cout << "To start the quiz press CTRL + Q" << endl;
     switch (_getch())
     {
     case ESCAPE:
