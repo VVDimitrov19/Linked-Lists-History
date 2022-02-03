@@ -153,16 +153,19 @@ void contentAfterLiberation()
     Head->startReignYear = 1879;
     Head->endReignYear = 1886;
     Head->name = "Prince Alexander Battenberg";
+    Head->information = "The first prince of the Principality of Bulgaria from 1879";
     Head->next = Second;
 
     Second->startReignYear = 1887;
     Second->endReignYear = 1908;
     Second->name = "Prince Ferdinand I";
+    Second->information = "The second monarch of the Third Bulgarian State, firstly as ruling prince (knyaz) from 1887\n     to 1908, and later as king (tsar) from 1908"; 
     Second->next = Third;
 
     Third->startReignYear = 1918;
     Third->endReignYear = 1943;
     Third->name = "Boris III";
+    Third->information = "The eldest son of Ferdinand I, Boris assumed the throne upon the abdication of his father in\n     the wake of Bulgaria's defeat in World War I.";
     Third->next = NULL;
 
     printYearFirst(Head);
