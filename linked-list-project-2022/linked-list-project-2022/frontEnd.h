@@ -52,7 +52,3 @@ void searchMenu();
 void orderMenu();
 void sortMenu();
 void quizMenu();
-
-// Functions for going around the menus
-bool menuInput();
-bool choosingMenuInput();

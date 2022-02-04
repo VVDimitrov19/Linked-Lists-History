@@ -732,6 +732,133 @@ void choosingInsertAfterNode(Node* temp, Node* head)
     insertAfterNode(temp, head, startReignYear, endReignYear, name, information);
 }
 
+// Function for going around the main menu
+bool menuInput()
+{
+    HWND console = GetConsoleWindow();
+    RECT r;
+    GetWindowRect(console, &r); //stores the console's current dimensions
+
+    MoveWindow(console, r.left, r.top, 2000, 1000, TRUE); // 2000 width, 1000 height
+    int counter = 1;
+    menu(counter);
+
+    do
+    {
+
+        switch (_getch())
+        {
+
+        case KEY_UP:
+        {
+            if (counter == 1) counter = 4;
+            counter--;
+            system("CLS");
+            menu(counter);
+        } break;
+
+        case KEY_DOWN:
+        {
+            if (counter == 3) {
+                counter = 0;
+            }
+            counter++;
+            system("CLS");
+            menu(counter);
+        } break;
+
+        case ENTER:
+        {
+            switch (counter) {
+            case 1:
+            {
+                system("CLS");
+                choosingMenuInput();
+                break;
+            }
+
+            case 2:
+            {
+                system("CLS");
+                useInformation();
+                break;
+            }
+
+            case 3:
+            {
+                exit();
+            }
+
+            }
+        } break;
+        }
+    } while (true);
+    return 1;
+}
+
+// Function for going around the choosing menu
+bool choosingMenuInput()
+{
+    int counter = 1;
+    choosingMenu(counter);
+
+    do
+    {
+        switch (_getch())
+        {
+
+        case KEY_UP:
+        {
+            if (counter == 1) counter = 4;
+            counter--;
+            system("CLS");
+            choosingMenu(counter);
+        } break;
+
+        case KEY_DOWN:
+        {
+            if (counter == 3) {
+                counter = 0;
+            }
+            counter++;
+            system("CLS");
+            choosingMenu(counter);
+        } break;
+
+        case ENTER:
+        {
+            switch (counter) {
+            case 1:
+            {
+                system("CLS");
+                contentFirstBulgarianEmpire();
+            }break;
+
+            case 2:
+            {
+                system("CLS");
+                contentSecondBulgarianEmpire();
+            }break;
+
+            case 3:
+            {
+                system("CLS");
+                contentAfterLiberation();
+            }break;
+
+            }
+        } break;
+
+        case ESCAPE:
+        {
+            system("CLS");
+            menuInput();
+        }
+        }
+    } while (true);
+    return 1;
+}
+
 // Function for going around the menu when the user view the monarch's reign year first
 bool contentMenuInputYearFirst(Node* Head)
 {
@@ -1796,3 +1923,4 @@ void startQuizSecondBgEmpire(int id)
     }
     }
 }
+

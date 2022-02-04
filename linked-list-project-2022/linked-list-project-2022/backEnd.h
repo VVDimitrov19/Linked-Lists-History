@@ -62,6 +62,8 @@ void choosingNameSearch(Node* Head);
 void choosingEditElement(Node* Head);
 
 // Functions for going around the different menus
+bool menuInput();
+bool choosingMenuInput();
 bool contentMenuInputYearFirst(Node* Head);
 bool contentMenuInputNameFirst(Node* Head);
 bool insertChoice(Node* Head);
@@ -77,4 +79,6 @@ void settingsInput(Node* Head);
 // Functions for the quiz
 void startQuizFirstBgEmpire(int id);
 void startQuizSecondBgEmpire(int id);
+
+
 
