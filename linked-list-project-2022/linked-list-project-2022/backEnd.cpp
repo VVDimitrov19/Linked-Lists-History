@@ -556,7 +556,7 @@ void viewMonarch(Node* head)
     Node* temp = head;
     int index = 11;
     while (temp != NULL) {
-        if (temp->startReignYear < year && year < temp->endReignYear) {
+        if (temp->startReignYear <= year && year <= temp->endReignYear) {
             system("CLS");
             leftBorder();
             title();
