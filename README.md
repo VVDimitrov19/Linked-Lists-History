@@ -56,7 +56,6 @@
 
 ```
 git clone https://github.com/VVDimitrov19/Linked-Lists-History.git
-
 ```
 
 <h1 align = "center"><b><i>:dizzy: Hope you have fun!!! :dizzy:</i></b></h1>
