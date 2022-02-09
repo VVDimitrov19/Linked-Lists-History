@@ -1,4 +1,5 @@
 #include<iostream>
+#include<fstream>
 #include<string>
 #include <vector>
 #include <windows.h>
@@ -11,19 +12,163 @@ using namespace std;
 
 #define KEY_UP 72
 #define KEY_DOWN 80
-#define KEY_LEFT 75
-#define KEY_RIGHT 77
 #define ENTER 13
 #define ESCAPE 27
-#define SHIFT 170
 #define CTRL_KEYPRESS(k) ((k)  & 0x1f) 
 
 
-// Global variable for element 'y' coordinates
+// Global variable for nodes 'y' coordinates
 int counterPrint = 11;
 
+// Function for log into the system
+void login()
+{
+    int counter = 0;
+    string user, password, id, pass;
+    system("CLS");
+    title();
+    leftBorder();
+    rightBorder();
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    consoleCoordinates(35, 10);
+    cout << "ENTER YOUR USERNAME:";
+    consoleCoordinates(35, 11);
+    cin >> user;
+
+    consoleCoordinates(35, 12);
+    cout << "ENTER YOUR PASSWORD:";
+    consoleCoordinates(35, 13);
+    cin >> password;
+
+    ifstream input("records.txt");
+
+    while (input >> id >> pass)
+    {
+        if (id == user && pass == password)
+        {
+            counter = 1;
+            system("CLS");
+        }
+    }
+    input.close();
+
+    if (counter == 1)
+    {
+        system("CLS");
+        choosingMenuInput(1);
+    }
+    else
+    {
+        system("CLS");
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+        cout << "Login unsuccessful!";
+        Sleep(500);
+        system("CLS");
+        registrationFormInput();
+    }
+
+    switch (_getch())
+    {
+    case ESCAPE:
+    {
+        registrationFormInput();
+    }
+    }
+}
+
+// Function for registration into the system
+void registration()
+{
+    string user, password, id, pass;
+    system("CLS");
+    title();
+    leftBorder();
+    rightBorder();
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    consoleCoordinates(35, 10);
+    cout << "ENTER YOUR USERNAME:";
+    consoleCoordinates(35, 11);
+    cin >> user;
+
+    consoleCoordinates(35, 12);
+    cout << "ENTER YOUR PASSWORD:";
+    consoleCoordinates(35, 13);
+    cin >> password;
+
+    ofstream f1("records.txt", ios::app);
+    f1 << user << ' ' << password << endl;
+    system("CLS");
+    cout << "Registration successful!";
+    Sleep(500);
+    system("CLS");
+    registrationFormInput();
+
+    switch (_getch())
+    {
+    case ESCAPE:
+    {
+        registrationFormInput();
+    }
+    }
+}
+
+// Function in the registration form when the user has forgotten his passoword
+void forgottenPassword()
+{
+    system("CLS");
+    title();
+    leftBorder();
+    rightBorder();
+    int counter = 0;
+    string user, id, password;
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    consoleCoordinates(35, 10);
+    cout << "ENTER YOUR USERNAME:";
+    consoleCoordinates(35, 11);
+    cin >> user;
+
+    ifstream f2("records.txt");
+    while (f2 >> id >> password)
+    {
+        if (id == user)
+        {
+            counter = 1;
+        }
+    }
+    f2.close();
+    if (counter == 1)
+    {
+        system("CLS");
+        title();
+        leftBorder();
+        rightBorder();
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+        consoleCoordinates(35, 10);
+        cout << "Your account was found!!!";
+        consoleCoordinates(35, 11);
+        cout << "Your password is : " << password;
+    }
+    else
+    {
+        system("CLS");
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+        cout << "Your account was not found!";
+        Sleep(500);
+        system("CLS");
+        registrationFormInput();
+    }
+
+    switch (_getch())
+    {
+    case ESCAPE:
+    {
+        registrationFormInput();
+    }
+    }
+}
+
 // Function for linked list's content
-void contentFirstBulgarianEmpire()
+void contentFirstBulgarianEmpire(int id)
 {
     Node* Head = new Node;
     Node* Second = new Node;
@@ -82,12 +227,12 @@ void contentFirstBulgarianEmpire()
     Eighth->information = "Peter I was the son of Simeon I";
     Eighth->next = NULL;
 
-    printYearFirst(Head);
-    contentMenuInputYearFirst(Head);
+    if (id == 1)contentMenuInputYearFirst(Head);
+    if (id == 2)contentMenuInputYearFirstGuest(Head);
 }
 
 // Function for linked list's content
-void contentSecondBulgarianEmpire()
+void contentSecondBulgarianEmpire(int id)
 {
     Node* Head = new Node;
     Node* Second = new Node;
@@ -140,11 +285,12 @@ void contentSecondBulgarianEmpire()
     Seventh->next = NULL;
 
     printYearFirst(Head);
-    contentMenuInputYearFirst(Head);
+    if (id==1)contentMenuInputYearFirst(Head);
+    if (id == 2)contentMenuInputYearFirstGuest(Head);
 }
 
 // Function for linked list's content
-void contentAfterLiberation()
+void contentAfterLiberation(int id)
 {
     Node* Head = new Node;
     Node* Second = new Node;
@@ -168,8 +314,8 @@ void contentAfterLiberation()
     Third->information = "The eldest son of Ferdinand I, Boris assumed the throne upon the abdication of his father in\n     the wake of Bulgaria's defeat in World War I.";
     Third->next = NULL;
 
-    printYearFirst(Head);
-    contentMenuInputYearFirst(Head);
+    if (id == 1)contentMenuInputYearFirst(Head);
+    if (id == 2)contentMenuInputYearFirstGuest(Head);
 }
 
 // Function for printing the linked list elements
@@ -188,6 +334,7 @@ void printYearFirst(Node* head)
 // Function for printing the linked list elements 
 void printNameFirst(Node* head)
 {
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
     while (head != NULL)
     {
         consoleCoordinates(35, counterPrint);
@@ -342,7 +489,7 @@ void insertAfterNode(Node* temp, Node* head, int startReignYear, int endReignYea
 }
 
 // Function for searching an element in the linked list
-void findNodeByYear(Node* head, int startReignYear) {
+void findNodeByYear(Node* head, int startReignYear, int id) {
     int index = 11;
     Node* temp = head;
     while (temp != NULL) {
@@ -363,14 +510,15 @@ void findNodeByYear(Node* head, int startReignYear) {
     {
     case ESCAPE:
     {
-        contentMenuInputYearFirst(head);
+        if (id == 1)contentMenuInputYearFirst(head);
+        else contentMenuInputYearFirstGuest(head);
     }break;
     }
     return;
 }
 
 // Function for searching an element in the linked list
-void findNodeByName(Node* head, string name)
+void findNodeByName(Node* head, string name, int id)
 {
     int index = 11;
     Node* temp = head;
@@ -391,7 +539,8 @@ void findNodeByName(Node* head, string name)
     {
     case ESCAPE:
     {
-        contentMenuInputYearFirst(head);
+        if (id == 1)contentMenuInputYearFirst(head);
+        else contentMenuInputYearFirstGuest(head);
     }break;
     }
     return;
@@ -544,7 +693,7 @@ void sortAscending(Node* head)
 }
 
 // Function for viewing which monarch had ruled in given year 
-void viewMonarch(Node* head)
+void viewMonarch(Node* head, int id)
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
     consoleCoordinates(35, 10);
@@ -568,8 +717,10 @@ void viewMonarch(Node* head)
         temp = temp->next;
         index += 2;
     }
-
-    return;
+    Sleep(5000);
+    system("CLS");
+    if (id == 1)settingsInput(head);
+    else contentMenuInputYearFirstGuest(head);
 }
 
 // Function for converting from decimal number to gray number
@@ -655,7 +806,7 @@ void choosingInsertEnd(Node* Head)
 }
 
 // Function for selecting the necessary variables with which the following function will work
-void choosingYearSearch(Node* Head)
+void choosingYearSearch(Node* Head, int id)
 {
     title();
     leftBorder();
@@ -666,11 +817,11 @@ void choosingYearSearch(Node* Head)
     consoleCoordinates(35, 11);
     int year;
     cin >> year;
-    findNodeByYear(Head, year);
+    findNodeByYear(Head, year, id);
 }
 
 // Function for selecting the necessary variables with which the following function will work
-void choosingNameSearch(Node* Head)
+void choosingNameSearch(Node* Head, int id)
 {
     title();
     leftBorder();
@@ -681,7 +832,7 @@ void choosingNameSearch(Node* Head)
     consoleCoordinates(35, 11);
     string name;
     getline(cin, name);
-    findNodeByName(Head, name);
+    findNodeByName(Head, name, id);
 }
 
 // Function for selecting the necessary variables with which the following function will work
@@ -732,6 +883,97 @@ void choosingInsertAfterNode(Node* temp, Node* head)
     insertAfterNode(temp, head, startReignYear, endReignYear, name, information);
 }
 
+// Function for going around the registration form menu
+bool registrationFormInput()
+{
+    int counter = 15;
+
+    leftBorder();
+    rightBorder();
+    title();
+    registrationFormLeftBorder();
+    registrationFormOptions();
+    registrationFormRightBorder();
+    registrationFormArrow(counter);
+
+    do
+    {
+        switch (_getch())
+        {
+
+        case KEY_UP:
+        {
+            if (counter == 15) counter = 25;
+            counter -= 2;
+            system("CLS");
+            leftBorder();
+            rightBorder();
+            title();
+            registrationFormLeftBorder();
+            registrationFormOptions();
+            registrationFormRightBorder();
+            registrationFormArrow(counter);
+        } break;
+
+        case KEY_DOWN:
+        {
+            if (counter == 23) counter = 13;
+            counter += 2;
+            system("CLS");
+            system("CLS");
+            registrationFormLeftBorder();
+            registrationFormOptions();
+            registrationFormRightBorder();
+            registrationFormArrow(counter);
+            leftBorder();
+            rightBorder();
+            title();
+        } break;
+
+        case ENTER:
+        {
+            switch (counter) {
+            case 15:
+            {
+                system("CLS");
+                login();
+                break;
+            }
+
+            case 17:
+            {
+                system("CLS");
+                registration();
+                break;
+            }
+
+            case 19:
+            {
+                system("CLS");
+                forgottenPassword();
+                break;
+            }
+
+            case 21:
+            {
+                system("CLS");
+                choosingMenuInput(2);
+                break;
+            }
+
+            case 23:
+            {
+                system("CLS");
+                cout << "Back";
+                break;
+            }
+            }
+        } break;
+        }
+    } while (true);
+    return 1;
+}
+
 // Function for going around the main menu
 bool menuInput()
 {
@@ -773,7 +1015,7 @@ bool menuInput()
             case 1:
             {
                 system("CLS");
-                choosingMenuInput();
+                registrationFormInput();
                 break;
             }
 
@@ -797,7 +1039,7 @@ bool menuInput()
 }
 
 // Function for going around the choosing menu
-bool choosingMenuInput()
+bool choosingMenuInput(int id)
 {
     int counter = 1;
     choosingMenu(counter);
@@ -831,19 +1073,19 @@ bool choosingMenuInput()
             case 1:
             {
                 system("CLS");
-                contentFirstBulgarianEmpire();
+                contentFirstBulgarianEmpire(id);
             }break;
 
             case 2:
             {
                 system("CLS");
-                contentSecondBulgarianEmpire();
+                contentSecondBulgarianEmpire(id);
             }break;
 
             case 3:
             {
                 system("CLS");
-                contentAfterLiberation();
+                contentAfterLiberation(id);
             }break;
 
             }
@@ -921,7 +1163,7 @@ bool contentMenuInputYearFirst(Node* Head)
             title();
             leftBorder();
             rightBorder();
-            viewInfoChoice(Head);
+            viewInfoChoice(Head,1);
         }break;
 
         case CTRL_KEYPRESS('q'):
@@ -932,13 +1174,114 @@ bool contentMenuInputYearFirst(Node* Head)
         case ESCAPE:
         {
             system("CLS");
-            choosingMenuInput();
+            choosingMenuInput(1);
         }break;
         }
     } while (true);
     return 1;
 }
 
+bool contentMenuInputYearFirstGuest(Node* Head) {
+    system("CLS");
+    int counter = 11;
+    arrow(counter);
+    title();
+    counterPrint = 11;
+    printYearFirst(Head);
+    askInputGuest();
+    leftBorder();
+    rightBorder();
+    do
+    {
+        switch (_getch())
+        {
+
+        case KEY_UP:
+        {
+            if (counter == 11) counter = counterPrint;
+            counter -= 2;
+            system("CLS");
+            arrow(counter);
+            counterPrint = 11;
+            printYearFirst(Head);
+            title();
+            askInputGuest();
+            leftBorder();
+            rightBorder();
+        } break;
+
+        case KEY_DOWN:
+        {
+            if (counter == counterPrint - 2) {
+                counter = 9;
+            }
+            counter += 2;
+            system("CLS");
+            arrow(counter);
+            counterPrint = 11;
+            printYearFirst(Head);
+            title();
+            askInputGuest();
+            leftBorder();
+            rightBorder();
+        } break;
+
+        case CTRL_KEYPRESS('m'):
+        {
+            system("CLS");
+            title();
+            leftBorder();
+            rightBorder();
+            viewInfoChoice(Head,2);
+        }break;
+
+        case CTRL_KEYPRESS('o'):
+        {
+            system("CLS");
+            title();
+            leftBorder();
+            rightBorder();
+            orderChoice(Head, 2);
+        }break;
+
+        case CTRL_KEYPRESS('a'):
+        {
+            system("CLS");
+            title();
+            leftBorder();
+            rightBorder();
+            sortChoice(Head,2);
+        }break;
+
+        case CTRL_KEYPRESS('v'):
+        {
+            system("CLS");
+            title();
+            leftBorder();
+            rightBorder();
+            viewMonarch(Head,2);
+
+        }break;
+
+        case CTRL_KEYPRESS('s'):
+        {
+            system("CLS");
+            title();
+            leftBorder();
+            rightBorder();
+            searchChoice(Head,2);
+        }break;
+
+        case ESCAPE:
+        {
+            system("CLS");
+            choosingMenuInput(2);
+        }break;
+        }
+    } while (true);
+    return 1;
+
+}
 // Function for going around the menu when the user view the monarch's name first
 bool contentMenuInputNameFirst(Node* Head)
 {
@@ -1001,18 +1344,18 @@ bool contentMenuInputNameFirst(Node* Head)
             title();
             leftBorder();
             rightBorder();
-            viewInfoChoice(Head);
+            viewInfoChoice(Head,1);
         }break;
 
         case CTRL_KEYPRESS('q'):
         {
-            startQuizFirstBgEmpire(1);
+            startQuizFirstBgEmpire(1, 0, 0, 0);
         }break;
 
         case ESCAPE:
         {
             system("CLS");
-            choosingMenuInput();
+            choosingMenuInput(1);
         }break;
 
         }
@@ -1020,7 +1363,107 @@ bool contentMenuInputNameFirst(Node* Head)
     return 1;
 }
 
+bool contentMenuInputNameFirstGuest(Node* Head)
+{
+    system("CLS");
+    int counter = 11;
+    arrow(counter);
+    title();
+    counterPrint = 11;
+    printNameFirst(Head);
+    askInputGuest();
+    leftBorder();
+    rightBorder();
+    do
+    {
+        switch (_getch())
+        {
 
+        case KEY_UP:
+        {
+            if (counter == 11) counter = counterPrint;
+            counter -= 2;
+            system("CLS");
+            arrow(counter);
+            counterPrint = 11;
+            printNameFirst(Head);
+            title();
+            askInputGuest();
+            leftBorder();
+            rightBorder();
+        } break;
+
+        case KEY_DOWN:
+        {
+            if (counter == counterPrint - 2) {
+                counter = 9;
+            }
+            counter += 2;
+            system("CLS");
+            arrow(counter);
+            counterPrint = 11;
+            printNameFirst(Head);
+            title();
+            askInputGuest();
+            leftBorder();
+            rightBorder();
+        } break;
+
+        case CTRL_KEYPRESS('m'):
+        {
+            system("CLS");
+            title();
+            leftBorder();
+            rightBorder();
+            viewInfoChoice(Head,2);
+        }break;
+
+        case CTRL_KEYPRESS('o'):
+        {
+            system("CLS");
+            title();
+            leftBorder();
+            rightBorder();
+            orderChoice(Head, 2);
+        }break;
+
+        case CTRL_KEYPRESS('a'):
+        {
+            system("CLS");
+            title();
+            leftBorder();
+            rightBorder();
+            sortChoice(Head,2);
+        }break;
+
+        case CTRL_KEYPRESS('v'):
+        {
+            system("CLS");
+            title();
+            leftBorder();
+            rightBorder();
+            viewMonarch(Head,2);
+
+        }break;
+
+        case CTRL_KEYPRESS('s'):
+        {
+            system("CLS");
+            title();
+            leftBorder();
+            rightBorder();
+            searchChoice(Head,2);
+        }break;
+
+        case ESCAPE:
+        {
+            system("CLS");
+            choosingMenuInput(2);
+        }break;
+        }
+    } while (true);
+    return 1;
+}
 // Function for viewing and choosing options 
 void settingsInput(Node* Head)
 {
@@ -1060,7 +1503,7 @@ void settingsInput(Node* Head)
         title();
         leftBorder();
         rightBorder();
-        searchChoice(Head);
+        searchChoice(Head,1);
     }break;
 
     case CTRL_KEYPRESS('d'):
@@ -1099,7 +1542,7 @@ void settingsInput(Node* Head)
         title();
         leftBorder();
         rightBorder();
-        orderChoice(Head);
+        orderChoice(Head,1);
     }break;
 
     case CTRL_KEYPRESS('a'):
@@ -1108,7 +1551,7 @@ void settingsInput(Node* Head)
         title();
         leftBorder();
         rightBorder();
-        sortChoice(Head);
+        sortChoice(Head,1);
     }break;
 
     case CTRL_KEYPRESS('v'):
@@ -1117,7 +1560,7 @@ void settingsInput(Node* Head)
         title();
         leftBorder();
         rightBorder();
-        viewMonarch(Head);
+        viewMonarch(Head,1);
 
     }break;
 
@@ -1214,7 +1657,7 @@ bool insertChoice(Node* Head)
 }
 
 // Function for going around the search menu
-bool searchChoice(Node* Head)
+bool searchChoice(Node* Head, int id)
 {
     int counter = 10;
     searchMenu();
@@ -1265,7 +1708,7 @@ bool searchChoice(Node* Head)
                 title();
                 leftBorder();
                 rightBorder();
-                choosingYearSearch(Head);
+                choosingYearSearch(Head, id);
             }
             else if (counter == 12)
             {
@@ -1273,14 +1716,15 @@ bool searchChoice(Node* Head)
                 title();
                 leftBorder();
                 rightBorder();
-                choosingNameSearch(Head);
+                choosingNameSearch(Head, id);
             }
         }break;
 
         case ESCAPE:
         {
             system("CLS");
-            contentMenuInputYearFirst(Head);
+            if (id == 1)contentMenuInputYearFirst(Head);
+            else contentMenuInputYearFirstGuest(Head);
         }break;
         }
     } while (true);
@@ -1288,7 +1732,7 @@ bool searchChoice(Node* Head)
 }
 
 // Function for going around the order menu
-bool orderChoice(Node* Head)
+bool orderChoice(Node* Head, int id)
 {
     int counter = 10;
     orderMenu();
@@ -1336,19 +1780,22 @@ bool orderChoice(Node* Head)
             if (counter == 10)
             {
                 system("CLS");
-                contentMenuInputYearFirst(Head);
+                if (id == 1) contentMenuInputYearFirst(Head);
+                else contentMenuInputYearFirstGuest(Head);
             }
             else if (counter == 12)
             {
                 system("CLS");
-                contentMenuInputNameFirst(Head);
+                if (id == 1)contentMenuInputNameFirst(Head);
+                else contentMenuInputNameFirstGuest(Head);
             }
         }break;
 
         case ESCAPE:
         {
             system("CLS");
-            settingsInput(Head);
+            if (id == 1)settingsInput(Head);
+            else contentMenuInputYearFirstGuest(Head);
         }break;
         }
     } while (true);
@@ -1356,7 +1803,7 @@ bool orderChoice(Node* Head)
 }
 
 // Function for going around the sort menu
-bool sortChoice(Node* Head)
+bool sortChoice(Node* Head, int id)
 {
     int counter = 10;
     sortMenu();
@@ -1426,7 +1873,8 @@ bool sortChoice(Node* Head)
         case ESCAPE:
         {
             system("CLS");
-            settingsInput(Head);
+            if (id == 1) settingsInput(Head);
+            else contentMenuInputYearFirstGuest(Head);
         }break;
         }
     } while (true);
@@ -1434,7 +1882,7 @@ bool sortChoice(Node* Head)
 }
 
 // Function for going around the information menu
-bool viewInfoChoice(Node* Head)
+bool viewInfoChoice(Node* Head, int id)
 {
     int counter = 10;
     viewInfoMenu();
@@ -1500,7 +1948,8 @@ bool viewInfoChoice(Node* Head)
         case ESCAPE:
         {
             system("CLS");
-            contentMenuInputYearFirst(Head);
+            if(id==1)contentMenuInputYearFirst(Head);
+            else contentMenuInputNameFirstGuest(Head);
         }break;
         }
     } while (true);
@@ -1562,7 +2011,7 @@ bool quizChoice() {
                 leftBorder();
                 title();
                 rightBorder();
-                startQuizFirstBgEmpire(1);
+                startQuizFirstBgEmpire(1, 0, 0, 0);
             }
             else if (counter == 12)
             {
@@ -1571,14 +2020,14 @@ bool quizChoice() {
                 leftBorder();
                 title();
                 rightBorder();
-                startQuizSecondBgEmpire(1);
+                startQuizSecondBgEmpire(1, 0, 0, 0);
             }
         }break;
 
         case ESCAPE:
         {
             system("CLS");
-            choosingMenuInput();
+            choosingMenuInput(1);
 
         }break;
         }
@@ -1587,7 +2036,7 @@ bool quizChoice() {
 }
 
 // Function for the quiz
-void startQuizFirstBgEmpire(int id) {
+void startQuizFirstBgEmpire(int id, int correct, int incorrect, int skipped) {
     system("CLS");
 
     Node* Head = new Node;
@@ -1663,11 +2112,6 @@ void startQuizFirstBgEmpire(int id) {
     Eighth->information = "Peter I was the son of Simeon I";
     Eighth->next = NULL;
 
-
-    int correct = 0;
-    int incorrect = 0;
-    int skipped = 0;
-
     while (Head != NULL)
     {
         system("CLS");
@@ -1712,7 +2156,7 @@ void startQuizFirstBgEmpire(int id) {
             case 'n':
             {
                 int number = Head->gray;
-                hintFirstBgEmpire(number, id);
+                hintFirstBgEmpire(number, id, correct, incorrect, skipped);
             }break;
             case 's':
             {
@@ -1755,13 +2199,13 @@ void startQuizFirstBgEmpire(int id) {
     case ESCAPE:
     {
         system("CLS");
-        choosingMenuInput();
+        choosingMenuInput(1);
     }
     }
 }
 
 // Function for the quiz
-void startQuizSecondBgEmpire(int id)
+void startQuizSecondBgEmpire(int id, int correct, int incorrect, int skipped)
 {
     system("CLS");
 
@@ -1829,10 +2273,6 @@ void startQuizSecondBgEmpire(int id)
     Seventh->information = "Ivan Sratsimir was disinherited in favour of his half-brother Ivan Shishman and proclaimed\n     himself emperor in Vidin.";
     Seventh->next = NULL;
 
-    int correct = 0;
-    int incorrect = 0;
-    int skipped = 0;
-
     while (Head != NULL)
     {
         system("CLS");
@@ -1877,7 +2317,7 @@ void startQuizSecondBgEmpire(int id)
             case 'n':
             {
                 int number = Head->gray;
-                hintSecondBgEmpire(number, id);
+                hintSecondBgEmpire(number, id, correct, incorrect, skipped);
             }break;
             case 's':
             {
@@ -1919,7 +2359,7 @@ void startQuizSecondBgEmpire(int id)
     case ESCAPE:
     {
         system("CLS");
-        choosingMenuInput();
+        choosingMenuInput(1);
     }
     }
 }

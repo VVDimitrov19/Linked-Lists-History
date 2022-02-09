@@ -15,6 +15,12 @@ void menuOptionsBorder();
 void menuOptions(int counter);
 void menu(int counter);
 
+// Functions for the registration menu
+void registrationFormLeftBorder();
+void registrationFormRightBorder();
+void registrationFormOptions();
+void registrationFormArrow(int counter);
+
 // Function for how to use menu
 void useInformation();
 
@@ -35,15 +41,16 @@ void title();
 void leftBorder();
 void rightBorder();
 
-// Function for viewing options 
+// Functions for viewing options 
 void askInput();
+void askInputGuest();
 
 // Function for moving the arrow in the menus
 void arrow(int counter);
 
 // Functions for giving hint if the user doesn't know what is the start reign year
-void hintFirstBgEmpire(int number, int id);
-void hintSecondBgEmpire(int number, int id);
+void hintFirstBgEmpire(int number, int id, int correct, int incorrect, int skipped);
+void hintSecondBgEmpire(int number, int id, int correct, int incorrect, int skipped);
 
 // Functions for viewing the options for different linked list's functions
 void viewInfoMenu();
@@ -52,4 +59,4 @@ void searchMenu();
 void orderMenu();
 void sortMenu();
 void quizMenu();
-#pragma once
+

@@ -9,8 +9,6 @@ using namespace std;
 
 #define KEY_UP 72
 #define KEY_DOWN 80
-#define KEY_LEFT 75
-#define KEY_RIGHT 77
 #define ENTER 13
 #define ESCAPE 27
 #define CTRL_KEYPRESS(k) ((k)  & 0x1f) 
@@ -362,6 +360,107 @@ void menu(int counter)
 
 }
 
+// Function for drawing the left, up and down registration form's border
+void registrationFormLeftBorder()
+{
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 9);
+    consoleCoordinates(20, 11);
+    cout << " ___________________________________________________________";
+    consoleCoordinates(20, 12);
+    cout << "|";
+    consoleCoordinates(20, 13);
+    cout << "|";
+    consoleCoordinates(20, 14);
+    cout << "|";
+    consoleCoordinates(20, 15);
+    cout << "|";
+    consoleCoordinates(20, 16);
+    cout << "|";
+    consoleCoordinates(20, 17);
+    cout << "|";
+    consoleCoordinates(20, 18);
+    cout << "|";
+    consoleCoordinates(20, 19);
+    cout << "|";
+    consoleCoordinates(20, 20);
+    cout << "|";
+    consoleCoordinates(20, 21);
+    cout << "|";
+    consoleCoordinates(20, 22);
+    cout << "|";
+    consoleCoordinates(20, 23);
+    cout << "|";
+    consoleCoordinates(20, 24);
+    cout << "| ";
+    consoleCoordinates(20, 25);
+    cout << "|";
+    consoleCoordinates(20, 26);
+    cout << "|____________________________________________________________";
+
+}
+
+// Function for drawing registration form's right border
+void registrationFormRightBorder()
+{
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 9);
+    consoleCoordinates(80, 12);
+    cout << "|";
+    consoleCoordinates(80, 13);
+    cout << "|";
+    consoleCoordinates(80, 14);
+    cout << "|";
+    consoleCoordinates(80, 15);
+    cout << "|";
+    consoleCoordinates(80, 16);
+    cout << "|";
+    consoleCoordinates(80, 17);
+    cout << "|";
+    consoleCoordinates(80, 18);
+    cout << "|";
+    consoleCoordinates(80, 19);
+    cout << "|";
+    consoleCoordinates(80, 20);
+    cout << "|";
+    consoleCoordinates(80, 21);
+    cout << "|";
+    consoleCoordinates(80, 22);
+    cout << "|";
+    consoleCoordinates(80, 23);
+    cout << "|";
+    consoleCoordinates(80, 24);
+    cout << "|";
+    consoleCoordinates(80, 25);
+    cout << "|";
+    consoleCoordinates(80, 26);
+    cout << "|";
+}
+
+// Function for displaying registration form's options
+void registrationFormOptions()
+{
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    consoleCoordinates(45, 15);
+    cout << "L O G   I N";
+    consoleCoordinates(39, 17);
+    cout << "R E G I S T R A T I O N";
+    consoleCoordinates(33, 19);
+    cout << "F O R G O T T E N   P A S S W O R D";
+    consoleCoordinates(36, 21);
+    cout << "L O G   I N   A S   G U E S T";
+    consoleCoordinates(47, 23);
+    cout << "B A C K";
+}
+
+//Function for moving the arrow in the registration form
+void registrationFormArrow(int counter)
+{
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 8);
+    consoleCoordinates(22, counter);
+    cout << "---->";
+    consoleCoordinates(73, counter);
+    cout << "<----";
+}
+
 // Function for how to use menu
 void useInformation()
 {
@@ -369,8 +468,10 @@ void useInformation()
     leftBorder();
     rightBorder();
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-    consoleCoordinates(23, 10);
-    cout << "When you start the program you will have to choose an era";
+    consoleCoordinates(27, 9);
+    cout << "FIRST, YOU HAVE TO REGISTER OR LOG IN LIKE GUEST";
+    consoleCoordinates(32, 10);
+    cout << "Then you will have to choose an era.";
     consoleCoordinates(27, 11);
     cout << "After that you can input monarch where you want.";
     consoleCoordinates(28, 12);
@@ -1066,6 +1167,22 @@ void askInput()
     cout << "If you want to start the quiz press CTRL + Q:";
 }
 
+// Function for viewing options if the user is guest
+void askInputGuest()
+{
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 5);
+    consoleCoordinates(25, 35);
+    cout << "If you want to view information about monarch press CTRL + M:";
+    consoleCoordinates(25, 37);
+    cout << "If you want to search a monarch press CTRL + S:";
+    consoleCoordinates(25, 39);
+    cout << "If you want to sort the monarchs press CTRL + A:";
+    consoleCoordinates(25, 41);
+    cout << "If you want to order the monarchs press CTRL + O:";
+    consoleCoordinates(25, 43);
+    cout << "If you want to view if monarch ruled in this year press CTRL + V";
+}
+
 // Function for viewing the options for the view information function
 void viewInfoMenu()
 {
@@ -1137,7 +1254,7 @@ void arrow(int counter)
 }
 
 // Function for giving hint if the user doesn't know what is the start reign year
-void hintFirstBgEmpire(int number, int id)
+void hintFirstBgEmpire(int number, int id, int correct, int incorrect, int skipped)
 {
     system("CLS");
     rightBorder();
@@ -1154,14 +1271,14 @@ void hintFirstBgEmpire(int number, int id)
     {
     case ESCAPE:
     {
-        startQuizFirstBgEmpire(id - 1);
+        startQuizFirstBgEmpire(id - 1, correct, incorrect, skipped);
     }
     }
 
 }
 
 // Function for giving hint if the user doesn't know what is the start reign year
-void hintSecondBgEmpire(int number, int id)
+void hintSecondBgEmpire(int number, int id, int correct, int incorrect, int skipped)
 {
     system("CLS");
     rightBorder();
@@ -1178,7 +1295,7 @@ void hintSecondBgEmpire(int number, int id)
     {
     case ESCAPE:
     {
-        startQuizSecondBgEmpire(id - 1);
+        startQuizSecondBgEmpire(id - 1, correct, incorrect, skipped);
     }
     }
 }
