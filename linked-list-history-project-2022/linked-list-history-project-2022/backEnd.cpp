@@ -95,8 +95,8 @@ void registration()
     consoleCoordinates(35, 13);
     cin >> password;
 
-    ofstream f1("records.txt", ios::app);
-    f1 << user << ' ' << password << endl;
+    ofstream registration("records.txt", ios::app);
+    registration << user << ' ' << password << endl;
     system("CLS");
     cout << "Registration successful!";
     Sleep(500);
@@ -127,15 +127,15 @@ void forgottenPassword()
     consoleCoordinates(35, 11);
     cin >> user;
 
-    ifstream f2("records.txt");
-    while (f2 >> id >> password)
+    ifstream forgotten("records.txt");
+    while (forgotten >> id >> password)
     {
         if (id == user)
         {
             counter = 1;
         }
     }
-    f2.close();
+    forgotten.close();
     if (counter == 1)
     {
         system("CLS");
@@ -162,6 +162,7 @@ void forgottenPassword()
     {
     case ESCAPE:
     {
+        system("CLS");
         registrationFormInput();
     }
     }
@@ -964,7 +965,7 @@ bool registrationFormInput()
             case 23:
             {
                 system("CLS");
-                cout << "Back";
+                menuInput();
                 break;
             }
             }
