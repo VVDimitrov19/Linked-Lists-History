@@ -44,7 +44,9 @@
 <p>--> When you open the console, the main menu appears. Then you have to choose from 3 choices. </p>
 <p align="center"><img src="https://i.imgur.com/BqdpiOQ.png"></p>
 
-<p>--> If you choose to enter the lesson, the choosing menu appears. Here you have to choose between three Bulgarian eras to view which monarchs had ruled then. </p>
+<p>--> If you choose to enter the lesson, the registration form appears. Here you have to choose between some options. </p>
+<p align="center"><img src="https://imgur.com/6aBSNKL.png"></p>
+<p>--> After you have logged in, the choosing menu appears. Here you have to choose between 3 eras.
 <p align="center"><img src="https://i.imgur.com/z1W7uI3.png"></p>
 <hr>
 <p><b> ✨ There are also some interesting functions such as entering, editing, searching, sorting, arranging monarchs. You can also enter a year and see which monarch ruled through it. And the most important - don't forget to view our quiz as well. ✨ </b></p>
