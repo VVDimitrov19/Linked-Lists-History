@@ -73,6 +73,7 @@ bool choosingMenuInput(int id);
 bool contentMenuInputYearFirst(Node* Head);
 bool contentMenuInputYearFirstGuest(Node* Head);
 bool contentMenuInputNameFirst(Node* Head);
+bool contentMenuInputNameFirstGuest(Node* Head);
 bool insertChoice(Node* Head);
 bool searchChoice(Node* Head, int id);
 bool orderChoice(Node* Head, int id);

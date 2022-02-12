@@ -451,7 +451,7 @@ void registrationFormOptions()
     cout << "B A C K";
 }
 
-//Function for moving the arrow in the registration form
+// Function for moving the arrow in the registration form
 void registrationFormArrow(int counter)
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 8);
